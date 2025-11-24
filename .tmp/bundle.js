@@ -44813,7 +44813,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
   var init_style = __esm({
     "frontend/style.css"() {
       style = document.createElement("style");
-      style.textContent = '*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }\n\n/*! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Courier,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.visible{visibility:visible}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.right-2{right:.5rem}.top-0{top:0}.top-2{top:.5rem}.z-10{z-index:10}.z-30{z-index:30}.z-40{z-index:40}.m-0{margin:0}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.ml-1{margin-left:.25rem}.ml-2{margin-left:.5rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-6{height:1.5rem}.h-full{height:100%}.w-6{width:1.5rem}.w-full{width:100%}.flex-1{flex:1 1 0%}.flex-none{flex:none}.flex-shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.flex-col{flex-direction:column}.flex-nowrap{flex-wrap:nowrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-l-lg{border-top-left-radius:.875rem;border-bottom-left-radius:.875rem}.rounded-r-lg{border-top-right-radius:.875rem;border-bottom-right-radius:.875rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.border-r{border-right-width:1px}.border-dashed{border-style:dashed}.border-blue-300{--tw-border-opacity:1;border-color:rgb(147 197 253/var(--tw-border-opacity,1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219/var(--tw-border-opacity,1))}.border-green-300{--tw-border-opacity:1;border-color:rgb(134 239 172/var(--tw-border-opacity,1))}.border-red-300{--tw-border-opacity:1;border-color:rgb(252 165 165/var(--tw-border-opacity,1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68/var(--tw-border-opacity,1))}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-1{padding-bottom:.25rem}.pr-2{padding-right:.5rem}.pr-6{padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-base{font-size:.8125rem;line-height:1.25rem}.text-sm{font-size:.6875rem;line-height:1rem}.text-xs{font-size:.5625rem;line-height:.875rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity,1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.hover\\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.hover\\:bg-blue-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.hover\\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219/var(--tw-bg-opacity,1))}.hover\\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.hover\\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74/var(--tw-bg-opacity,1))}';
+      style.textContent = '*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }\n\n/*! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Courier,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.visible{visibility:visible}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.right-2{right:.5rem}.top-0{top:0}.top-2{top:.5rem}.z-10{z-index:10}.z-30{z-index:30}.z-40{z-index:40}.m-0{margin:0}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.ml-1{margin-left:.25rem}.ml-2{margin-left:.5rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-6{height:1.5rem}.h-full{height:100%}.w-6{width:1.5rem}.w-full{width:100%}.flex-1{flex:1 1 0%}.flex-none{flex:none}.flex-shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.flex-col{flex-direction:column}.flex-nowrap{flex-wrap:nowrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-l-lg{border-top-left-radius:.875rem;border-bottom-left-radius:.875rem}.rounded-r-lg{border-top-right-radius:.875rem;border-bottom-right-radius:.875rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.border-r{border-right-width:1px}.border-dashed{border-style:dashed}.border-blue-300{--tw-border-opacity:1;border-color:rgb(147 197 253/var(--tw-border-opacity,1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219/var(--tw-border-opacity,1))}.border-green-300{--tw-border-opacity:1;border-color:rgb(134 239 172/var(--tw-border-opacity,1))}.border-red-300{--tw-border-opacity:1;border-color:rgb(252 165 165/var(--tw-border-opacity,1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68/var(--tw-border-opacity,1))}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-1{padding-bottom:.25rem}.pr-2{padding-right:.5rem}.pr-6{padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-base{font-size:.8125rem;line-height:1.25rem}.text-sm{font-size:.6875rem;line-height:1rem}.text-xs{font-size:.5625rem;line-height:.875rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.italic{font-style:italic}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.hover\\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.hover\\:bg-blue-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.hover\\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219/var(--tw-bg-opacity,1))}.hover\\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.hover\\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74/var(--tw-bg-opacity,1))}';
       document.head.appendChild(style);
     }
   });
@@ -46110,40 +46110,66 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         ref: setPanelDropRef,
         className: "left-side-order-details-panel",
         style: containerStyle,
-        children: ordersWithUnscheduledEvents.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-sm text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50", children: "No Orders to assign" }, void 0, false, {
-          fileName: "frontend/index.js",
-          lineNumber: 1183,
-          columnNumber: 17
-        }, this) : ordersWithUnscheduledEvents.map((order) => {
-          const orderNo = orderNoField ? order.getCellValueAsString(orderNoField.name) : order.id;
-          return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-            LeftSideOrderDetailCard,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+            "div",
             {
-              orderNo,
-              orderRecord: order,
-              orderTable,
-              calendarEvents: calendarEvents || [],
-              eventsTable,
-              onClose: () => onCloseOrder(orderNo),
-              statusColors,
-              statusIcons,
-              updatingRecords,
-              recentlyUpdatedRecords,
-              onHighlightEvent
+              style: {
+                fontSize: "14px",
+                // Normal (12px) + 2px
+                fontWeight: 700,
+                color: "#6b7280",
+                marginBottom: "12px",
+                paddingBottom: "4px",
+                width: "100%",
+                textAlign: "left"
+              },
+              children: "Undelegated tasks"
             },
-            order.id,
+            void 0,
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 1190,
-              columnNumber: 25
+              lineNumber: 1183,
+              columnNumber: 13
             },
             this
-          );
-        })
+          ),
+          ordersWithUnscheduledEvents.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-sm text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50", children: "No Orders to assign" }, void 0, false, {
+            fileName: "frontend/index.js",
+            lineNumber: 1198,
+            columnNumber: 17
+          }, this) : ordersWithUnscheduledEvents.map((order) => {
+            const orderNo = orderNoField ? order.getCellValueAsString(orderNoField.name) : order.id;
+            return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+              LeftSideOrderDetailCard,
+              {
+                orderNo,
+                orderRecord: order,
+                orderTable,
+                calendarEvents: calendarEvents || [],
+                eventsTable,
+                onClose: () => onCloseOrder(orderNo),
+                statusColors,
+                statusIcons,
+                updatingRecords,
+                recentlyUpdatedRecords,
+                onHighlightEvent
+              },
+              order.id,
+              false,
+              {
+                fileName: "frontend/index.js",
+                lineNumber: 1205,
+                columnNumber: 25
+              },
+              this
+            );
+          })
+        ]
       },
       void 0,
-      false,
+      true,
       {
         fileName: "frontend/index.js",
         lineNumber: 1177,
@@ -46232,7 +46258,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 false,
                 {
                   fileName: "frontend/index.js",
-                  lineNumber: 1283,
+                  lineNumber: 1298,
                   columnNumber: 25
                 },
                 this
@@ -46243,7 +46269,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 1269,
+            lineNumber: 1284,
             columnNumber: 13
           },
           this
@@ -46253,7 +46279,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       false,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1260,
+        lineNumber: 1275,
         columnNumber: 9
       },
       this
@@ -46285,44 +46311,60 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           },
           children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "px-4 py-3 border-b-2 border-red-300 bg-red-50 flex-shrink-0", children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "text-sm font-bold text-red-700", children: "Orders" }, void 0, false, {
-                fileName: "frontend/index.js",
-                lineNumber: 1333,
-                columnNumber: 21
-              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                "h3",
+                {
+                  style: {
+                    fontSize: "16px",
+                    // Normal (14px) + 2px
+                    fontWeight: 700,
+                    color: "#6b7280",
+                    margin: 0
+                  },
+                  children: "This week's Order"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "frontend/index.js",
+                  lineNumber: 1348,
+                  columnNumber: 21
+                },
+                this
+              ),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-red-600 mt-1", children: "\u26A0\uFE0F DEBUG MODE" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1334,
+                lineNumber: 1358,
                 columnNumber: 21
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1332,
+              lineNumber: 1347,
               columnNumber: 17
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-red-600 text-center", children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-2 font-bold text-base", children: "\u26A0\uFE0F Order table not found" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1338,
+                lineNumber: 1362,
                 columnNumber: 25
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-gray-600 mt-2 p-2 bg-gray-100 rounded", children: "Check browser console (F12) for available tables" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1339,
+                lineNumber: 1363,
                 columnNumber: 25
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-gray-400 mt-2", children: "This panel should be visible on the right side" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1342,
+                lineNumber: 1366,
                 columnNumber: 25
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1337,
+              lineNumber: 1361,
               columnNumber: 21
             }, this) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1336,
+              lineNumber: 1360,
               columnNumber: 17
             }, this)
           ]
@@ -46331,7 +46373,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         true,
         {
           fileName: "frontend/index.js",
-          lineNumber: 1316,
+          lineNumber: 1331,
           columnNumber: 13
         },
         this
@@ -46356,28 +46398,44 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           },
           children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "px-4 py-3 border-b border-gray-200 bg-blue-50 flex-shrink-0", children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "text-sm font-semibold text-gray-700", children: "Orders" }, void 0, false, {
-                fileName: "frontend/index.js",
-                lineNumber: 1369,
-                columnNumber: 21
-              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                "h3",
+                {
+                  style: {
+                    fontSize: "16px",
+                    // Normal (14px) + 2px
+                    fontWeight: 700,
+                    color: "#6b7280",
+                    margin: 0
+                  },
+                  children: "This week's Order"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "frontend/index.js",
+                  lineNumber: 1393,
+                  columnNumber: 21
+                },
+                this
+              ),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-gray-500 mt-1", children: "0 orders" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1370,
+                lineNumber: 1403,
                 columnNumber: 21
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1368,
+              lineNumber: 1392,
               columnNumber: 17
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-sm text-blue-600 text-center font-medium", children: "No orders are scheduled for this week." }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1373,
+              lineNumber: 1406,
               columnNumber: 21
             }, this) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1372,
+              lineNumber: 1405,
               columnNumber: 17
             }, this)
           ]
@@ -46386,7 +46444,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         true,
         {
           fileName: "frontend/index.js",
-          lineNumber: 1353,
+          lineNumber: 1377,
           columnNumber: 13
         },
         this
@@ -46458,44 +46516,60 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         },
         children: [
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "px-4 py-3 border-b border-gray-200 bg-green-50 sticky top-0 z-40 flex-shrink-0", children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "text-sm font-semibold text-gray-700", children: "Orders" }, void 0, false, {
-              fileName: "frontend/index.js",
-              lineNumber: 1467,
-              columnNumber: 17
-            }, this),
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+              "h3",
+              {
+                style: {
+                  fontSize: "16px",
+                  // Normal (14px) + 2px
+                  fontWeight: 700,
+                  color: "#6b7280",
+                  margin: 0
+                },
+                children: "This week's Order"
+              },
+              void 0,
+              false,
+              {
+                fileName: "frontend/index.js",
+                lineNumber: 1500,
+                columnNumber: 17
+              },
+              this
+            ),
             orderData.length > 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-gray-500 mt-1", children: [
               orderData.length,
               " orders"
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1469,
+              lineNumber: 1511,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1466,
+            lineNumber: 1499,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 overflow-y-auto", style: { minHeight: 0 }, children: orderData.length > 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "w-full", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "px-4 py-2 border-b-2 border-gray-300 bg-gray-100 sticky top-0 z-30 flex items-center gap-2", style: { minHeight: "32px" }, children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold text-gray-700", style: { minWidth: "20px" }, children: "No" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1477,
+                lineNumber: 1519,
                 columnNumber: 29
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold text-gray-700 flex-1", children: "Order Number" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1480,
+                lineNumber: 1522,
                 columnNumber: 29
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-xs font-semibold text-gray-700", style: { minWidth: "50px", textAlign: "right" }, children: "Fordon" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1483,
+                lineNumber: 1525,
                 columnNumber: 29
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1476,
+              lineNumber: 1518,
               columnNumber: 25
             }, this),
             orderData.map(({ sequentialNumber, orderNo, fordon, record }) => {
@@ -46536,22 +46610,22 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       "."
                     ] }, void 0, true, {
                       fileName: "frontend/index.js",
-                      lineNumber: 1522,
+                      lineNumber: 1564,
                       columnNumber: 37
                     }, this),
                     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: `font-medium flex-1 ${isSelected ? "text-blue-700" : "text-gray-600"}`, children: orderNo }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 1525,
+                      lineNumber: 1567,
                       columnNumber: 37
                     }, this),
                     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: `text-xs ${isSelected ? "text-blue-600" : "text-gray-500"}`, style: { minWidth: "50px", textAlign: "right" }, children: fordon }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 1528,
+                      lineNumber: 1570,
                       columnNumber: 37
                     }, this),
                     isSelected && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "ml-1 text-blue-600 text-xs", children: "\u2713" }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 1532,
+                      lineNumber: 1574,
                       columnNumber: 41
                     }, this)
                   ]
@@ -46560,7 +46634,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 true,
                 {
                   fileName: "frontend/index.js",
-                  lineNumber: 1491,
+                  lineNumber: 1533,
                   columnNumber: 33
                 },
                 this
@@ -46568,15 +46642,15 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             })
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1474,
+            lineNumber: 1516,
             columnNumber: 21
           }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-sm text-gray-500 p-4 text-center", children: "No order numbers found" }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1539,
+            lineNumber: 1581,
             columnNumber: 21
           }, this) }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1472,
+            lineNumber: 1514,
             columnNumber: 13
           }, this)
         ]
@@ -46585,7 +46659,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       true,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1450,
+        lineNumber: 1483,
         columnNumber: 9
       },
       this
@@ -46607,7 +46681,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       false,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1555,
+        lineNumber: 1597,
         columnNumber: 9
       },
       this
@@ -46720,7 +46794,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             borderLeft: "none"
           }, children: arbetsorder || "Untitled" }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1684,
+            lineNumber: 1726,
             columnNumber: 17
           }, this)
         ) : (
@@ -46737,84 +46811,84 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               false,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 1705,
+                lineNumber: 1747,
                 columnNumber: 29
               },
               this
             ) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1704,
+              lineNumber: 1746,
               columnNumber: 25
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-2 text-xs text-gray-400 italic text-center border border-dashed border-gray-300 rounded", style: { width: `${imageSize}px`, height: `${imageSize}px`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: "No image" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1712,
+              lineNumber: 1754,
               columnNumber: 25
             }, this),
             arbetsorder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", style: { fontWeight: "700" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: arbetsorder }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1721,
+              lineNumber: 1763,
               columnNumber: 29
             }, this) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1720,
+              lineNumber: 1762,
               columnNumber: 25
             }, this),
             showVisualization && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: visualization ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: visualization }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1729,
+              lineNumber: 1771,
               columnNumber: 33
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1731,
+              lineNumber: 1773,
               columnNumber: 33
             }, this) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1727,
+              lineNumber: 1769,
               columnNumber: 25
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold", style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: "REG: " }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1738,
+                lineNumber: 1780,
                 columnNumber: 25
               }, this),
               fordon ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: fordon }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1740,
+                lineNumber: 1782,
                 columnNumber: 29
               }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1742,
+                lineNumber: 1784,
                 columnNumber: 29
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1737,
+              lineNumber: 1779,
               columnNumber: 21
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold", style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: "Namn: " }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1748,
+                lineNumber: 1790,
                 columnNumber: 25
               }, this),
               mekanikerNames ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: mekanikerNames }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1750,
+                lineNumber: 1792,
                 columnNumber: 29
               }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1752,
+                lineNumber: 1794,
                 columnNumber: 29
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1747,
+              lineNumber: 1789,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1701,
+            lineNumber: 1743,
             columnNumber: 17
           }, this)
         )
@@ -46823,7 +46897,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       false,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1639,
+        lineNumber: 1681,
         columnNumber: 9
       },
       this
@@ -46875,79 +46949,79 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 1806,
+              lineNumber: 1848,
               columnNumber: 21
             },
             this
           ) }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1805,
+            lineNumber: 1847,
             columnNumber: 17
           }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-2 text-xs text-gray-400 italic text-center rounded", style: { width: "100px", height: "100px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: "No image" }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1813,
+            lineNumber: 1855,
             columnNumber: 17
           }, this),
           arbetsorder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", style: { fontWeight: "700" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: arbetsorder }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1821,
+            lineNumber: 1863,
             columnNumber: 21
           }, this) }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1820,
+            lineNumber: 1862,
             columnNumber: 17
           }, this),
           showVisualization && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: visualization ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: visualization }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1828,
+            lineNumber: 1870,
             columnNumber: 25
           }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1830,
+            lineNumber: 1872,
             columnNumber: 21
           }, this) }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1826,
+            lineNumber: 1868,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: `font-semibold ${isScheduled ? "text-red-600" : "text-gray-500"}`, children: "REG: " }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1836,
+              lineNumber: 1878,
               columnNumber: 17
             }, this),
             fordon ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: fordon }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1838,
+              lineNumber: 1880,
               columnNumber: 21
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1840,
+              lineNumber: 1882,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1835,
+            lineNumber: 1877,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: `font-semibold ${isScheduled ? "text-red-600" : "text-gray-500"}`, children: "Namn: " }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1845,
+              lineNumber: 1887,
               columnNumber: 17
             }, this),
             mekanikerNames ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: mekanikerNames }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1847,
+              lineNumber: 1889,
               columnNumber: 21
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1849,
+              lineNumber: 1891,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1844,
+            lineNumber: 1886,
             columnNumber: 13
           }, this)
         ]
@@ -46956,7 +47030,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       true,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1772,
+        lineNumber: 1814,
         columnNumber: 9
       },
       this
@@ -47153,7 +47227,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: eventTitle }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2088,
+            lineNumber: 2130,
             columnNumber: 17
           }, this),
           bookingOrder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47167,7 +47241,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: bookingOrder }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2103,
+            lineNumber: 2145,
             columnNumber: 21
           }, this),
           assignDateStr && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47181,7 +47255,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: assignDateStr }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2119,
+            lineNumber: 2161,
             columnNumber: 21
           }, this),
           isDelegated && !isLunchBreak && !isFardig && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -47232,14 +47306,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 2135,
+              lineNumber: 2177,
               columnNumber: 21
             },
             this
           )
         ] }, void 0, true, {
           fileName: "frontend/index.js",
-          lineNumber: 2076,
+          lineNumber: 2118,
           columnNumber: 13
         }, this)
       }),
@@ -47247,7 +47321,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       false,
       {
         fileName: "frontend/index.js",
-        lineNumber: 2035,
+        lineNumber: 2077,
         columnNumber: 9
       },
       this
@@ -48519,7 +48593,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "p-4 font-sans w-full h-full bg-white text-gray-900", style: { width: "100%", height: "100%", overflow: "visible" }, children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarImagesGallery, { events: events2, eventsTable }, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 3910,
+        lineNumber: 3952,
         columnNumber: 13
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-2 mb-4 flex-nowrap overflow-x-auto", children: [
@@ -48534,7 +48608,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3914,
+            lineNumber: 3956,
             columnNumber: 17
           },
           this
@@ -48560,7 +48634,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3920,
+            lineNumber: 3962,
             columnNumber: 17
           },
           this
@@ -48576,14 +48650,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3936,
+            lineNumber: 3978,
             columnNumber: 17
           },
           this
         )
       ] }, void 0, true, {
         fileName: "frontend/index.js",
-        lineNumber: 3913,
+        lineNumber: 3955,
         columnNumber: 13
       }, this),
       displayedDates.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [
@@ -48606,19 +48680,19 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3949,
+            lineNumber: 3991,
             columnNumber: 25
           },
           this
         ),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 py-10 text-center text-gray-500 flex items-center justify-center", style: { minWidth: 0 }, children: "Please select Start Date and End Date to view the calendar." }, void 0, false, {
           fileName: "frontend/index.js",
-          lineNumber: 3963,
+          lineNumber: 4005,
           columnNumber: 21
         }, this)
       ] }, void 0, true, {
         fileName: "frontend/index.js",
-        lineNumber: 3946,
+        lineNumber: 3988,
         columnNumber: 17
       }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
         DndContext,
@@ -48646,7 +48720,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               false,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 3976,
+                lineNumber: 4018,
                 columnNumber: 25
               },
               this
@@ -48693,7 +48767,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                         false,
                         {
                           fileName: "frontend/index.js",
-                          lineNumber: 4014,
+                          lineNumber: 4056,
                           columnNumber: 33
                         },
                         this
@@ -48703,7 +48777,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4004,
+                      lineNumber: 4046,
                       columnNumber: 29
                     },
                     this
@@ -48720,13 +48794,13 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       false,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4036,
+                        lineNumber: 4078,
                         columnNumber: 33
                       },
                       this
                     )) }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 4034,
+                      lineNumber: 4076,
                       columnNumber: 25
                     }, this),
                     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "main-section flex gap-3", children: mechanics.map((mech, mechIndex) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -48768,7 +48842,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4071,
+                                    lineNumber: 4113,
                                     columnNumber: 45
                                   },
                                   this
@@ -48793,7 +48867,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4083,
+                                    lineNumber: 4125,
                                     columnNumber: 45
                                   },
                                   this
@@ -48801,7 +48875,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }, children: [
                                   /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "m-0 text-sm font-semibold", style: { margin: 0 }, children: mech.name }, void 0, false, {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4101,
+                                    lineNumber: 4143,
                                     columnNumber: 45
                                   }, this),
                                   mech.priority !== null && mech.priority !== void 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: {
@@ -48813,12 +48887,12 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                     mech.priority
                                   ] }, void 0, true, {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4103,
+                                    lineNumber: 4145,
                                     columnNumber: 49
                                   }, this)
                                 ] }, void 0, true, {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4100,
+                                  lineNumber: 4142,
                                   columnNumber: 41
                                 }, this)
                               ]
@@ -48827,7 +48901,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                             true,
                             {
                               fileName: "frontend/index.js",
-                              lineNumber: 4056,
+                              lineNumber: 4098,
                               columnNumber: 37
                             },
                             this
@@ -48853,7 +48927,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4126,
+                                  lineNumber: 4168,
                                   columnNumber: 45
                                 },
                                 this
@@ -48863,7 +48937,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                             false,
                             {
                               fileName: "frontend/index.js",
-                              lineNumber: 4115,
+                              lineNumber: 4157,
                               columnNumber: 37
                             },
                             this
@@ -48886,7 +48960,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4143,
+                                    lineNumber: 4185,
                                     columnNumber: 53
                                   },
                                   this
@@ -48941,7 +49015,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                     false,
                                     {
                                       fileName: "frontend/index.js",
-                                      lineNumber: 4204,
+                                      lineNumber: 4246,
                                       columnNumber: 53
                                     },
                                     this
@@ -48949,7 +49023,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 })
                               ] }, date.toDateString(), true, {
                                 fileName: "frontend/index.js",
-                                lineNumber: 4141,
+                                lineNumber: 4183,
                                 columnNumber: 45
                               }, this))
                             },
@@ -48957,7 +49031,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                             false,
                             {
                               fileName: "frontend/index.js",
-                              lineNumber: 4136,
+                              lineNumber: 4178,
                               columnNumber: 37
                             },
                             this
@@ -48968,22 +49042,22 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       true,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4049,
+                        lineNumber: 4091,
                         columnNumber: 33
                       },
                       this
                     )) }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 4047,
+                      lineNumber: 4089,
                       columnNumber: 25
                     }, this)
                   ] }, void 0, true, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4031,
+                    lineNumber: 4073,
                     columnNumber: 25
                   }, this) }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4029,
+                    lineNumber: 4071,
                     columnNumber: 25
                   }, this),
                   (() => {
@@ -49002,7 +49076,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       false,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4236,
+                        lineNumber: 4278,
                         columnNumber: 33
                       },
                       this
@@ -49014,7 +49088,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               true,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 3991,
+                lineNumber: 4033,
                 columnNumber: 21
               },
               this
@@ -49025,14 +49099,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         true,
         {
           fileName: "frontend/index.js",
-          lineNumber: 3968,
+          lineNumber: 4010,
           columnNumber: 17
         },
         this
       )
     ] }, void 0, true, {
       fileName: "frontend/index.js",
-      lineNumber: 3908,
+      lineNumber: 3950,
       columnNumber: 9
     }, this);
   }
@@ -49049,7 +49123,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
       initializeBlock({ interface: () => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarInterfaceExtension, {}, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4251,
+        lineNumber: 4293,
         columnNumber: 36
       }) });
     }
