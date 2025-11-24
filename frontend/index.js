@@ -1721,22 +1721,96 @@ function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekaniker
             }}
         >
             {isLeftVariant ? (
-                // Left variant: Show only title
+                // Left variant: Show only title with detail icon on the left
                 // Undelegated sub orders: gray, Delegated sub orders: red
-                <div className="w-full text-xs" style={{ 
-                    fontWeight: !isScheduled ? '700' : 'normal',
-                    color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280', // Red for delegated, gray for undelegated
-                    textAlign: 'left',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    fontSize: !isScheduled ? '13px' : '12px',
-                    backgroundColor: 'transparent',
-                    padding: '0',
-                    borderRadius: '0',
-                    borderLeft: 'none'
-                }}>
-                    {arbetsorder || 'Untitled'}
+                <div className="w-full flex items-center gap-2" style={{ position: 'relative' }}>
+                    {/* Detail icon - on the left (show for delegated, placeholder for undelegated to match alignment) */}
+                    {isDelegated ? (
+                        <div
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                if (event) {
+                                    expandRecord(event);
+                                }
+                            }}
+                            style={{
+                                width: '20px',
+                                height: '20px',
+                                minWidth: '20px',
+                                minHeight: '20px',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: '#3b82f6',
+                                backgroundColor: '#eff6ff',
+                                fontSize: '14px',
+                                flexShrink: 0,
+                                transition: 'all 0.2s ease',
+                                borderRadius: '4px',
+                                padding: '4px',
+                                border: '1px solid #bfdbfe'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#dbeafe';
+                                e.currentTarget.style.color = '#2563eb';
+                                e.currentTarget.style.borderColor = '#93c5fd';
+                                e.currentTarget.style.transform = 'scale(1.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = '#eff6ff';
+                                e.currentTarget.style.color = '#3b82f6';
+                                e.currentTarget.style.borderColor = '#bfdbfe';
+                                e.currentTarget.style.transform = 'scale(1)';
+                            }}
+                            title="Click to view details"
+                        >
+                            <svg 
+                                width="14" 
+                                height="14" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                strokeWidth="2.5" 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"
+                            >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </div>
+                    ) : (
+                        // Placeholder for undelegated sub orders to match alignment
+                        <div
+                            style={{
+                                width: '20px',
+                                height: '20px',
+                                minWidth: '20px',
+                                minHeight: '20px',
+                                flexShrink: 0
+                            }}
+                        />
+                    )}
+                    <div 
+                        className="text-xs flex-1" 
+                        style={{ 
+                            fontWeight: !isScheduled ? '700' : 'normal',
+                            color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280', // Red for delegated, gray for undelegated
+                            textAlign: 'left',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            fontSize: !isScheduled ? '13px' : '12px',
+                            backgroundColor: 'transparent',
+                            padding: '0',
+                            borderRadius: '0',
+                            borderLeft: 'none'
+                        }}
+                    >
+                        {arbetsorder || 'Untitled'}
+                    </div>
                 </div>
             ) : (
                 // Top variant: Show full details
