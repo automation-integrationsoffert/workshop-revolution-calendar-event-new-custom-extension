@@ -1565,6 +1565,22 @@ function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekaniker
     // Use useSortable with unique ID that includes both orderNo and event.id
     // Format: "order-detail-{orderNo}-{event.id}" so each event is uniquely identifiable
     const uniqueId = customUniqueId || `order-detail-${orderNo || 'unknown'}-${event.id}`;
+    
+    // Check if status is "Färdig" - if so, disable dragging
+    let isFardig = false;
+    try {
+        const statusPaTidsmote = event.getCellValue('Status på tidsmöte');
+        if (statusPaTidsmote) {
+            // Handle both object format {name: "Färdig"} and string format
+            const statusName = typeof statusPaTidsmote === 'string' 
+                ? statusPaTidsmote 
+                : (statusPaTidsmote.name || statusPaTidsmote.value || '');
+            isFardig = statusName && statusName.toLowerCase() === 'färdig';
+        }
+    } catch (e) {
+        console.error('Error checking Status på tidsmöte:', e);
+    }
+    
     const {
         attributes,
         listeners,
@@ -1572,7 +1588,10 @@ function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekaniker
         transform,
         transition,
         isDragging,
-    } = useSortable({ id: uniqueId });
+    } = useSortable({ 
+        id: uniqueId,
+        disabled: isFardig // Disable dragging if status is Färdig
+    });
 
     // Don't render if updating or recently updated
     if (isUpdating || isRecentlyUpdated) {
@@ -1619,8 +1638,8 @@ function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekaniker
     return (
         <div 
             ref={setNodeRef}
-            {...(shouldMakeDraggable ? attributes : {})}
-            {...(shouldMakeDraggable ? listeners : {})}
+            {...(shouldMakeDraggable && !isFardig ? attributes : {})}
+            {...(shouldMakeDraggable && !isFardig ? listeners : {})}
             className="flex-shrink-0"
             style={{ 
                 ...style,
@@ -1838,6 +1857,22 @@ function StaticOrderEvent({ event, imageUrl, visualization, fordon, arbetsorder,
 function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdating, isRecentlyUpdated, status, statusIcon, highlightedEvent, eventsTable, setUpdatingRecords }) {
     const isHighlighted = highlightedEvent && highlightedEvent.eventId === event.id;
     const isFromLeft = highlightedEvent && highlightedEvent.isFromLeft;
+    
+    // Check if status is "Färdig" - if so, disable dragging and undelegate button
+    let isFardig = false;
+    try {
+        const statusPaTidsmote = event.getCellValue('Status på tidsmöte');
+        if (statusPaTidsmote) {
+            // Handle both object format {name: "Färdig"} and string format
+            const statusName = typeof statusPaTidsmote === 'string' 
+                ? statusPaTidsmote 
+                : (statusPaTidsmote.name || statusPaTidsmote.value || '');
+            isFardig = statusName && statusName.toLowerCase() === 'färdig';
+        }
+    } catch (e) {
+        console.error('Error checking Status på tidsmöte:', e);
+    }
+    
     const {
         attributes,
         listeners,
@@ -1845,7 +1880,10 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
         transform,
         transition,
         isDragging,
-    } = useSortable({ id: `event-${event.id}` });
+    } = useSortable({ 
+        id: `event-${event.id}`,
+        disabled: isFardig // Disable dragging if status is Färdig
+    });
 
     const style = {
         transform: CSS.Transform.toString(transform),
@@ -1895,8 +1933,12 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
     // Handle click on event (show details) - only if not dragging
     // The drag sensor has activationDistance: 10, so clicks (which don't move 10px) won't trigger drag
     const handleEventClick = (e) => {
-        // Don't trigger if we're dragging, if it's a lunch break, or if click came from the small button
-        if (isDragging || isLunchBreak || e.target.closest('.undelegate-button')) {
+        // Don't trigger if we're dragging, if it's a lunch break, if status is Färdig, or if click came from the small button
+        if (isDragging || isLunchBreak || isFardig || e.target.closest('.undelegate-button')) {
+            if (isFardig) {
+                // Optionally show a message that the event cannot be opened
+                console.log('Event with Färdig status cannot be opened');
+            }
             return;
         }
         
@@ -2012,7 +2054,8 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                 backdropFilter: 'blur(1px)',
                 zIndex: isHighlighted ? 1000 : 'auto',
                 transition: 'border 0.5s ease, box-shadow 0.5s ease',
-                cursor: isLunchBreak ? 'default' : 'pointer',
+                cursor: isLunchBreak ? 'default' : (isFardig ? 'not-allowed' : 'pointer'),
+                opacity: isFardig ? 0.7 : 1,
             }}
             className="event-block text-white transition-all duration-200"
             onClick={handleEventClick}
@@ -2026,8 +2069,8 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                     e.currentTarget.style.opacity = '1';
                 }
             }}
-            {...attributes}
-            {...listeners}
+                {...attributes}
+            {...(isFardig ? {} : listeners)} // Only apply listeners if not Färdig
         >
             {/* Event content with modern design */}
             <div style={{ 
@@ -2087,8 +2130,8 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                     </div>
                 )}
                 
-                {/* Undelegate button (only show for delegated events) */}
-                {isDelegated && !isLunchBreak && (
+                {/* Undelegate button (only show for delegated events, but not if status is Färdig) */}
+                {isDelegated && !isLunchBreak && !isFardig && (
                     <div
                         className="undelegate-button"
                         style={{
@@ -2283,6 +2326,24 @@ function CalendarInterfaceExtension() {
         setEndDate(end.toISOString().split('T')[0]);
     };
 
+    // Helper function to check if event status is "Färdig"
+    const isEventFardig = (eventRecord) => {
+        if (!eventRecord) return false;
+        try {
+            const statusPaTidsmote = eventRecord.getCellValue('Status på tidsmöte');
+            if (statusPaTidsmote) {
+                // Handle both object format {name: "Färdig"} and string format
+                const statusName = typeof statusPaTidsmote === 'string' 
+                    ? statusPaTidsmote 
+                    : (statusPaTidsmote.name || statusPaTidsmote.value || '');
+                return statusName && statusName.toLowerCase() === 'färdig';
+            }
+        } catch (e) {
+            console.error('Error checking Status på tidsmöte:', e);
+        }
+        return false;
+    };
+
     // Drag and drop handler
     const handleDragEnd = async (event) => {
         const { active, over } = event;
@@ -2321,6 +2382,13 @@ function CalendarInterfaceExtension() {
                     const eventRecord = events.find(ev => ev.id === eventRecordId);
                     if (!eventRecord) {
                         console.error('Could not find event record for unscheduling:', eventRecordId);
+                        return;
+                    }
+                    
+                    // Check if status is "Färdig" - if so, prevent moving
+                    if (isEventFardig(eventRecord)) {
+                        console.log('Cannot move event with Färdig status');
+                        alert('Cannot move event: Event status is "Färdig". Events with this status cannot be moved.');
                         return;
                     }
                     
@@ -2429,6 +2497,13 @@ function CalendarInterfaceExtension() {
                     const eventRecord = events.find(ev => ev.id === eventRecordId);
                     if (!eventRecord) {
                         console.error('Could not find event record for unscheduling:', eventRecordId);
+                        return;
+                    }
+                    
+                    // Check if status is "Färdig" - if so, prevent moving
+                    if (isEventFardig(eventRecord)) {
+                        console.log('Cannot move event with Färdig status');
+                        alert('Cannot move event: Event status is "Färdig". Events with this status cannot be moved.');
                         return;
                     }
                     
@@ -2577,6 +2652,13 @@ function CalendarInterfaceExtension() {
                 
                 // Get the source event if it exists
                 const sourceEvent = sourceEventId ? events.find(ev => ev.id === sourceEventId) : null;
+                
+                // Check if source event has "Färdig" status - if so, prevent moving
+                if (sourceEvent && isEventFardig(sourceEvent)) {
+                    console.log('Cannot move event with Färdig status');
+                    alert('Cannot move event: Event status is "Färdig". Events with this status cannot be moved.');
+                    return;
+                }
                 
                 // Convert MM-DD format to proper date
                 const [month, day] = dateString.split('-').map(Number);
@@ -2821,6 +2903,13 @@ function CalendarInterfaceExtension() {
                     return;
                 }
                 
+                // Check if status is "Färdig" - if so, prevent moving
+                if (isEventFardig(record)) {
+                    console.log('Cannot move event with Färdig status');
+                    alert('Cannot move event: Event status is "Färdig". Events with this status cannot be moved.');
+                    return;
+                }
+                
                 console.log('Found record:', record);
                 
                 // Convert MM-DD format to proper date using the displayed dates
@@ -2863,110 +2952,6 @@ function CalendarInterfaceExtension() {
                     newStartTime: newStartTime.toISOString(),
                     newEndTime: newEndTime.toISOString()
                 });
-                
-                // Check if the moved event overlaps with lunch/coffee break events
-                const lunchBreakEvents = getLunchBreakEventsForMechanicAndDate(mechanicName, targetDate);
-                const hasOverlap = lunchBreakEvents.some(lunchEvent => {
-                    const lunchStart = new Date(lunchEvent.getCellValue('Starttid'));
-                    const lunchEnd = new Date(lunchEvent.getCellValue('Sluttid'));
-                    const lunchName = lunchEvent.getCellValueAsString('Arbetsorder beskrivning') || 'Lunch/Coffee Break';
-                    
-                    // Check if time ranges overlap
-                    // Two time ranges overlap if: start1 < end2 && start2 < end1
-                    const overlaps = newStartTime < lunchEnd && lunchStart < newEndTime;
-                    
-                    if (overlaps) {
-                        console.warn(`⚠️ Moved event overlaps with lunch/break:`, {
-                            lunchName,
-                            lunchTime: `${lunchStart.toTimeString()} - ${lunchEnd.toTimeString()}`,
-                            eventTime: `${newStartTime.toTimeString()} - ${newEndTime.toTimeString()}`,
-                            overlap: true
-                        });
-                    }
-                    
-                    return overlaps;
-                });
-                
-                // If there's an overlap, undelegate the event (clear Starttid and Sluttid)
-                if (hasOverlap) {
-                    console.log('Event overlaps with lunch/break - undelegating event');
-                    
-                    const updates = {
-                        'Starttid': null,
-                        'Sluttid': null
-                    };
-                    
-                    // Clear Mekaniker field
-                    const mekanikerField = eventsTable.fields.find(field => 
-                        field.name === 'Mekaniker' || 
-                        field.name.toLowerCase() === 'mekaniker'
-                    );
-                    if (mekanikerField) {
-                        updates[mekanikerField.name] = [];
-                    }
-                    
-                    // Clear Status på tidsmöte field
-                    const statusPaTidsmoteField = eventsTable.fields.find(field => 
-                        field.name === 'Status på tidsmöte' ||
-                        field.name.toLowerCase() === 'status på tidsmöte' ||
-                        field.name.toLowerCase().includes('tidsmöte')
-                    );
-                    if (statusPaTidsmoteField) {
-                        updates[statusPaTidsmoteField.name] = null;
-                    }
-                    
-                    // Add record to updating set to prevent visual glitch
-                    setUpdatingRecords(prev => new Set([...prev, recordId]));
-                    
-                    // Check if we have permission to update records
-                    if (!eventsTable.hasPermissionToUpdateRecords([record])) {
-                        console.warn('No permission to update records. Please enable record editing in Airtable base settings.');
-                        alert('Cannot update records: Record editing is not enabled for this table. Please contact your base administrator to enable record editing permissions.');
-                        setUpdatingRecords(prev => {
-                            const newSet = new Set(prev);
-                            newSet.delete(recordId);
-                            return newSet;
-                        });
-                        return;
-                    }
-                    
-                    try {
-                        // Update the record to undelegate it
-                        await eventsTable.updateRecordAsync(record, updates);
-                        console.log('Event undelegated successfully due to lunch/break overlap');
-                        
-                        // Add to recently updated records to prevent immediate re-render glitch
-                        setRecentlyUpdatedRecords(prev => new Set([...prev, recordId]));
-                        
-                        // Remove from updating set
-                        setUpdatingRecords(prev => {
-                            const newSet = new Set(prev);
-                            newSet.delete(recordId);
-                            return newSet;
-                        });
-                        
-                        // Clear from recently updated after a delay to allow data to refresh
-                        setTimeout(() => {
-                            setRecentlyUpdatedRecords(prev => {
-                                const newSet = new Set(prev);
-                                newSet.delete(recordId);
-                                return newSet;
-                            });
-                        }, 1000); // 1 second delay
-                        
-                        return; // Exit early since we've undelegated the event
-                    } catch (error) {
-                        // Remove from updating set on error too
-                        setUpdatingRecords(prev => {
-                            const newSet = new Set(prev);
-                            newSet.delete(recordId);
-                            return newSet;
-                        });
-                        console.error('Error undelegating event:', error);
-                        alert('Error undelegating event: ' + error.message);
-                        return;
-                    }
-                }
                 
                 // Update mechanic if different
                 const currentMechanic = record.getCellValue('Mekaniker')?.[0]?.value;

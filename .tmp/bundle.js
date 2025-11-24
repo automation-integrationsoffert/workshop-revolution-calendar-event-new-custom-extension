@@ -46615,6 +46615,16 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
   }
   function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, orderNo, orderRecord, onClose, showVisualization = true, isScheduled = false, isDelegated = false, variant = "top", customUniqueId = null, arbetsorder = "", onHighlightEvent }) {
     const uniqueId = customUniqueId || `order-detail-${orderNo || "unknown"}-${event.id}`;
+    let isFardig = false;
+    try {
+      const statusPaTidsmote = event.getCellValue("Status p\xE5 tidsm\xF6te");
+      if (statusPaTidsmote) {
+        const statusName = typeof statusPaTidsmote === "string" ? statusPaTidsmote : statusPaTidsmote.name || statusPaTidsmote.value || "";
+        isFardig = statusName && statusName.toLowerCase() === "f\xE4rdig";
+      }
+    } catch (e) {
+      console.error("Error checking Status p\xE5 tidsm\xF6te:", e);
+    }
     const {
       attributes,
       listeners,
@@ -46622,7 +46632,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       transform,
       transition,
       isDragging
-    } = useSortable({ id: uniqueId });
+    } = useSortable({
+      id: uniqueId,
+      disabled: isFardig
+      // Disable dragging if status is Färdig
+    });
     if (isUpdating || isRecentlyUpdated) {
       return null;
     }
@@ -46657,7 +46671,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       "div",
       __spreadProps(__spreadValues(__spreadValues({
         ref: setNodeRef
-      }, shouldMakeDraggable ? attributes : {}), shouldMakeDraggable ? listeners : {}), {
+      }, shouldMakeDraggable && !isFardig ? attributes : {}), shouldMakeDraggable && !isFardig ? listeners : {}), {
         className: "flex-shrink-0",
         style: __spreadProps(__spreadValues({}, style2), {
           display: "flex",
@@ -46706,7 +46720,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             borderLeft: "none"
           }, children: arbetsorder || "Untitled" }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1665,
+            lineNumber: 1684,
             columnNumber: 17
           }, this)
         ) : (
@@ -46723,84 +46737,84 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               false,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 1686,
+                lineNumber: 1705,
                 columnNumber: 29
               },
               this
             ) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1685,
+              lineNumber: 1704,
               columnNumber: 25
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-2 text-xs text-gray-400 italic text-center border border-dashed border-gray-300 rounded", style: { width: `${imageSize}px`, height: `${imageSize}px`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: "No image" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1693,
+              lineNumber: 1712,
               columnNumber: 25
             }, this),
             arbetsorder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", style: { fontWeight: "700" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: arbetsorder }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1702,
+              lineNumber: 1721,
               columnNumber: 29
             }, this) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1701,
+              lineNumber: 1720,
               columnNumber: 25
             }, this),
             showVisualization && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: visualization ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: visualization }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1710,
+              lineNumber: 1729,
               columnNumber: 33
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1712,
+              lineNumber: 1731,
               columnNumber: 33
             }, this) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1708,
+              lineNumber: 1727,
               columnNumber: 25
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold", style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: "REG: " }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1719,
+                lineNumber: 1738,
                 columnNumber: 25
               }, this),
               fordon ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: fordon }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1721,
+                lineNumber: 1740,
                 columnNumber: 29
               }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1723,
+                lineNumber: 1742,
                 columnNumber: 29
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1718,
+              lineNumber: 1737,
               columnNumber: 21
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold", style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: "Namn: " }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1729,
+                lineNumber: 1748,
                 columnNumber: 25
               }, this),
               mekanikerNames ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: mekanikerNames }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1731,
+                lineNumber: 1750,
                 columnNumber: 29
               }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
                 fileName: "frontend/index.js",
-                lineNumber: 1733,
+                lineNumber: 1752,
                 columnNumber: 29
               }, this)
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 1728,
+              lineNumber: 1747,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1682,
+            lineNumber: 1701,
             columnNumber: 17
           }, this)
         )
@@ -46809,7 +46823,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       false,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1620,
+        lineNumber: 1639,
         columnNumber: 9
       },
       this
@@ -46861,79 +46875,79 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 1787,
+              lineNumber: 1806,
               columnNumber: 21
             },
             this
           ) }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1786,
+            lineNumber: 1805,
             columnNumber: 17
           }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-2 text-xs text-gray-400 italic text-center rounded", style: { width: "100px", height: "100px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: "No image" }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1794,
+            lineNumber: 1813,
             columnNumber: 17
           }, this),
           arbetsorder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", style: { fontWeight: "700" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: arbetsorder }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1802,
+            lineNumber: 1821,
             columnNumber: 21
           }, this) }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1801,
+            lineNumber: 1820,
             columnNumber: 17
           }, this),
           showVisualization && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: visualization ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: visualization }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1809,
+            lineNumber: 1828,
             columnNumber: 25
           }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1811,
+            lineNumber: 1830,
             columnNumber: 21
           }, this) }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 1807,
+            lineNumber: 1826,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: `font-semibold ${isScheduled ? "text-red-600" : "text-gray-500"}`, children: "REG: " }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1817,
+              lineNumber: 1836,
               columnNumber: 17
             }, this),
             fordon ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: fordon }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1819,
+              lineNumber: 1838,
               columnNumber: 21
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1821,
+              lineNumber: 1840,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1816,
+            lineNumber: 1835,
             columnNumber: 13
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: `font-semibold ${isScheduled ? "text-red-600" : "text-gray-500"}`, children: "Namn: " }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1826,
+              lineNumber: 1845,
               columnNumber: 17
             }, this),
             mekanikerNames ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: mekanikerNames }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1828,
+              lineNumber: 1847,
               columnNumber: 21
             }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-gray-400 italic", children: "Not set" }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 1830,
+              lineNumber: 1849,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 1825,
+            lineNumber: 1844,
             columnNumber: 13
           }, this)
         ]
@@ -46942,7 +46956,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       true,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1753,
+        lineNumber: 1772,
         columnNumber: 9
       },
       this
@@ -46951,6 +46965,16 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
   function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdating, isRecentlyUpdated, status, statusIcon, highlightedEvent, eventsTable, setUpdatingRecords }) {
     const isHighlighted = highlightedEvent && highlightedEvent.eventId === event.id;
     const isFromLeft = highlightedEvent && highlightedEvent.isFromLeft;
+    let isFardig = false;
+    try {
+      const statusPaTidsmote = event.getCellValue("Status p\xE5 tidsm\xF6te");
+      if (statusPaTidsmote) {
+        const statusName = typeof statusPaTidsmote === "string" ? statusPaTidsmote : statusPaTidsmote.name || statusPaTidsmote.value || "";
+        isFardig = statusName && statusName.toLowerCase() === "f\xE4rdig";
+      }
+    } catch (e) {
+      console.error("Error checking Status p\xE5 tidsm\xF6te:", e);
+    }
     const {
       attributes,
       listeners,
@@ -46958,7 +46982,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       transform,
       transition,
       isDragging
-    } = useSortable({ id: `event-${event.id}` });
+    } = useSortable({
+      id: `event-${event.id}`,
+      disabled: isFardig
+      // Disable dragging if status is Färdig
+    });
     const style2 = {
       transform: CSS.Transform.toString(transform),
       transition,
@@ -46993,7 +47021,10 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     const sluttid = event.getCellValue("Sluttid");
     const isDelegated = !!(starttid && sluttid) && !isLunchBreak;
     const handleEventClick = (e) => {
-      if (isDragging || isLunchBreak || e.target.closest(".undelegate-button")) {
+      if (isDragging || isLunchBreak || isFardig || e.target.closest(".undelegate-button")) {
+        if (isFardig) {
+          console.log("Event with F\xE4rdig status cannot be opened");
+        }
         return;
       }
       expandRecord(event);
@@ -47084,7 +47115,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           backdropFilter: "blur(1px)",
           zIndex: isHighlighted ? 1e3 : "auto",
           transition: "border 0.5s ease, box-shadow 0.5s ease",
-          cursor: isLunchBreak ? "default" : "pointer"
+          cursor: isLunchBreak ? "default" : isFardig ? "not-allowed" : "pointer",
+          opacity: isFardig ? 0.7 : 1
         }),
         className: "event-block text-white transition-all duration-200",
         onClick: handleEventClick,
@@ -47098,7 +47130,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             e.currentTarget.style.opacity = "1";
           }
         }
-      }, attributes), listeners), {
+      }, attributes), isFardig ? {} : listeners), {
         children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
           position: "relative",
           height: "100%",
@@ -47121,7 +47153,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: eventTitle }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2045,
+            lineNumber: 2088,
             columnNumber: 17
           }, this),
           bookingOrder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47135,7 +47167,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: bookingOrder }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2060,
+            lineNumber: 2103,
             columnNumber: 21
           }, this),
           assignDateStr && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47149,10 +47181,10 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: assignDateStr }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2076,
+            lineNumber: 2119,
             columnNumber: 21
           }, this),
-          isDelegated && !isLunchBreak && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+          isDelegated && !isLunchBreak && !isFardig && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
             "div",
             {
               className: "undelegate-button",
@@ -47200,14 +47232,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 2092,
+              lineNumber: 2135,
               columnNumber: 21
             },
             this
           )
         ] }, void 0, true, {
           fileName: "frontend/index.js",
-          lineNumber: 2033,
+          lineNumber: 2076,
           columnNumber: 13
         }, this)
       }),
@@ -47215,7 +47247,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       false,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1993,
+        lineNumber: 2035,
         columnNumber: 9
       },
       this
@@ -47332,6 +47364,19 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       setStartDate(start.toISOString().split("T")[0]);
       setEndDate(end.toISOString().split("T")[0]);
     };
+    const isEventFardig = (eventRecord) => {
+      if (!eventRecord) return false;
+      try {
+        const statusPaTidsmote = eventRecord.getCellValue("Status p\xE5 tidsm\xF6te");
+        if (statusPaTidsmote) {
+          const statusName = typeof statusPaTidsmote === "string" ? statusPaTidsmote : statusPaTidsmote.name || statusPaTidsmote.value || "";
+          return statusName && statusName.toLowerCase() === "f\xE4rdig";
+        }
+      } catch (e) {
+        console.error("Error checking Status p\xE5 tidsm\xF6te:", e);
+      }
+      return false;
+    };
     const handleDragEnd = async (event) => {
       const { active, over } = event;
       console.log("Drag end:", { active: active.id, over: over?.id });
@@ -47359,6 +47404,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             const eventRecord = events2.find((ev) => ev.id === eventRecordId);
             if (!eventRecord) {
               console.error("Could not find event record for unscheduling:", eventRecordId);
+              return;
+            }
+            if (isEventFardig(eventRecord)) {
+              console.log("Cannot move event with F\xE4rdig status");
+              alert('Cannot move event: Event status is "F\xE4rdig". Events with this status cannot be moved.');
               return;
             }
             const orderField = eventsTable.fields.find((field) => field.name === "Order");
@@ -47444,6 +47494,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             const eventRecord = events2.find((ev) => ev.id === eventRecordId);
             if (!eventRecord) {
               console.error("Could not find event record for unscheduling:", eventRecordId);
+              return;
+            }
+            if (isEventFardig(eventRecord)) {
+              console.log("Cannot move event with F\xE4rdig status");
+              alert('Cannot move event: Event status is "F\xE4rdig". Events with this status cannot be moved.');
               return;
             }
             let targetOrderNo = "";
@@ -47554,6 +47609,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             return;
           }
           const sourceEvent = sourceEventId ? events2.find((ev) => ev.id === sourceEventId) : null;
+          if (sourceEvent && isEventFardig(sourceEvent)) {
+            console.log("Cannot move event with F\xE4rdig status");
+            alert('Cannot move event: Event status is "F\xE4rdig". Events with this status cannot be moved.');
+            return;
+          }
           const [month, day] = dateString.split("-").map(Number);
           const matchingDate = displayedDates.find(
             (d) => d.getMonth() + 1 === month && d.getDate() === day
@@ -47726,6 +47786,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             console.log("Record not found:", recordId);
             return;
           }
+          if (isEventFardig(record)) {
+            console.log("Cannot move event with F\xE4rdig status");
+            alert('Cannot move event: Event status is "F\xE4rdig". Events with this status cannot be moved.');
+            return;
+          }
           console.log("Found record:", record);
           const [month, day] = dateString.split("-").map(Number);
           const matchingDate = displayedDates.find(
@@ -47758,79 +47823,6 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             newStartTime: newStartTime.toISOString(),
             newEndTime: newEndTime.toISOString()
           });
-          const lunchBreakEvents = getLunchBreakEventsForMechanicAndDate(mechanicName, targetDate);
-          const hasOverlap = lunchBreakEvents.some((lunchEvent) => {
-            const lunchStart = new Date(lunchEvent.getCellValue("Starttid"));
-            const lunchEnd = new Date(lunchEvent.getCellValue("Sluttid"));
-            const lunchName = lunchEvent.getCellValueAsString("Arbetsorder beskrivning") || "Lunch/Coffee Break";
-            const overlaps = newStartTime < lunchEnd && lunchStart < newEndTime;
-            if (overlaps) {
-              console.warn(`\u26A0\uFE0F Moved event overlaps with lunch/break:`, {
-                lunchName,
-                lunchTime: `${lunchStart.toTimeString()} - ${lunchEnd.toTimeString()}`,
-                eventTime: `${newStartTime.toTimeString()} - ${newEndTime.toTimeString()}`,
-                overlap: true
-              });
-            }
-            return overlaps;
-          });
-          if (hasOverlap) {
-            console.log("Event overlaps with lunch/break - undelegating event");
-            const updates2 = {
-              "Starttid": null,
-              "Sluttid": null
-            };
-            const mekanikerField = eventsTable.fields.find(
-              (field) => field.name === "Mekaniker" || field.name.toLowerCase() === "mekaniker"
-            );
-            if (mekanikerField) {
-              updates2[mekanikerField.name] = [];
-            }
-            const statusPaTidsmoteField = eventsTable.fields.find(
-              (field) => field.name === "Status p\xE5 tidsm\xF6te" || field.name.toLowerCase() === "status p\xE5 tidsm\xF6te" || field.name.toLowerCase().includes("tidsm\xF6te")
-            );
-            if (statusPaTidsmoteField) {
-              updates2[statusPaTidsmoteField.name] = null;
-            }
-            setUpdatingRecords((prev) => /* @__PURE__ */ new Set([...prev, recordId]));
-            if (!eventsTable.hasPermissionToUpdateRecords([record])) {
-              console.warn("No permission to update records. Please enable record editing in Airtable base settings.");
-              alert("Cannot update records: Record editing is not enabled for this table. Please contact your base administrator to enable record editing permissions.");
-              setUpdatingRecords((prev) => {
-                const newSet = new Set(prev);
-                newSet.delete(recordId);
-                return newSet;
-              });
-              return;
-            }
-            try {
-              await eventsTable.updateRecordAsync(record, updates2);
-              console.log("Event undelegated successfully due to lunch/break overlap");
-              setRecentlyUpdatedRecords((prev) => /* @__PURE__ */ new Set([...prev, recordId]));
-              setUpdatingRecords((prev) => {
-                const newSet = new Set(prev);
-                newSet.delete(recordId);
-                return newSet;
-              });
-              setTimeout(() => {
-                setRecentlyUpdatedRecords((prev) => {
-                  const newSet = new Set(prev);
-                  newSet.delete(recordId);
-                  return newSet;
-                });
-              }, 1e3);
-              return;
-            } catch (error) {
-              setUpdatingRecords((prev) => {
-                const newSet = new Set(prev);
-                newSet.delete(recordId);
-                return newSet;
-              });
-              console.error("Error undelegating event:", error);
-              alert("Error undelegating event: " + error.message);
-              return;
-            }
-          }
           const currentMechanic = record.getCellValue("Mekaniker")?.[0]?.value;
           const updates = {
             "Starttid": newStartTime,
@@ -48527,7 +48519,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "p-4 font-sans w-full h-full bg-white text-gray-900", style: { width: "100%", height: "100%", overflow: "visible" }, children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarImagesGallery, { events: events2, eventsTable }, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 3925,
+        lineNumber: 3910,
         columnNumber: 13
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-2 mb-4 flex-nowrap overflow-x-auto", children: [
@@ -48542,7 +48534,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3929,
+            lineNumber: 3914,
             columnNumber: 17
           },
           this
@@ -48568,7 +48560,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3935,
+            lineNumber: 3920,
             columnNumber: 17
           },
           this
@@ -48584,14 +48576,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3951,
+            lineNumber: 3936,
             columnNumber: 17
           },
           this
         )
       ] }, void 0, true, {
         fileName: "frontend/index.js",
-        lineNumber: 3928,
+        lineNumber: 3913,
         columnNumber: 13
       }, this),
       displayedDates.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [
@@ -48614,19 +48606,19 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 3964,
+            lineNumber: 3949,
             columnNumber: 25
           },
           this
         ),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 py-10 text-center text-gray-500 flex items-center justify-center", style: { minWidth: 0 }, children: "Please select Start Date and End Date to view the calendar." }, void 0, false, {
           fileName: "frontend/index.js",
-          lineNumber: 3978,
+          lineNumber: 3963,
           columnNumber: 21
         }, this)
       ] }, void 0, true, {
         fileName: "frontend/index.js",
-        lineNumber: 3961,
+        lineNumber: 3946,
         columnNumber: 17
       }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
         DndContext,
@@ -48654,7 +48646,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               false,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 3991,
+                lineNumber: 3976,
                 columnNumber: 25
               },
               this
@@ -48701,7 +48693,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                         false,
                         {
                           fileName: "frontend/index.js",
-                          lineNumber: 4029,
+                          lineNumber: 4014,
                           columnNumber: 33
                         },
                         this
@@ -48711,7 +48703,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4019,
+                      lineNumber: 4004,
                       columnNumber: 29
                     },
                     this
@@ -48728,13 +48720,13 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       false,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4051,
+                        lineNumber: 4036,
                         columnNumber: 33
                       },
                       this
                     )) }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 4049,
+                      lineNumber: 4034,
                       columnNumber: 25
                     }, this),
                     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "main-section flex gap-3", children: mechanics.map((mech, mechIndex) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -48776,7 +48768,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4086,
+                                    lineNumber: 4071,
                                     columnNumber: 45
                                   },
                                   this
@@ -48801,7 +48793,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4098,
+                                    lineNumber: 4083,
                                     columnNumber: 45
                                   },
                                   this
@@ -48809,7 +48801,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }, children: [
                                   /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "m-0 text-sm font-semibold", style: { margin: 0 }, children: mech.name }, void 0, false, {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4116,
+                                    lineNumber: 4101,
                                     columnNumber: 45
                                   }, this),
                                   mech.priority !== null && mech.priority !== void 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: {
@@ -48821,12 +48813,12 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                     mech.priority
                                   ] }, void 0, true, {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4118,
+                                    lineNumber: 4103,
                                     columnNumber: 49
                                   }, this)
                                 ] }, void 0, true, {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4115,
+                                  lineNumber: 4100,
                                   columnNumber: 41
                                 }, this)
                               ]
@@ -48835,7 +48827,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                             true,
                             {
                               fileName: "frontend/index.js",
-                              lineNumber: 4071,
+                              lineNumber: 4056,
                               columnNumber: 37
                             },
                             this
@@ -48861,7 +48853,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4141,
+                                  lineNumber: 4126,
                                   columnNumber: 45
                                 },
                                 this
@@ -48871,7 +48863,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                             false,
                             {
                               fileName: "frontend/index.js",
-                              lineNumber: 4130,
+                              lineNumber: 4115,
                               columnNumber: 37
                             },
                             this
@@ -48894,7 +48886,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4158,
+                                    lineNumber: 4143,
                                     columnNumber: 53
                                   },
                                   this
@@ -48949,7 +48941,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                     false,
                                     {
                                       fileName: "frontend/index.js",
-                                      lineNumber: 4219,
+                                      lineNumber: 4204,
                                       columnNumber: 53
                                     },
                                     this
@@ -48957,7 +48949,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 })
                               ] }, date.toDateString(), true, {
                                 fileName: "frontend/index.js",
-                                lineNumber: 4156,
+                                lineNumber: 4141,
                                 columnNumber: 45
                               }, this))
                             },
@@ -48965,7 +48957,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                             false,
                             {
                               fileName: "frontend/index.js",
-                              lineNumber: 4151,
+                              lineNumber: 4136,
                               columnNumber: 37
                             },
                             this
@@ -48976,22 +48968,22 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       true,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4064,
+                        lineNumber: 4049,
                         columnNumber: 33
                       },
                       this
                     )) }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 4062,
+                      lineNumber: 4047,
                       columnNumber: 25
                     }, this)
                   ] }, void 0, true, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4046,
+                    lineNumber: 4031,
                     columnNumber: 25
                   }, this) }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4044,
+                    lineNumber: 4029,
                     columnNumber: 25
                   }, this),
                   (() => {
@@ -49010,7 +49002,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       false,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4251,
+                        lineNumber: 4236,
                         columnNumber: 33
                       },
                       this
@@ -49022,7 +49014,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               true,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 4006,
+                lineNumber: 3991,
                 columnNumber: 21
               },
               this
@@ -49033,14 +49025,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         true,
         {
           fileName: "frontend/index.js",
-          lineNumber: 3983,
+          lineNumber: 3968,
           columnNumber: 17
         },
         this
       )
     ] }, void 0, true, {
       fileName: "frontend/index.js",
-      lineNumber: 3923,
+      lineNumber: 3908,
       columnNumber: 9
     }, this);
   }
@@ -49057,7 +49049,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
       initializeBlock({ interface: () => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarInterfaceExtension, {}, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4266,
+        lineNumber: 4251,
         columnNumber: 36
       }) });
     }
