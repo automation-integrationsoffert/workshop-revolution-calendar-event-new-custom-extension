@@ -2004,16 +2004,26 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
         });
     }
     
-    // Check if status is "Färdig" - if so, disable dragging and undelegate button
+    // Check if status includes "Färdig" - if so, disable dragging and undelegate button
     let isFardig = false;
     try {
         const statusPaTidsmote = event.getCellValue('Status på tidsmöte');
         if (statusPaTidsmote) {
-            // Handle both object format {name: "Färdig"} and string format
-            const statusName = typeof statusPaTidsmote === 'string' 
-                ? statusPaTidsmote 
-                : (statusPaTidsmote.name || statusPaTidsmote.value || '');
-            isFardig = statusName && statusName.toLowerCase() === 'färdig';
+            // Handle array format (multiple select)
+            if (Array.isArray(statusPaTidsmote)) {
+                isFardig = statusPaTidsmote.some(status => {
+                    const statusName = typeof status === 'string' 
+                        ? status 
+                        : (status?.name || status?.value || '');
+                    return statusName && statusName.toLowerCase().includes('färdig');
+                });
+            } else {
+                // Handle single value (object or string format)
+                const statusName = typeof statusPaTidsmote === 'string' 
+                    ? statusPaTidsmote 
+                    : (statusPaTidsmote.name || statusPaTidsmote.value || '');
+                isFardig = statusName && statusName.toLowerCase().includes('färdig');
+            }
         }
     } catch (e) {
         console.error('Error checking Status på tidsmöte:', e);
@@ -2200,6 +2210,7 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                 transition: 'border 0.5s ease, box-shadow 0.5s ease',
                 cursor: isLunchBreak ? 'default' : (isFardig ? 'not-allowed' : 'pointer'),
                 opacity: isFardig ? 0.7 : 1,
+                pointerEvents: isFardig ? 'none' : 'auto', // Prevent all interactions when Färdig
             }}
             className="event-block text-white transition-all duration-200"
             onClick={handleEventClick}
@@ -2213,8 +2224,8 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                     e.currentTarget.style.opacity = '1';
                 }
             }}
-                {...attributes}
-            {...(isFardig ? {} : listeners)} // Only apply listeners if not Färdig
+            {...(isFardig ? {} : attributes)} // Disable drag attributes if Färdig
+            {...(isFardig ? {} : listeners)} // Disable drag listeners if Färdig
         >
             {/* Event content with modern design */}
             <div style={{ 
@@ -2404,6 +2415,9 @@ function CalendarInterfaceExtension() {
     // Highlighted event in calendar (for clicking delegated sub orders)
     // Format: { eventId: string, isFromLeft: boolean }
     const [highlightedEvent, setHighlightedEvent] = useState(null);
+    
+    // Selected event for modal display
+    const [selectedEventForModal, setSelectedEventForModal] = useState(null);
     
     // Handler for highlighting events
     const handleHighlightEvent = useCallback((eventId, isFromLeft = false) => {
@@ -4203,7 +4217,11 @@ function CalendarInterfaceExtension() {
                             updatingRecords={updatingRecords}
                             recentlyUpdatedRecords={recentlyUpdatedRecords}
                             onHighlightEvent={handleHighlightEvent}
-                            onEventClick={(event) => setSelectedEventForModal(event)}
+                            onEventClick={(event) => {
+                                if (event) {
+                                    expandRecord(event);
+                                }
+                            }}
                         />
                         </div>
                     </div>
