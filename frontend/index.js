@@ -39,7 +39,7 @@ function StatusIcon({ iconName, size = 20 }) {
 }
 
 // Order Detail Card Component
-function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eventsTable, onClose, statusColors, statusIcons, updatingRecords, recentlyUpdatedRecords, showVisualization = true, onHighlightEvent }) {
+function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eventsTable, onClose, statusColors, statusIcons, updatingRecords, recentlyUpdatedRecords, showVisualization = true, onHighlightEvent, onEventClick }) {
 
     // Early return if eventsTable is not available
     if (!eventsTable || !eventsTable.fields) {
@@ -423,6 +423,7 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                                             isScheduled={detail.isScheduled}
                                             isDelegated={detail.isDelegated}
                                             onHighlightEvent={onHighlightEvent}
+                                            onEventClick={onEventClick}
                                         />
                                     ))}
                                 </>
@@ -449,6 +450,7 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                                 isScheduled={detail.isScheduled}
                                 isDelegated={detail.isDelegated}
                                 onHighlightEvent={onHighlightEvent}
+                                onEventClick={onEventClick}
                             />
                         ))}
                     </div>
@@ -1103,7 +1105,7 @@ function LeftSideOrderDetailsPanel({ orders, orderTable, calendarEvents, eventsT
 }
 
 // Order Details Panel Component (shows at top)
-function OrderDetailsPanel({ selectedOrderNumbers, orders, orderTable, calendarEvents, eventsTable, onCloseOrder, statusColors, statusIcons, updatingRecords, recentlyUpdatedRecords, showVisualization = true, onHighlightEvent }) {
+function OrderDetailsPanel({ selectedOrderNumbers, orders, orderTable, calendarEvents, eventsTable, onCloseOrder, statusColors, statusIcons, updatingRecords, recentlyUpdatedRecords, showVisualization = true, onHighlightEvent, onEventClick }) {
     console.log('OrderDetailsPanel - selectedOrderNumbers:', Array.from(selectedOrderNumbers));
     console.log('OrderDetailsPanel - orders count:', orders?.length);
     
@@ -1188,6 +1190,7 @@ function OrderDetailsPanel({ selectedOrderNumbers, orders, orderTable, calendarE
                             recentlyUpdatedRecords={recentlyUpdatedRecords}
                             showVisualization={showVisualization}
                             onHighlightEvent={onHighlightEvent}
+                            onEventClick={onEventClick}
                         />
                     );
                 })}
@@ -1482,7 +1485,7 @@ function DroppableCell({ mechanicName, date, hourIndex, hourHeight }) {
 }
 
 // Draggable Order Event Component (for order detail panel)
-function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, orderNo, orderRecord, onClose, showVisualization = true, isScheduled = false, isDelegated = false, variant = 'top', customUniqueId = null, arbetsorder = '', onHighlightEvent }) {
+function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, orderNo, orderRecord, onClose, showVisualization = true, isScheduled = false, isDelegated = false, variant = 'top', customUniqueId = null, arbetsorder = '', onHighlightEvent, onEventClick }) {
     // Use useSortable with unique ID that includes both orderNo and event.id
     // Format: "order-detail-{orderNo}-{event.id}" so each event is uniquely identifiable
     const uniqueId = customUniqueId || `order-detail-${orderNo || 'unknown'}-${event.id}`;
@@ -1580,15 +1583,22 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                 // The drag sensor with 10px activation distance will prevent clicks from triggering drag
                 if (!isDragging) {
                     // For delegated sub orders, highlight the related event in calendar
+                    // This works for both left and top variants
                     if (isDelegated && onHighlightEvent && event) {
                         e.stopPropagation();
+                        const eventId = event.id;
+                        console.log('DraggableOrderEvent container: Highlighting event', {
+                            eventId: eventId,
+                            eventIdType: typeof eventId,
+                            isLeftVariant: isLeftVariant,
+                            isDelegated: isDelegated
+                        });
                         // Pass event ID and whether it's from left side
-                        onHighlightEvent(event.id, isLeftVariant);
-                        // Clear highlight after 5 seconds (for left side) or 3 seconds (for top)
-                        const timeout = isLeftVariant ? 5000 : 3000;
+                        onHighlightEvent(eventId, isLeftVariant);
+                        // Use 3 seconds for both left and top components
                         setTimeout(() => {
                             onHighlightEvent(null, false);
-                        }, timeout);
+                        }, 3000);
                     }
                     // Double click to deselect/close the order detail
                     if (e.detail === 2 && onClose) {
@@ -1680,10 +1690,104 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
             ) : (
                 // Top variant: Show only name and delegated date
                 <>
-                    {/* Sub order name - First line */}
+                    {/* Sub order name with icon - First line */}
                     {arbetsorder && (
-                        <div className="mb-1 text-xs text-center" style={{ fontWeight: '700' }}>
+                        <div 
+                            className="mb-1 text-xs text-center" 
+                            style={{ fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: isDelegated ? 'pointer' : 'default' }}
+                            onClick={(e) => {
+                                // Ensure highlighting works when clicking on the name area
+                                if (isDelegated && onHighlightEvent && event) {
+                                    e.stopPropagation();
+                                    const eventId = event.id;
+                                    console.log('Top component (DraggableOrderEvent name area): Highlighting event', {
+                                        eventId: eventId,
+                                        eventIdType: typeof eventId,
+                                        eventObject: event,
+                                        isDelegated: isDelegated
+                                    });
+                                    onHighlightEvent(eventId, false); // Top component, so isFromLeft = false
+                                    setTimeout(() => {
+                                        onHighlightEvent(null, false);
+                                    }, 3000);
+                                }
+                            }}
+                        >
                             <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{arbetsorder}</span>
+                            {/* Detail icon - on the right */}
+                            <div
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    if (event) {
+                                        // Highlight the related event in calendar when clicking icon
+                                        if (isDelegated && onHighlightEvent) {
+                                            const eventId = event.id;
+                                            console.log('Top component (DraggableOrderEvent icon): Highlighting event', {
+                                                eventId: eventId,
+                                                eventIdType: typeof eventId,
+                                                eventObject: event,
+                                                isDelegated: isDelegated
+                                            });
+                                            onHighlightEvent(eventId, false); // Top component, so isFromLeft = false
+                                            setTimeout(() => {
+                                                onHighlightEvent(null, false);
+                                            }, 3000); // Use 3 seconds for top component
+                                        }
+                                        if (onEventClick) {
+                                            onEventClick(event);
+                                        } else {
+                                            expandRecord(event);
+                                        }
+                                    }
+                                }}
+                                style={{
+                                    width: '16px',
+                                    height: '16px',
+                                    minWidth: '16px',
+                                    minHeight: '16px',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: '#3b82f6',
+                                    backgroundColor: '#eff6ff',
+                                    fontSize: '12px',
+                                    flexShrink: 0,
+                                    transition: 'all 0.2s ease',
+                                    borderRadius: '4px',
+                                    padding: '2px',
+                                    border: '1px solid #bfdbfe'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = '#dbeafe';
+                                    e.currentTarget.style.color = '#2563eb';
+                                    e.currentTarget.style.borderColor = '#93c5fd';
+                                    e.currentTarget.style.transform = 'scale(1.1)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = '#eff6ff';
+                                    e.currentTarget.style.color = '#3b82f6';
+                                    e.currentTarget.style.borderColor = '#bfdbfe';
+                                    e.currentTarget.style.transform = 'scale(1)';
+                                }}
+                                title="Click to view details"
+                            >
+                                <svg 
+                                    width="12" 
+                                    height="12" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2.5" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                >
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg>
+                            </div>
                         </div>
                     )}
                     
@@ -1718,7 +1822,7 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
 }
 
 // Static (non-draggable) Order Event for already scheduled events
-function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, onClose, showVisualization = true, isScheduled = true, isDelegated = false, onHighlightEvent }) {
+function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, onClose, showVisualization = true, isScheduled = true, isDelegated = false, onHighlightEvent, onEventClick }) {
     if (isUpdating || isRecentlyUpdated) {
         return null;
     }
@@ -1746,9 +1850,16 @@ function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekaniker
                 // StaticOrderEvent is used in top component, but we check if it's delegated
                 if (isDelegated && onHighlightEvent && event) {
                     e.stopPropagation();
+                    const eventId = event.id;
+                    console.log('Top component (StaticOrderEvent): Highlighting event', {
+                        eventId: eventId,
+                        eventIdType: typeof eventId,
+                        eventObject: event,
+                        isDelegated: isDelegated
+                    });
                     // StaticOrderEvent is used in top component, so isFromLeft = false
-                    onHighlightEvent(event.id, false);
-                    // Clear highlight after 3 seconds for top component
+                    onHighlightEvent(eventId, false);
+                    // Use 5 seconds like left side for smooth removal
                     setTimeout(() => {
                         onHighlightEvent(null, false);
                     }, 3000);
@@ -1760,10 +1871,91 @@ function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekaniker
                 }
             }}
         >
-            {/* Sub order name - First line */}
+            {/* Sub order name with icon - First line */}
             {arbetsorder && (
-                <div className="mb-1 text-xs text-center" style={{ fontWeight: '700' }}>
+                <div 
+                    className="mb-1 text-xs text-center" 
+                    style={{ fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: isDelegated ? 'pointer' : 'default' }}
+                    onClick={(e) => {
+                        // Highlight the related event in calendar when clicking on the name
+                        if (isDelegated && onHighlightEvent && event) {
+                            e.stopPropagation();
+                            console.log('StaticOrderEvent: Highlighting event', event.id);
+                            onHighlightEvent(event.id, false); // Top component, so isFromLeft = false
+                            setTimeout(() => {
+                                onHighlightEvent(null, false);
+                            }, 3000);
+                        }
+                    }}
+                >
                     <span className={isScheduled ? "text-red-600" : "text-gray-500"}>{arbetsorder}</span>
+                    {/* Detail icon - on the right */}
+                    <div
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (event) {
+                                // Highlight the related event in calendar when clicking icon
+                                if (isDelegated && onHighlightEvent) {
+                                    onHighlightEvent(event.id, false); // Top component, so isFromLeft = false
+                                    setTimeout(() => {
+                                        onHighlightEvent(null, false);
+                                    }, 3000);
+                                }
+                                if (onEventClick) {
+                                    onEventClick(event);
+                                } else {
+                                    expandRecord(event);
+                                }
+                            }
+                        }}
+                        style={{
+                            width: '16px',
+                            height: '16px',
+                            minWidth: '16px',
+                            minHeight: '16px',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: '#3b82f6',
+                            backgroundColor: '#eff6ff',
+                            fontSize: '12px',
+                            flexShrink: 0,
+                            transition: 'all 0.2s ease',
+                            borderRadius: '4px',
+                            padding: '2px',
+                            border: '1px solid #bfdbfe'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = '#dbeafe';
+                            e.currentTarget.style.color = '#2563eb';
+                            e.currentTarget.style.borderColor = '#93c5fd';
+                            e.currentTarget.style.transform = 'scale(1.1)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = '#eff6ff';
+                            e.currentTarget.style.color = '#3b82f6';
+                            e.currentTarget.style.borderColor = '#bfdbfe';
+                            e.currentTarget.style.transform = 'scale(1)';
+                        }}
+                        title="Click to view details"
+                    >
+                        <svg 
+                            width="12" 
+                            height="12" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2.5" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </div>
                 </div>
             )}
             
@@ -1797,8 +1989,20 @@ function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekaniker
 
 // Draggable Event Component
 function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdating, isRecentlyUpdated, status, statusIcon, highlightedEvent, eventsTable, setUpdatingRecords }) {
-    const isHighlighted = highlightedEvent && highlightedEvent.eventId === event.id;
+    // Convert both IDs to strings for reliable comparison
+    const isHighlighted = highlightedEvent && String(highlightedEvent.eventId) === String(event.id);
     const isFromLeft = highlightedEvent && highlightedEvent.isFromLeft;
+    
+    // Debug logging for highlighting
+    if (highlightedEvent) {
+        console.log('DraggableEvent - Comparing IDs:', {
+            highlightedEventId: String(highlightedEvent.eventId),
+            eventId: String(event.id),
+            match: String(highlightedEvent.eventId) === String(event.id),
+            isFromLeft: highlightedEvent.isFromLeft,
+            isHighlighted: isHighlighted
+        });
+    }
     
     // Check if status is "Färdig" - if so, disable dragging and undelegate button
     let isFardig = false;
@@ -1986,12 +2190,10 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                 backgroundColor,
                 borderRadius: '12px',
                 boxShadow: isHighlighted 
-                    ? (isFromLeft 
-                        ? '0 0 0 10px rgba(239, 68, 68, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)' 
-                        : '0 0 0 3px #3b82f6, 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)')
+                    ? '0 0 0 10px rgba(239, 68, 68, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)'
                     : '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
                 border: isHighlighted 
-                    ? (isFromLeft ? '10px solid #ef4444' : '2px solid #3b82f6') 
+                    ? '10px solid #ef4444'
                     : '1px solid rgba(255, 255, 255, 0.3)',
                 backdropFilter: 'blur(1px)',
                 zIndex: isHighlighted ? 1000 : 'auto',
@@ -2205,10 +2407,13 @@ function CalendarInterfaceExtension() {
     
     // Handler for highlighting events
     const handleHighlightEvent = useCallback((eventId, isFromLeft = false) => {
+        console.log('handleHighlightEvent called with:', { eventId, isFromLeft });
         if (eventId) {
             setHighlightedEvent({ eventId, isFromLeft });
+            console.log('Set highlightedEvent to:', { eventId, isFromLeft });
         } else {
             setHighlightedEvent(null);
+            console.log('Cleared highlightedEvent');
         }
     }, []);
     const isInitialMount = useRef(true);
@@ -3878,43 +4083,43 @@ function CalendarInterfaceExtension() {
     return (
         <div className="p-4 font-sans w-full h-full bg-white text-gray-900" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
             
-            {/* TOP SECTION: Navigation Buttons */}
-            <div className="flex items-center gap-2 mb-4 flex-nowrap overflow-x-auto">
-                <button 
-                    onClick={() => goToWeek(-1)}
-                    className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
-                >
-                    Förra veckan
-                </button>
-                <button 
-                    onClick={() => {
-                    const now = new Date();
-                    const dayOfWeek = now.getDay();
-                    const mondayOffset = (dayOfWeek === 0 ? -6 : 1 - dayOfWeek);
-                    const monday = new Date(now);
-                    monday.setDate(now.getDate() + mondayOffset);
-                    const friday = new Date(monday);
-                    friday.setDate(monday.getDate() + 4);
-                    setStartDate(monday.toISOString().split('T')[0]);
-                    setEndDate(friday.toISOString().split('T')[0]);
-                    }}
-                    className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors"
-                >
-                    Denna veckan
-                </button>
-                <button 
-                    onClick={() => goToWeek(1)}
-                    className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
-                >
-                    Nästa vecka
-                </button>
-            </div>
-
-            {/* Wrap both OrderDetailsPanel and Calendar in DndContext for drag-and-drop */}
-            {displayedDates.length === 0 ? (
-                <>
-                    {/* ORDER DETAILS PANEL - Shows selected orders at top */}
-                    {eventsTable && (
+            {/* TOP SECTION: Navigation Buttons and Order Details Panel */}
+            <div className="flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto">
+                {/* Week Navigation Buttons */}
+                <div className="flex items-center gap-2 flex-shrink-0">
+                    <button 
+                        onClick={() => goToWeek(-1)}
+                        className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
+                    >
+                        Förra veckan
+                    </button>
+                    <button 
+                        onClick={() => {
+                        const now = new Date();
+                        const dayOfWeek = now.getDay();
+                        const mondayOffset = (dayOfWeek === 0 ? -6 : 1 - dayOfWeek);
+                        const monday = new Date(now);
+                        monday.setDate(now.getDate() + mondayOffset);
+                        const friday = new Date(monday);
+                        friday.setDate(monday.getDate() + 4);
+                        setStartDate(monday.toISOString().split('T')[0]);
+                        setEndDate(friday.toISOString().split('T')[0]);
+                        }}
+                        className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors"
+                    >
+                        Denna veckan
+                    </button>
+                    <button 
+                        onClick={() => goToWeek(1)}
+                        className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
+                    >
+                        Nästa vecka
+                    </button>
+                </div>
+                
+                {/* ORDER DETAILS PANEL - Shows selected orders on the same line */}
+                {eventsTable && (
+                    <div className="flex-1 min-w-0">
                         <OrderDetailsPanel
                             selectedOrderNumbers={topSelectedOrderNumbers}
                             orders={filteredOrderRecords}
@@ -3927,8 +4132,15 @@ function CalendarInterfaceExtension() {
                             updatingRecords={updatingRecords}
                             recentlyUpdatedRecords={recentlyUpdatedRecords}
                             onHighlightEvent={handleHighlightEvent}
+                            onEventClick={(event) => setSelectedEventForModal(event)}
                         />
-                    )}
+                    </div>
+                )}
+            </div>
+
+            {/* Wrap both OrderDetailsPanel and Calendar in DndContext for drag-and-drop */}
+            {displayedDates.length === 0 ? (
+                <>
                     <div className="flex-1 py-10 text-center text-gray-500 flex items-center justify-center" style={{ minWidth: 0 }}>
                         Please select Start Date and End Date to view the calendar.
                     </div>
@@ -3940,22 +4152,6 @@ function CalendarInterfaceExtension() {
                     onDragStart={(event) => console.log('Drag started:', event.active.id)}
                     onDragEnd={handleDragEnd}
                 >
-                    {/* ORDER DETAILS PANEL - Shows selected orders at top */}
-                    {eventsTable && (
-                        <OrderDetailsPanel
-                            selectedOrderNumbers={topSelectedOrderNumbers}
-                            orders={filteredOrderRecords}
-                            orderTable={orderTable}
-                            calendarEvents={events}
-                            eventsTable={eventsTable}
-                            onCloseOrder={(orderNo) => handleCloseOrder(orderNo, 'top')}
-                            statusColors={statusColors}
-                            statusIcons={statusIcons}
-                            updatingRecords={updatingRecords}
-                            recentlyUpdatedRecords={recentlyUpdatedRecords}
-                        />
-                    )}
-
                     {/* MAIN BLOCK: Calendar Container with Order List */}
                     <div 
                         className="flex gap-0 w-full" 
