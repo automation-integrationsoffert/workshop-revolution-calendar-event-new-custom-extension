@@ -1678,46 +1678,39 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                     </div>
                 </div>
             ) : (
-                // Top variant: Show full details
+                // Top variant: Show only name and delegated date
                 <>
-                    {/* Arbetsorder - First line */}
-                    {/* Undelegated sub orders: gray, Delegated sub orders: red */}
+                    {/* Sub order name - First line */}
                     {arbetsorder && (
                         <div className="mb-1 text-xs text-center" style={{ fontWeight: '700' }}>
                             <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{arbetsorder}</span>
                         </div>
                     )}
                     
-                    {/* Visualization - Third line (only if showVisualization is true) */}
-                    {showVisualization && (
-                        <div className="mb-1 text-xs text-center">
-                            {visualization ? (
-                                <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{visualization}</span>
-                            ) : (
-                                <span className="text-gray-400 italic">Not set</span>
-                            )}
-                        </div>
-                    )}
-                    
-                    {/* Fordon - Fourth line (from Orders table) */}
-                    <div className="mb-1 text-xs text-center">
-                        <span className="font-semibold" style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>REG: </span>
-                        {fordon ? (
-                            <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{fordon}</span>
-                        ) : (
-                            <span className="text-gray-400 italic">Not set</span>
-                        )}
-                    </div>
-                    
-                    {/* Mekaniker - Fifth line */}
-                    <div className="mb-1 text-xs text-center">
-                        <span className="font-semibold" style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>Namn: </span>
-                        {mekanikerNames ? (
-                            <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{mekanikerNames}</span>
-                        ) : (
-                            <span className="text-gray-400 italic">Not set</span>
-                        )}
-                    </div>
+                    {/* Delegated date - Second line (only if delegated) */}
+                    {isDelegated && (() => {
+                        try {
+                            const starttid = event.getCellValue('Starttid');
+                            if (starttid) {
+                                const date = starttid instanceof Date ? starttid : new Date(starttid);
+                                if (!isNaN(date.getTime())) {
+                                    // Format as YYYY-MM-DD
+                                    const year = date.getFullYear();
+                                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                                    const day = String(date.getDate()).padStart(2, '0');
+                                    const formattedDate = `${year}-${month}-${day}`;
+                                    return (
+                                        <div className="mb-1 text-xs text-center">
+                                            <span style={{ color: '#dc2626' }}>{formattedDate}</span>
+                                        </div>
+                                    );
+                                }
+                            }
+                        } catch (e) {
+                            console.error('Error formatting delegated date:', e);
+                        }
+                        return null;
+                    })()}
                 </>
             )}
         </div>
@@ -1767,40 +1760,37 @@ function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekaniker
                 }
             }}
         >
-            {/* Arbetsorder - First line (delegated sub orders should have red text) */}
+            {/* Sub order name - First line */}
             {arbetsorder && (
                 <div className="mb-1 text-xs text-center" style={{ fontWeight: '700' }}>
                     <span className={isScheduled ? "text-red-600" : "text-gray-500"}>{arbetsorder}</span>
                 </div>
             )}
             
-            {showVisualization && (
-            <div className="mb-1 text-xs text-center">
-                {visualization ? (
-                        <span className={isScheduled ? "text-red-600" : "text-gray-500"}>{visualization}</span>
-                ) : (
-                    <span className="text-gray-400 italic">Not set</span>
-                )}
-            </div>
-            )}
-            
-            <div className="mb-1 text-xs text-center">
-                <span className={`font-semibold ${isScheduled ? "text-red-600" : "text-gray-500"}`}>REG: </span>
-                {fordon ? (
-                    <span className={isScheduled ? "text-red-600" : "text-gray-500"}>{fordon}</span>
-                ) : (
-                    <span className="text-gray-400 italic">Not set</span>
-                )}
-            </div>
-            
-            <div className="mb-1 text-xs text-center">
-                <span className={`font-semibold ${isScheduled ? "text-red-600" : "text-gray-500"}`}>Namn: </span>
-                {mekanikerNames ? (
-                    <span className={isScheduled ? "text-red-600" : "text-gray-500"}>{mekanikerNames}</span>
-                ) : (
-                    <span className="text-gray-400 italic">Not set</span>
-                )}
-            </div>
+            {/* Delegated date - Second line (only if delegated) */}
+            {isDelegated && (() => {
+                try {
+                    const starttid = event.getCellValue('Starttid');
+                    if (starttid) {
+                        const date = starttid instanceof Date ? starttid : new Date(starttid);
+                        if (!isNaN(date.getTime())) {
+                            // Format as YYYY-MM-DD
+                            const year = date.getFullYear();
+                            const month = String(date.getMonth() + 1).padStart(2, '0');
+                            const day = String(date.getDate()).padStart(2, '0');
+                            const formattedDate = `${year}-${month}-${day}`;
+                            return (
+                                <div className="mb-1 text-xs text-center">
+                                    <span className="text-red-600">{formattedDate}</span>
+                                </div>
+                            );
+                        }
+                    }
+                } catch (e) {
+                    console.error('Error formatting delegated date:', e);
+                }
+                return null;
+            })()}
         </div>
     );
 }
