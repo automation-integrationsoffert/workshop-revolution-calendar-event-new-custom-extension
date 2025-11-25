@@ -4120,7 +4120,8 @@ function CalendarInterfaceExtension() {
                 {/* ORDER DETAILS PANEL - Shows selected orders on the same line */}
                 {eventsTable && (
                     <div className="flex-1 min-w-0">
-                        <OrderDetailsPanel
+                        <div style={{ marginTop: '8px' }}>
+                            <OrderDetailsPanel
                             selectedOrderNumbers={topSelectedOrderNumbers}
                             orders={filteredOrderRecords}
                             orderTable={orderTable}
@@ -4134,6 +4135,7 @@ function CalendarInterfaceExtension() {
                             onHighlightEvent={handleHighlightEvent}
                             onEventClick={(event) => setSelectedEventForModal(event)}
                         />
+                        </div>
                     </div>
                 )}
             </div>
