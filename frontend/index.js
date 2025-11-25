@@ -249,29 +249,6 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
     }
     
     const eventDetails = matchingEvents.map((event, index) => {
-                            let imageUrl = null;
-                                if (event && eventsTable) {
-                                    try {
-                                        const attachmentField =
-                                            eventsTable.fields.find(
-                                                f => f.name.toLowerCase().trim() === 'attachments'
-                                            );
-                                        if (attachmentField) {
-                                            const attachments = event.getCellValue(attachmentField.name);
-                                            if (attachments && Array.isArray(attachments) && attachments.length > 0) {
-                                                imageUrl =
-                                                    attachments[0].url ||
-                                                    attachments[0].thumbnails?.large?.url ||
-                                                    attachments[0].thumbnails?.small?.url;
-                                            }
-                                        } else {
-                                            console.warn("⚠️ Attachments field not found in Calendar Events table. Available fields:", eventsTable.fields.map(f => f.name));
-                                        }
-                                    } catch (e) {
-                                        console.error('Error getting image:', e);
-                                    }
-                                }
-                            
                             let visualization = '';
                             let arbetsorder = '';
                             let mekanikerNames = '';
@@ -312,7 +289,6 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                             }
                             
                             console.log(`Event ${index + 1} (${event.id}) data:`, {
-                                hasImage: !!imageUrl,
                                 hasArbetsorderField: !!arbetsorderField,
                                 arbetsorderFieldName: arbetsorderField?.name,
                                 visualization: visualization || 'empty',
@@ -367,7 +343,6 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
         return {
             key: event.id || index,
             event,
-            imageUrl,
             visualization,
             arbetsorder,
             mekanikerNames,
@@ -432,7 +407,6 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                                 <DraggableOrderEvent
                                             key={detail.key}
                                             event={detail.event}
-                                            imageUrl={detail.imageUrl}
                                             visualization={detail.visualization}
                                     fordon={fordon}
                                             arbetsorder={detail.arbetsorder}
@@ -459,7 +433,6 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                             <StaticOrderEvent
                                 key={`static-${detail.key}`}
                                 event={detail.event}
-                                imageUrl={detail.imageUrl}
                                 visualization={detail.visualization}
                                 fordon={fordon}
                                 arbetsorder={detail.arbetsorder}
@@ -554,60 +527,6 @@ function CalendarImagesGallery({ events, eventsTable }) {
                 overflowY: 'hidden'
             }}
         >
-            {/* <div className="flex gap-3" style={{ minWidth: 'fit-content' }}>
-                {allImages.map((image, index) => (
-                    <div
-                        key={image.id}
-                        className="image-item flex-shrink-0"
-                        style={{
-                            width: '150px',
-                            height: '150px',
-                            borderRadius: '8px',
-                            overflow: 'hidden',
-                            border: '2px solid #e5e7eb',
-                            cursor: 'pointer',
-                            transition: 'transform 0.2s'
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'scale(1.05)';
-                            e.currentTarget.style.borderColor = '#3b82f6';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'scale(1)';
-                            e.currentTarget.style.borderColor = '#e5e7eb';
-                        }}
-                        onClick={() => {
-                            // Expand the event record when image is clicked
-                            const event = events.find(e => e.id === image.eventId);
-                            if (event) {
-                                expandRecord(event);
-                            }
-                        }}
-                    >
-                        <img
-                            src={image.url}
-                            alt={`Calendar Event Image ${index + 1}`}
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                display: 'block'
-                            }}
-                            onError={(e) => {
-                                console.error(`CalendarImagesGallery - Failed to load image: ${image.url}`, e);
-                                e.target.style.display = 'none';
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'flex items-center justify-center h-full text-xs text-gray-400';
-                                errorDiv.textContent = 'Image failed to load';
-                                e.target.parentElement.appendChild(errorDiv);
-                            }}
-                            onLoad={() => {
-                                console.log(`CalendarImagesGallery - Successfully loaded image: ${image.url}`);
-                            }}
-                        />
-                    </div>
-                ))}
-            </div> */}
         </div>
     );
 }
@@ -815,25 +734,6 @@ function LeftSideOrderDetailCard({ orderNo, orderRecord, orderTable, calendarEve
                             <div className="flex flex-col gap-3" style={{ margin: 'auto' }}>
                                 {/* Render unscheduled events first (gray) */}
                                 {unscheduledEvents.map((event, index) => {
-                                let imageUrl = null;
-                                if (event && eventsTable) {
-                                    try {
-                                        const attachmentField = eventsTable.fields.find(
-                                            f => f.name.toLowerCase().trim() === 'attachments'
-                                        );
-                                        if (attachmentField) {
-                                            const attachments = event.getCellValue(attachmentField.name);
-                                            if (attachments && Array.isArray(attachments) && attachments.length > 0) {
-                                                imageUrl = attachments[0].url ||
-                                                    attachments[0].thumbnails?.large?.url ||
-                                                    attachments[0].thumbnails?.small?.url;
-                                            }
-                                        }
-                                    } catch (e) {
-                                        console.error('Error getting image:', e);
-                                    }
-                                }
-                                
                                 let visualization = '';
                                 let arbetsorder = '';
                                 let mekanikerNames = '';
@@ -922,7 +822,6 @@ function LeftSideOrderDetailCard({ orderNo, orderRecord, orderTable, calendarEve
                                         key={event.id || index}
                                         customUniqueId={`left-order-detail-${orderNo || 'unknown'}-${event.id}`}
                                         event={event}
-                                        imageUrl={imageUrl}
                                         visualization={visualization}
                                         fordon={fordon}
                                         mekanikerNames={mekanikerNames}
@@ -946,25 +845,6 @@ function LeftSideOrderDetailCard({ orderNo, orderRecord, orderTable, calendarEve
                             
                             {/* Render scheduled events (red) */}
                             {scheduledEvents.map((event, index) => {
-                                let imageUrl = null;
-                                if (event && eventsTable) {
-                                    try {
-                                        const attachmentField = eventsTable.fields.find(
-                                            f => f.name.toLowerCase().trim() === 'attachments'
-                                        );
-                                        if (attachmentField) {
-                                            const attachments = event.getCellValue(attachmentField.name);
-                                            if (attachments && Array.isArray(attachments) && attachments.length > 0) {
-                                                imageUrl = attachments[0].url ||
-                                                    attachments[0].thumbnails?.large?.url ||
-                                                    attachments[0].thumbnails?.small?.url;
-                                            }
-                                        }
-                                    } catch (e) {
-                                        console.error('Error getting image:', e);
-                                    }
-                                }
-                                
                                 let visualization = '';
                                 let arbetsorder = '';
                                 let mekanikerNames = '';
@@ -1034,7 +914,6 @@ function LeftSideOrderDetailCard({ orderNo, orderRecord, orderTable, calendarEve
                                         key={event.id || `scheduled-${index}`}
                                         customUniqueId={`left-order-detail-${orderNo || 'unknown'}-${event.id}`}
                                         event={event}
-                                        imageUrl={imageUrl}
                                         visualization={visualization}
                                         fordon={fordon}
                                         mekanikerNames={mekanikerNames}
@@ -1603,7 +1482,7 @@ function DroppableCell({ mechanicName, date, hourIndex, hourHeight }) {
 }
 
 // Draggable Order Event Component (for order detail panel)
-function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, orderNo, orderRecord, onClose, showVisualization = true, isScheduled = false, isDelegated = false, variant = 'top', customUniqueId = null, arbetsorder = '', onHighlightEvent }) {
+function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, orderNo, orderRecord, onClose, showVisualization = true, isScheduled = false, isDelegated = false, variant = 'top', customUniqueId = null, arbetsorder = '', onHighlightEvent }) {
     // Use useSortable with unique ID that includes both orderNo and event.id
     // Format: "order-detail-{orderNo}-{event.id}" so each event is uniquely identifiable
     const uniqueId = customUniqueId || `order-detail-${orderNo || 'unknown'}-${event.id}`;
@@ -1660,7 +1539,6 @@ function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekaniker
         opacity: isDragging ? 0.5 : (isScheduled && isLeftVariant ? 0.7 : 1),
         cursor: cursorStyle,
     };
-    const imageSize = isLeftVariant ? 80 : 100;
     const containerStyles = isLeftVariant
         ? {
             border: isDragging ? '2px dashed #3b82f6' : 'none',
@@ -1802,22 +1680,7 @@ function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekaniker
             ) : (
                 // Top variant: Show full details
                 <>
-                    {/* Image - First line (at the very top) */}
-                    {imageUrl ? (
-                        <div className="mb-2" style={{ width: `${imageSize}px`, height: `${imageSize}px`, overflow: 'hidden', borderRadius: '4px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-                            <img 
-                                src={imageUrl} 
-                                alt={`Order Event`}
-                                style={{ width: `${imageSize}px`, height: `${imageSize}px`, objectFit: 'cover', display: 'block', margin: '0 auto' }}
-                            />
-                        </div>
-                    ) : (
-                        <div className="mb-2 text-xs text-gray-400 italic text-center border border-dashed border-gray-300 rounded" style={{ width: `${imageSize}px`, height: `${imageSize}px`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                            No image
-                        </div>
-                    )}
-                    
-                    {/* Arbetsorder - Second line */}
+                    {/* Arbetsorder - First line */}
                     {/* Undelegated sub orders: gray, Delegated sub orders: red */}
                     {arbetsorder && (
                         <div className="mb-1 text-xs text-center" style={{ fontWeight: '700' }}>
@@ -1862,7 +1725,7 @@ function DraggableOrderEvent({ event, imageUrl, visualization, fordon, mekaniker
 }
 
 // Static (non-draggable) Order Event for already scheduled events
-function StaticOrderEvent({ event, imageUrl, visualization, fordon, arbetsorder, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, onClose, showVisualization = true, isScheduled = true, isDelegated = false, onHighlightEvent }) {
+function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekanikerNames, status, statusIcon, backgroundColor, isUpdating, isRecentlyUpdated, onClose, showVisualization = true, isScheduled = true, isDelegated = false, onHighlightEvent }) {
     if (isUpdating || isRecentlyUpdated) {
         return null;
     }
@@ -1904,20 +1767,6 @@ function StaticOrderEvent({ event, imageUrl, visualization, fordon, arbetsorder,
                 }
             }}
         >
-            {imageUrl ? (
-                <div className="mb-2" style={{ width: '100px', height: '100px', overflow: 'hidden', borderRadius: '4px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-                    <img 
-                        src={imageUrl} 
-                        alt={`Order Event`}
-                        style={{ width: '100px', height: '100px', objectFit: 'cover', display: 'block', margin: '0 auto' }}
-                    />
-                </div>
-            ) : (
-                <div className="mb-2 text-xs text-gray-400 italic text-center rounded" style={{ width: '100px', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    No image
-                </div>
-            )}
-            
             {/* Arbetsorder - First line (delegated sub orders should have red text) */}
             {arbetsorder && (
                 <div className="mb-1 text-xs text-center" style={{ fontWeight: '700' }}>
@@ -4038,8 +3887,6 @@ function CalendarInterfaceExtension() {
 
     return (
         <div className="p-4 font-sans w-full h-full bg-white text-gray-900" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
-            {/* CALENDAR IMAGES GALLERY - Shows all images from Calendar Events at top */}
-            <CalendarImagesGallery events={events} eventsTable={eventsTable} />
             
             {/* TOP SECTION: Navigation Buttons */}
             <div className="flex items-center gap-2 mb-4 flex-nowrap overflow-x-auto">
