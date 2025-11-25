@@ -2857,24 +2857,92 @@ function CalendarInterfaceExtension() {
                 const currentSluttid = existingEvent.getCellValue('Sluttid');
                 const isUndelegated = !currentStarttid || !currentSluttid;
                 
-                // Calculate start and end times
-                // Default duration for undelegated sub orders is 1 hour
-                const defaultDuration = 60 * 60 * 1000; // 1 hour in milliseconds
-                const newEndTime = new Date(newStartTime.getTime() + defaultDuration);
+                // Calculate duration: use existing Starttid/Sluttid if available, otherwise use "Dev | Hours needed"
+                let durationMs = 60 * 60 * 1000; // Default to 1 hour in milliseconds
                 
-                // If this is an undelegated sub order, check for lunch/break overlaps
-                if (isUndelegated) {
+                if (currentStarttid && currentSluttid) {
+                    // If Starttid and Sluttid exist, preserve the booked duration (reflect the existing duration)
+                    try {
+                        const startDate = currentStarttid instanceof Date ? currentStarttid : new Date(currentStarttid);
+                        const endDate = currentSluttid instanceof Date ? currentSluttid : new Date(currentSluttid);
+                        
+                        if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime())) {
+                            // Calculate the booked duration from existing Starttid/Sluttid
+                            durationMs = endDate.getTime() - startDate.getTime();
+                            if (durationMs <= 0) {
+                                console.warn('Invalid duration from Starttid/Sluttid (end <= start), using default 1 hour');
+                                durationMs = 60 * 60 * 1000;
+                            } else {
+                                const durationHours = durationMs / (60 * 60 * 1000);
+                                console.log('Preserving booked duration from existing Starttid/Sluttid:', {
+                                    originalStart: startDate.toISOString(),
+                                    originalEnd: endDate.toISOString(),
+                                    bookedDurationHours: durationHours.toFixed(2),
+                                    durationMs: durationMs
+                                });
+                            }
+                        } else {
+                            console.warn('Invalid Starttid/Sluttid dates, using default 1 hour');
+                            durationMs = 60 * 60 * 1000;
+                        }
+                    } catch (e) {
+                        console.error('Error calculating duration from Starttid/Sluttid:', e);
+                        durationMs = 60 * 60 * 1000;
+                    }
+                } else {
+                    // If no Starttid/Sluttid, use "Dev | Hours needed" field value
+                    let hoursNeeded = 1; // Default to 1 hour if field not found or invalid
+                    try {
+                        const devHoursField = eventsTable.fields.find(field => 
+                            field.name === 'Dev | Hours needed' ||
+                            field.name.toLowerCase().includes('dev') && field.name.toLowerCase().includes('hours')
+                        );
+                        
+                        if (devHoursField) {
+                            const devHoursValue = existingEvent.getCellValue(devHoursField.name);
+                            if (devHoursValue !== null && devHoursValue !== undefined) {
+                                // Handle both number and string formats
+                                const hoursValue = typeof devHoursValue === 'number' 
+                                    ? devHoursValue 
+                                    : parseFloat(devHoursValue);
+                                
+                                if (!isNaN(hoursValue) && hoursValue > 0) {
+                                    hoursNeeded = hoursValue;
+                                    console.log('Using Dev | Hours needed value:', hoursNeeded);
+                                } else {
+                                    console.warn('Invalid Dev | Hours needed value:', devHoursValue, '- using default 1 hour');
+                                }
+                            } else {
+                                console.log('Dev | Hours needed field is empty - using default 1 hour');
+                            }
+                        } else {
+                            console.warn('Dev | Hours needed field not found - using default 1 hour');
+                        }
+                    } catch (e) {
+                        console.error('Error getting Dev | Hours needed:', e);
+                    }
+                    
+                    durationMs = hoursNeeded * 60 * 60 * 1000; // Convert hours to milliseconds
+                    
+                    // Store hoursNeeded for logging later
+                    const hoursNeededForLogging = hoursNeeded;
+                    
+                    // If this is an undelegated sub order, check for lunch/break overlaps
+                    // Calculate end time based on start time and duration
+                    const newEndTimeForOverlapCheck = new Date(newStartTime.getTime() + durationMs);
+                    
                     console.log('Checking lunch/break overlap for undelegated sub order:', {
                         mechanic: mechanicName,
                         date: targetDate.toDateString(),
                         proposedStart: newStartTime.toTimeString(),
-                        proposedEnd: newEndTime.toTimeString(),
-                        duration: '1 hour'
+                        proposedEnd: newEndTimeForOverlapCheck.toTimeString(),
+                        hoursNeeded: hoursNeededForLogging,
+                        duration: `${hoursNeededForLogging} hour(s)`
                     });
                     
                     const lunchBreakEvents = getLunchBreakEventsForMechanicAndDate(mechanicName, targetDate);
                     
-                    // Check if the new time slot (1 hour duration) overlaps with any lunch/break event
+                    // Check if the new time slot overlaps with any lunch/break event
                     const hasOverlap = lunchBreakEvents.some(lunchEvent => {
                         const lunchStart = new Date(lunchEvent.getCellValue('Starttid'));
                         const lunchEnd = new Date(lunchEvent.getCellValue('Sluttid'));
@@ -2882,14 +2950,13 @@ function CalendarInterfaceExtension() {
                         
                         // Check if time ranges overlap
                         // Two time ranges overlap if: start1 < end2 && start2 < end1
-                        // newStartTime to newEndTime (1 hour) vs lunchStart to lunchEnd
-                        const overlaps = newStartTime < lunchEnd && lunchStart < newEndTime;
+                        const overlaps = newStartTime < lunchEnd && lunchStart < newEndTimeForOverlapCheck;
                         
                         if (overlaps) {
                             console.warn(`⚠️ Time slot overlaps with lunch/break:`, {
                                 lunchName,
                                 lunchTime: `${lunchStart.toTimeString()} - ${lunchEnd.toTimeString()}`,
-                                proposedTime: `${newStartTime.toTimeString()} - ${newEndTime.toTimeString()}`,
+                                proposedTime: `${newStartTime.toTimeString()} - ${newEndTimeForOverlapCheck.toTimeString()}`,
                                 overlap: true
                             });
                         }
@@ -2905,6 +2972,9 @@ function CalendarInterfaceExtension() {
                     
                     console.log('✓ No lunch/break overlap - assignment allowed');
                 }
+                
+                // Calculate end time based on start time and duration
+                const newEndTime = new Date(newStartTime.getTime() + durationMs);
                 
                 console.log('Updating existing event:', {
                     eventId: existingEvent.id,
