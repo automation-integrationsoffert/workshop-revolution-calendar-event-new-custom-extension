@@ -46058,7 +46058,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     );
     if (!orderField || !calendarEvents) {
       console.log("LeftSideOrderDetailsPanel - Missing orderField or calendarEvents");
-      return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "left-side-order-details-panel", style: containerStyle, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-sm text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50", children: "No Orders to assign" }, void 0, false, {
+      return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "left-side-order-details-panel", style: containerStyle, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50", children: "No Orders to assign" }, void 0, false, {
         fileName: "frontend/index.js",
         lineNumber: 1126,
         columnNumber: 17
@@ -46135,7 +46135,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             },
             this
           ),
-          ordersWithUnscheduledEvents.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-sm text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50", children: "No Orders to assign" }, void 0, false, {
+          ordersWithUnscheduledEvents.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "text-xs text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50", children: "No Orders to assign" }, void 0, false, {
             fileName: "frontend/index.js",
             lineNumber: 1198,
             columnNumber: 17
@@ -46315,8 +46315,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 "h3",
                 {
                   style: {
-                    fontSize: "16px",
-                    // Normal (14px) + 2px
+                    fontSize: "14px",
+                    // Match "Undelegated tasks" size (Normal 12px + 2px)
                     fontWeight: 700,
                     color: "#6b7280",
                     margin: 0
@@ -46402,8 +46402,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 "h3",
                 {
                   style: {
-                    fontSize: "16px",
-                    // Normal (14px) + 2px
+                    fontSize: "14px",
+                    // Match "Undelegated tasks" size (Normal 12px + 2px)
                     fontWeight: 700,
                     color: "#6b7280",
                     margin: 0
@@ -46520,8 +46520,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               "h3",
               {
                 style: {
-                  fontSize: "16px",
-                  // Normal (14px) + 2px
+                  fontSize: "14px",
+                  // Match "Undelegated tasks" size (Normal 12px + 2px)
                   fontWeight: 700,
                   color: "#6b7280",
                   margin: 0
@@ -46552,12 +46552,12 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 overflow-y-auto", style: { minHeight: 0 }, children: orderData.length > 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "w-full", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "px-4 py-2 border-b-2 border-gray-300 bg-gray-100 sticky top-0 z-30 flex items-center gap-2", style: { minHeight: "32px" }, children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold text-gray-700", style: { minWidth: "20px" }, children: "No" }, void 0, false, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-xs font-semibold text-gray-700", style: { minWidth: "20px" }, children: "#" }, void 0, false, {
                 fileName: "frontend/index.js",
                 lineNumber: 1519,
                 columnNumber: 29
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "font-semibold text-gray-700 flex-1", children: "Order Number" }, void 0, false, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-xs font-semibold text-gray-700 flex-1", children: "Order" }, void 0, false, {
                 fileName: "frontend/index.js",
                 lineNumber: 1522,
                 columnNumber: 29

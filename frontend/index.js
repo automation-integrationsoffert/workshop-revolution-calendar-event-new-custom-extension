@@ -1123,7 +1123,7 @@ function LeftSideOrderDetailsPanel({ orders, orderTable, calendarEvents, eventsT
         console.log('LeftSideOrderDetailsPanel - Missing orderField or calendarEvents');
         return (
             <div className="left-side-order-details-panel" style={containerStyle}>
-                <div className="text-sm text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50">
+                <div className="text-xs text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50">
                     No Orders to assign
                 </div>
             </div>
@@ -1195,7 +1195,7 @@ function LeftSideOrderDetailsPanel({ orders, orderTable, calendarEvents, eventsT
             </div>
             
             {ordersWithUnscheduledEvents.length === 0 ? (
-                <div className="text-sm text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50">
+                <div className="text-xs text-gray-500 text-center py-6 w-full border border-dashed border-gray-300 rounded bg-gray-50">
                     No Orders to assign
                 </div>
             ) : (
@@ -1347,7 +1347,7 @@ function OrderList({ orders, orderTable, selectedOrderNumbers = new Set(), onOrd
                 <div className="px-4 py-3 border-b-2 border-red-300 bg-red-50 flex-shrink-0">
                     <h3 
                         style={{
-                            fontSize: '16px', // Normal (14px) + 2px
+                            fontSize: '14px', // Match "Undelegated tasks" size (Normal 12px + 2px)
                             fontWeight: 700,
                             color: '#6b7280',
                             margin: 0
@@ -1392,7 +1392,7 @@ function OrderList({ orders, orderTable, selectedOrderNumbers = new Set(), onOrd
                 <div className="px-4 py-3 border-b border-gray-200 bg-blue-50 flex-shrink-0">
                     <h3 
                         style={{
-                            fontSize: '16px', // Normal (14px) + 2px
+                            fontSize: '14px', // Match "Undelegated tasks" size (Normal 12px + 2px)
                             fontWeight: 700,
                             color: '#6b7280',
                             margin: 0
@@ -1499,7 +1499,7 @@ function OrderList({ orders, orderTable, selectedOrderNumbers = new Set(), onOrd
             <div className="px-4 py-3 border-b border-gray-200 bg-green-50 sticky top-0 z-40 flex-shrink-0">
                 <h3 
                     style={{
-                        fontSize: '16px', // Normal (14px) + 2px
+                        fontSize: '14px', // Match "Undelegated tasks" size (Normal 12px + 2px)
                         fontWeight: 700,
                         color: '#6b7280',
                         margin: 0
@@ -1516,11 +1516,11 @@ function OrderList({ orders, orderTable, selectedOrderNumbers = new Set(), onOrd
                     <div className="w-full">
                         {/* Header Row */}
                         <div className="px-4 py-2 border-b-2 border-gray-300 bg-gray-100 sticky top-0 z-30 flex items-center gap-2" style={{ minHeight: '32px' }}>
-                            <span className="font-semibold text-gray-700" style={{ minWidth: '20px' }}>
-                                No
+                            <span className="text-xs font-semibold text-gray-700" style={{ minWidth: '20px' }}>
+                                #
                             </span>
-                            <span className="font-semibold text-gray-700 flex-1">
-                                Order Number
+                            <span className="text-xs font-semibold text-gray-700 flex-1">
+                                Order
                             </span>
                             <span className="text-xs font-semibold text-gray-700" style={{ minWidth: '50px', textAlign: 'right' }}>
                                 Fordon
