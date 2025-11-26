@@ -2194,8 +2194,10 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                 right: '4px',
                 top: `${top}px`,
                 height: `${height}px`,
-                backgroundColor,
+                backgroundColor: 'rgba(0, 0, 0, 0.3)', // Dark gray outer border
                 borderRadius: '12px',
+                padding: '2px', // Creates the border effect
+                overflow: 'hidden', // Clip button to stay within rounded corners
                 boxShadow: isHighlighted 
                     ? '0 0 0 10px rgba(239, 68, 68, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)'
                     : '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)',
@@ -2224,10 +2226,12 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
             {...(isFardig ? {} : attributes)} // Disable drag attributes if Färdig
             {...(isFardig ? {} : listeners)} // Disable drag listeners if Färdig
         >
-            {/* Event content with modern design */}
+            {/* Inner content area with lighter background */}
             <div style={{ 
-                position: 'relative', 
                 height: '100%', 
+                width: '100%',
+                backgroundColor, // Lighter inner background
+                borderRadius: '10px', // Slightly smaller than outer to show border
                 display: 'flex', 
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -2281,54 +2285,69 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                         {assignDateStr}
                     </div>
                 )}
-                
-                {/* Undelegate button (only show for delegated events, but not if status is Färdig) */}
-                {isDelegated && !isLunchBreak && !isFardig && (
-                    <div
-                        className="undelegate-button"
-                        style={{
-                            position: 'absolute',
-                            top: '1px',
-                            right: '1px',
-                            width: '18px',
-                            height: '18px',
-                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            cursor: 'pointer',
-                            fontSize: '12px',
-                            fontWeight: '600',
-                            flexShrink: 0,
-                            border: '1.5px solid #6b7280',
-                            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)',
-                            zIndex: 1000,
-                            color: '#6b7280',
-                            lineHeight: '1',
-                            transition: 'all 0.15s ease'
-                        }}
-                        onClick={handleUndelegate}
-                        onMouseDown={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = '#6b7280';
-                            e.currentTarget.style.color = '#ffffff';
-                            e.currentTarget.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.25)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                            e.currentTarget.style.color = '#6b7280';
-                            e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.2)';
-                        }}
-                        title="Click to undelegate (remove time)"
-                    >
-                        ×
-                    </div>
-                )}
             </div>
+            
+            {/* Undelegate button (only show for delegated events, but not if status is Färdig) - positioned between outer and inner containers */}
+            {isDelegated && !isLunchBreak && !isFardig && (
+                <div
+                    className="undelegate-button"
+                    draggable={false}
+                    style={{
+                        position: 'absolute',
+                        top: '0px', // Position at the border between outer and inner
+                        right: '0px', // Position at the border between outer and inner
+                        width: '18px',
+                        height: '18px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        fontSize: '12px',
+                        fontWeight: '600',
+                        flexShrink: 0,
+                        border: '1.5px solid #6b7280',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)',
+                        zIndex: 1000,
+                        color: '#6b7280',
+                        lineHeight: '1',
+                        transition: 'all 0.15s ease',
+                        touchAction: 'none', // Prevent touch drag
+                        userSelect: 'none' // Prevent text selection
+                    }}
+                    onClick={handleUndelegate}
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }}
+                    onPointerDown={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }}
+                    onTouchStart={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }}
+                    onDragStart={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#6b7280';
+                        e.currentTarget.style.color = '#ffffff';
+                        e.currentTarget.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.25)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                        e.currentTarget.style.color = '#6b7280';
+                        e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.2)';
+                    }}
+                    title="Click to undelegate (remove time)"
+                >
+                    ×
+                </div>
+            )}
         </div>
     );
 }
