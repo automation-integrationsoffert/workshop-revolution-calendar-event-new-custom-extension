@@ -8,6 +8,7 @@ import {
     useSensor,
     useSensors,
     useDroppable,
+    DragOverlay,
 } from '@dnd-kit/core';
 import {
     arrayMove,
@@ -2577,6 +2578,9 @@ function CalendarInterfaceExtension() {
     // Selected event for modal display
     const [selectedEventForModal, setSelectedEventForModal] = useState(null);
     const [alertMessage, setAlertMessage] = useState(null);
+    const [activeDragId, setActiveDragId] = useState(null);
+    const [activeDragEvent, setActiveDragEvent] = useState(null);
+    const [hoveredCell, setHoveredCell] = useState(null); // { mechanicName, date, hourIndex }
     
     // Handler for highlighting events
     const handleHighlightEvent = useCallback((eventId, isFromLeft = false) => {
@@ -4428,8 +4432,64 @@ function CalendarInterfaceExtension() {
                 <DndContext
                     sensors={sensors}
                     collisionDetection={closestCenter}
-                    onDragStart={(event) => console.log('Drag started:', event.active.id)}
-                    onDragEnd={handleDragEnd}
+                    onDragStart={(event) => {
+                        console.log('Drag started:', event.active.id);
+                        setActiveDragId(event.active.id);
+                        // Find the event being dragged
+                        const activeId = event.active.id;
+                        const draggablePrefixes = ['order-detail-', 'left-order-detail-'];
+                        const matchedPrefix = draggablePrefixes.find(prefix => activeId.startsWith(prefix));
+                        if (matchedPrefix) {
+                            const afterPrefix = activeId.substring(matchedPrefix.length);
+                            const lastDashIndex = afterPrefix.lastIndexOf('-');
+                            if (lastDashIndex > 0) {
+                                const sourceEventId = afterPrefix.substring(lastDashIndex + 1);
+                                const draggedEvent = events.find(ev => ev.id === sourceEventId);
+                                if (draggedEvent) {
+                                    setActiveDragEvent(draggedEvent);
+                                }
+                            }
+                        }
+                    }}
+                    onDragOver={(event) => {
+                        // Track which cell is being hovered over
+                        // Cell ID format: cell-{mechanicName}-{MM}-{DD}-{hourIndex}
+                        const overId = event.over?.id;
+                        if (overId && typeof overId === 'string' && overId.startsWith('cell-')) {
+                            const parts = overId.split('-');
+                            if (parts.length >= 5) {
+                                // Last 3 parts are: month, day, hourIndex
+                                const hourIndex = parseInt(parts[parts.length - 1]);
+                                const day = parseInt(parts[parts.length - 2]);
+                                const month = parseInt(parts[parts.length - 3]);
+                                // Everything before the last 3 parts is the mechanic name
+                                const mechanicName = parts.slice(1, parts.length - 3).join('-');
+                                
+                                if (!isNaN(hourIndex) && !isNaN(month) && !isNaN(day)) {
+                                    // Find the matching date
+                                    const matchingDate = displayedDates.find(d => 
+                                        d.getMonth() + 1 === month && d.getDate() === day
+                                    );
+                                    if (matchingDate) {
+                                        setHoveredCell({ mechanicName, date: matchingDate, hourIndex });
+                                    }
+                                }
+                            }
+                        } else {
+                            setHoveredCell(null);
+                        }
+                    }}
+                    onDragEnd={(event) => {
+                        setActiveDragId(null);
+                        setActiveDragEvent(null);
+                        setHoveredCell(null);
+                        handleDragEnd(event);
+                    }}
+                    onDragCancel={() => {
+                        setActiveDragId(null);
+                        setActiveDragEvent(null);
+                        setHoveredCell(null);
+                    }}
                 >
                     {/* TOP SECTION: Navigation Buttons and Order Details Panel */}
                     <div className="flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto">
@@ -4722,6 +4782,69 @@ function CalendarInterfaceExtension() {
                                                     />
                                                 );
                                             })}
+                                            
+                                            {/* DRAG PREVIEW: Show preview when dragging undelegated sub order */}
+                                            {activeDragEvent && hoveredCell && 
+                                             hoveredCell.mechanicName === mech.name && 
+                                             hoveredCell.date.toDateString() === date.toDateString() && (
+                                                (() => {
+                                                    // Get "Dev | Hours needed" value
+                                                    let hoursNeeded = 1; // Default to 1 hour
+                                                    try {
+                                                        const devHoursField = eventsTable?.fields.find(field => 
+                                                            field.name === 'Dev | Hours needed' ||
+                                                            field.name === 'Dev | Hours Needed' ||
+                                                            field.name === 'Dev Hours needed' ||
+                                                            field.name === 'Dev Hours Needed' ||
+                                                            (field.name.toLowerCase().includes('dev') && field.name.toLowerCase().includes('hours'))
+                                                        );
+                                                        
+                                                        if (devHoursField) {
+                                                            const devHoursValue = activeDragEvent.getCellValue(devHoursField.name);
+                                                            if (devHoursValue !== null && devHoursValue !== undefined) {
+                                                                const hoursValue = typeof devHoursValue === 'number' 
+                                                                    ? devHoursValue 
+                                                                    : parseFloat(devHoursValue);
+                                                                if (!isNaN(hoursValue) && hoursValue > 0) {
+                                                                    hoursNeeded = hoursValue;
+                                                                }
+                                                            }
+                                                        }
+                                                    } catch (e) {
+                                                        console.error('Error getting Dev | Hours needed for preview:', e);
+                                                    }
+                                                    
+                                                    // Calculate preview position and height
+                                                    const previewTop = hoveredCell.hourIndex * hourHeight;
+                                                    const previewHeight = hoursNeeded * hourHeight;
+                                                    
+                                                    return (
+                                                        <div
+                                                            key="drag-preview"
+                                                            style={{
+                                                                position: 'absolute',
+                                                                top: `${previewTop}px`,
+                                                                left: '0',
+                                                                right: '0',
+                                                                height: `${previewHeight}px`,
+                                                                backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                                                                border: '2px dashed #3b82f6',
+                                                                borderRadius: '4px',
+                                                                pointerEvents: 'none',
+                                                                zIndex: 1000,
+                                                                display: 'flex',
+                                                                alignItems: 'center',
+                                                                justifyContent: 'center',
+                                                                color: '#3b82f6',
+                                                                fontSize: '12px',
+                                                                fontWeight: '500'
+                                                            }}
+                                                        >
+                                                            {hoursNeeded} {hoursNeeded === 1 ? 'hour' : 'hours'}
+                                                        </div>
+                                                    );
+                                                })()
+                                            )}
                                         </div>
                                     ))}
                                 </div>
