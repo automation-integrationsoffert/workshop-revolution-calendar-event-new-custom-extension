@@ -2051,6 +2051,84 @@ function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekaniker
     );
 }
 
+// Custom Alert Modal Component
+function CustomAlert({ message, onClose }) {
+    if (!message) return null;
+    
+    return (
+        <div
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: 10000,
+            }}
+            onClick={onClose}
+        >
+            <div
+                style={{
+                    backgroundColor: 'white',
+                    borderRadius: '8px',
+                    padding: '24px',
+                    maxWidth: '500px',
+                    width: '90%',
+                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)',
+                }}
+                onClick={(e) => e.stopPropagation()}
+            >
+                <div
+                    style={{
+                        fontSize: '18px',
+                        fontWeight: 700,
+                        marginBottom: '12px',
+                        color: '#1f2937',
+                    }}
+                >
+                    Notice
+                </div>
+                <div
+                    style={{
+                        fontSize: '14px',
+                        color: '#4b5563',
+                        marginBottom: '20px',
+                        lineHeight: '1.5',
+                    }}
+                >
+                    {message}
+                </div>
+                <button
+                    onClick={onClose}
+                    style={{
+                        backgroundColor: '#3b82f6',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '6px',
+                        padding: '8px 16px',
+                        fontSize: '14px',
+                        fontWeight: 500,
+                        cursor: 'pointer',
+                        width: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#2563eb';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = '#3b82f6';
+                    }}
+                >
+                    OK
+                </button>
+            </div>
+        </div>
+    );
+}
+
 // Draggable Event Component
 function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdating, isRecentlyUpdated, status, statusIcon, highlightedEvent, eventsTable, setUpdatingRecords }) {
     // Convert both IDs to strings for reliable comparison
@@ -2498,6 +2576,7 @@ function CalendarInterfaceExtension() {
     
     // Selected event for modal display
     const [selectedEventForModal, setSelectedEventForModal] = useState(null);
+    const [alertMessage, setAlertMessage] = useState(null);
     
     // Handler for highlighting events
     const handleHighlightEvent = useCallback((eventId, isFromLeft = false) => {
@@ -3314,7 +3393,7 @@ function CalendarInterfaceExtension() {
                 });
                 
                 if (hasOverlap) {
-                    alert('Cannot move event: The selected time slot overlaps with a lunch/break period. The event will remain in its original position.');
+                    setAlertMessage('Cannot move event: The selected time slot overlaps with a lunch/break period. The event will remain in its original position.');
                     console.log('Move prevented due to lunch/break overlap - event will return to original position');
                     return; // Prevent the update, event will return to original position
                 }
@@ -4272,6 +4351,11 @@ function CalendarInterfaceExtension() {
 
     return (
         <div className="p-4 font-sans w-full h-full bg-white text-gray-900" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+            {/* Custom Alert Modal */}
+            <CustomAlert 
+                message={alertMessage} 
+                onClose={() => setAlertMessage(null)} 
+            />
             
             {/* Wrap both OrderDetailsPanel and Calendar in DndContext for drag-and-drop */}
             {displayedDates.length === 0 ? (

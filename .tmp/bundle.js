@@ -44813,7 +44813,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
   var init_style = __esm({
     "frontend/style.css"() {
       style = document.createElement("style");
-      style.textContent = '*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }\n\n/*! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Courier,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.visible{visibility:visible}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.right-2{right:.5rem}.top-0{top:0}.top-2{top:.5rem}.z-10{z-index:10}.z-30{z-index:30}.z-40{z-index:40}.m-0{margin:0}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.ml-1{margin-left:.25rem}.ml-2{margin-left:.5rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.inline-block{display:inline-block}.flex{display:flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-6{height:1.5rem}.h-full{height:100%}.w-6{width:1.5rem}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-none{flex:none}.flex-shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.flex-col{flex-direction:column}.flex-nowrap{flex-wrap:nowrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-l-lg{border-top-left-radius:.875rem;border-bottom-left-radius:.875rem}.rounded-r-lg{border-top-right-radius:.875rem;border-bottom-right-radius:.875rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.border-r{border-right-width:1px}.border-dashed{border-style:dashed}.border-blue-300{--tw-border-opacity:1;border-color:rgb(147 197 253/var(--tw-border-opacity,1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219/var(--tw-border-opacity,1))}.border-green-300{--tw-border-opacity:1;border-color:rgb(134 239 172/var(--tw-border-opacity,1))}.border-red-300{--tw-border-opacity:1;border-color:rgb(252 165 165/var(--tw-border-opacity,1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68/var(--tw-border-opacity,1))}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-1{padding-bottom:.25rem}.pr-2{padding-right:.5rem}.pr-6{padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-base{font-size:.8125rem;line-height:1.25rem}.text-sm{font-size:.6875rem;line-height:1rem}.text-xs{font-size:.5625rem;line-height:.875rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.hover\\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.hover\\:bg-blue-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.hover\\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219/var(--tw-bg-opacity,1))}.hover\\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.hover\\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74/var(--tw-bg-opacity,1))}';
+      style.textContent = '*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }\n\n/*! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Courier,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.right-2{right:.5rem}.top-0{top:0}.top-2{top:.5rem}.z-10{z-index:10}.z-30{z-index:30}.z-40{z-index:40}.m-0{margin:0}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.ml-1{margin-left:.25rem}.ml-2{margin-left:.5rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.inline-block{display:inline-block}.flex{display:flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-6{height:1.5rem}.h-full{height:100%}.w-6{width:1.5rem}.w-full{width:100%}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.flex-none{flex:none}.flex-shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.flex-col{flex-direction:column}.flex-nowrap{flex-wrap:nowrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-l-lg{border-top-left-radius:.875rem;border-bottom-left-radius:.875rem}.rounded-r-lg{border-top-right-radius:.875rem;border-bottom-right-radius:.875rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.border-r{border-right-width:1px}.border-dashed{border-style:dashed}.border-blue-300{--tw-border-opacity:1;border-color:rgb(147 197 253/var(--tw-border-opacity,1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219/var(--tw-border-opacity,1))}.border-green-300{--tw-border-opacity:1;border-color:rgb(134 239 172/var(--tw-border-opacity,1))}.border-red-300{--tw-border-opacity:1;border-color:rgb(252 165 165/var(--tw-border-opacity,1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68/var(--tw-border-opacity,1))}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-1{padding-bottom:.25rem}.pr-2{padding-right:.5rem}.pr-6{padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-base{font-size:.8125rem;line-height:1.25rem}.text-sm{font-size:.6875rem;line-height:1rem}.text-xs{font-size:.5625rem;line-height:.875rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.hover\\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.hover\\:bg-blue-600:hover{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.hover\\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219/var(--tw-bg-opacity,1))}.hover\\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.hover\\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74/var(--tw-bg-opacity,1))}';
       document.head.appendChild(style);
     }
   });
@@ -47262,6 +47262,131 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       this
     );
   }
+  function CustomAlert({ message, onClose }) {
+    if (!message) return null;
+    return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+      "div",
+      {
+        style: {
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1e4
+        },
+        onClick: onClose,
+        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+          "div",
+          {
+            style: {
+              backgroundColor: "white",
+              borderRadius: "8px",
+              padding: "24px",
+              maxWidth: "500px",
+              width: "90%",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)"
+            },
+            onClick: (e) => e.stopPropagation(),
+            children: [
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                "div",
+                {
+                  style: {
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    marginBottom: "12px",
+                    color: "#1f2937"
+                  },
+                  children: "Notice"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "frontend/index.js",
+                  lineNumber: 2085,
+                  columnNumber: 17
+                },
+                this
+              ),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                "div",
+                {
+                  style: {
+                    fontSize: "14px",
+                    color: "#4b5563",
+                    marginBottom: "20px",
+                    lineHeight: "1.5"
+                  },
+                  children: message
+                },
+                void 0,
+                false,
+                {
+                  fileName: "frontend/index.js",
+                  lineNumber: 2095,
+                  columnNumber: 17
+                },
+                this
+              ),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                "button",
+                {
+                  onClick: onClose,
+                  style: {
+                    backgroundColor: "#3b82f6",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "6px",
+                    padding: "8px 16px",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    cursor: "pointer",
+                    width: "100%"
+                  },
+                  onMouseEnter: (e) => {
+                    e.currentTarget.style.backgroundColor = "#2563eb";
+                  },
+                  onMouseLeave: (e) => {
+                    e.currentTarget.style.backgroundColor = "#3b82f6";
+                  },
+                  children: "OK"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "frontend/index.js",
+                  lineNumber: 2105,
+                  columnNumber: 17
+                },
+                this
+              )
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "frontend/index.js",
+            lineNumber: 2074,
+            columnNumber: 13
+          },
+          this
+        )
+      },
+      void 0,
+      false,
+      {
+        fileName: "frontend/index.js",
+        lineNumber: 2059,
+        columnNumber: 9
+      },
+      this
+    );
+  }
   function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdating, isRecentlyUpdated, status, statusIcon, highlightedEvent, eventsTable, setUpdatingRecords }) {
     const isHighlighted = highlightedEvent && String(highlightedEvent.eventId) === String(event.id);
     const isFromLeft = highlightedEvent && highlightedEvent.isFromLeft;
@@ -47478,7 +47603,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               width: "100%"
             }, children: eventTitle }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 2308,
+              lineNumber: 2386,
               columnNumber: 17
             }, this),
             bookingOrder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47492,7 +47617,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               width: "100%"
             }, children: bookingOrder }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 2323,
+              lineNumber: 2401,
               columnNumber: 21
             }, this),
             assignDateStr && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47506,12 +47631,12 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               width: "100%"
             }, children: assignDateStr }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 2339,
+              lineNumber: 2417,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 2294,
+            lineNumber: 2372,
             columnNumber: 13
           }, this),
           isDelegated && !isLunchBreak && !isFardig && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -47581,7 +47706,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 2356,
+              lineNumber: 2434,
               columnNumber: 17
             },
             this
@@ -47592,7 +47717,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       true,
       {
         fileName: "frontend/index.js",
-        lineNumber: 2252,
+        lineNumber: 2330,
         columnNumber: 9
       },
       this
@@ -47657,6 +47782,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     const [sideSelectedOrderNumbers, setSideSelectedOrderNumbers] = (0, import_react9.useState)(/* @__PURE__ */ new Set());
     const [highlightedEvent, setHighlightedEvent] = (0, import_react9.useState)(null);
     const [selectedEventForModal, setSelectedEventForModal] = (0, import_react9.useState)(null);
+    const [alertMessage, setAlertMessage] = (0, import_react9.useState)(null);
     const handleHighlightEvent = (0, import_react9.useCallback)((eventId, isFromLeft = false) => {
       console.log("handleHighlightEvent called with:", { eventId, isFromLeft });
       if (eventId) {
@@ -48263,7 +48389,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             return overlaps;
           });
           if (hasOverlap) {
-            alert("Cannot move event: The selected time slot overlaps with a lunch/break period. The event will remain in its original position.");
+            setAlertMessage("Cannot move event: The selected time slot overlaps with a lunch/break period. The event will remain in its original position.");
             console.log("Move prevented due to lunch/break overlap - event will return to original position");
             return;
           }
@@ -48960,619 +49086,636 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         });
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "p-4 font-sans w-full h-full bg-white text-gray-900", style: { width: "100%", height: "100%", overflow: "visible" }, children: displayedDates.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto", children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-2 flex-shrink-0", children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-            "button",
-            {
-              onClick: () => goToWeek(-1),
-              className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
-              children: "F\xF6rra veckan"
-            },
-            void 0,
-            false,
-            {
-              fileName: "frontend/index.js",
-              lineNumber: 4283,
-              columnNumber: 29
-            },
-            this
-          ),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-            "button",
-            {
-              onClick: () => {
-                const now = /* @__PURE__ */ new Date();
-                const dayOfWeek = now.getDay();
-                const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-                const monday = new Date(now);
-                monday.setDate(now.getDate() + mondayOffset);
-                const friday = new Date(monday);
-                friday.setDate(monday.getDate() + 4);
-                setStartDate(monday.toISOString().split("T")[0]);
-                setEndDate(friday.toISOString().split("T")[0]);
-              },
-              className: "px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors",
-              children: "Denna veckan"
-            },
-            void 0,
-            false,
-            {
-              fileName: "frontend/index.js",
-              lineNumber: 4289,
-              columnNumber: 29
-            },
-            this
-          ),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-            "button",
-            {
-              onClick: () => goToWeek(1),
-              className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
-              children: "N\xE4sta vecka"
-            },
-            void 0,
-            false,
-            {
-              fileName: "frontend/index.js",
-              lineNumber: 4305,
-              columnNumber: 29
-            },
-            this
-          )
-        ] }, void 0, true, {
+    return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "p-4 font-sans w-full h-full bg-white text-gray-900", style: { width: "100%", height: "100%", overflow: "visible" }, children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+        CustomAlert,
+        {
+          message: alertMessage,
+          onClose: () => setAlertMessage(null)
+        },
+        void 0,
+        false,
+        {
           fileName: "frontend/index.js",
-          lineNumber: 4282,
-          columnNumber: 25
-        }, this),
-        eventsTable && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-          OrderDetailsPanel,
-          {
-            selectedOrderNumbers: topSelectedOrderNumbers,
-            orders: filteredOrderRecords,
-            orderTable,
-            calendarEvents: events2,
-            eventsTable,
-            onCloseOrder: (orderNo) => handleCloseOrder(orderNo, "top"),
-            statusColors,
-            statusIcons,
-            updatingRecords,
-            recentlyUpdatedRecords,
-            onHighlightEvent: handleHighlightEvent,
-            onEventClick: (event) => {
-              if (event) {
-                expandRecord(event);
-              }
-            }
-          },
-          void 0,
-          false,
-          {
-            fileName: "frontend/index.js",
-            lineNumber: 4317,
-            columnNumber: 37
-          },
-          this
-        ) }, void 0, false, {
-          fileName: "frontend/index.js",
-          lineNumber: 4316,
-          columnNumber: 33
-        }, this) }, void 0, false, {
-          fileName: "frontend/index.js",
-          lineNumber: 4315,
-          columnNumber: 29
-        }, this)
-      ] }, void 0, true, {
-        fileName: "frontend/index.js",
-        lineNumber: 4280,
-        columnNumber: 21
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 py-10 text-center text-gray-500 flex items-center justify-center", style: { minWidth: 0 }, children: "Please select Start Date and End Date to view the calendar." }, void 0, false, {
-        fileName: "frontend/index.js",
-        lineNumber: 4339,
-        columnNumber: 21
-      }, this)
-    ] }, void 0, true, {
-      fileName: "frontend/index.js",
-      lineNumber: 4278,
-      columnNumber: 17
-    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-      DndContext,
-      {
-        sensors,
-        collisionDetection: closestCenter,
-        onDragStart: (event) => console.log("Drag started:", event.active.id),
-        onDragEnd: handleDragEnd,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto", children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-2 flex-shrink-0", children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                "button",
-                {
-                  onClick: () => goToWeek(-1),
-                  className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
-                  children: "F\xF6rra veckan"
-                },
-                void 0,
-                false,
-                {
-                  fileName: "frontend/index.js",
-                  lineNumber: 4354,
-                  columnNumber: 29
-                },
-                this
-              ),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                "button",
-                {
-                  onClick: () => {
-                    const now = /* @__PURE__ */ new Date();
-                    const dayOfWeek = now.getDay();
-                    const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-                    const monday = new Date(now);
-                    monday.setDate(now.getDate() + mondayOffset);
-                    const friday = new Date(monday);
-                    friday.setDate(monday.getDate() + 4);
-                    setStartDate(monday.toISOString().split("T")[0]);
-                    setEndDate(friday.toISOString().split("T")[0]);
-                  },
-                  className: "px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors",
-                  children: "Denna veckan"
-                },
-                void 0,
-                false,
-                {
-                  fileName: "frontend/index.js",
-                  lineNumber: 4360,
-                  columnNumber: 29
-                },
-                this
-              ),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                "button",
-                {
-                  onClick: () => goToWeek(1),
-                  className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
-                  children: "N\xE4sta vecka"
-                },
-                void 0,
-                false,
-                {
-                  fileName: "frontend/index.js",
-                  lineNumber: 4376,
-                  columnNumber: 29
-                },
-                this
-              )
-            ] }, void 0, true, {
-              fileName: "frontend/index.js",
-              lineNumber: 4353,
-              columnNumber: 25
-            }, this),
-            eventsTable && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-              OrderDetailsPanel,
+          lineNumber: 4355,
+          columnNumber: 13
+        },
+        this
+      ),
+      displayedDates.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto", children: [
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-2 flex-shrink-0", children: [
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+              "button",
               {
-                selectedOrderNumbers: topSelectedOrderNumbers,
-                orders: filteredOrderRecords,
-                orderTable,
-                calendarEvents: events2,
-                eventsTable,
-                onCloseOrder: (orderNo) => handleCloseOrder(orderNo, "top"),
-                statusColors,
-                statusIcons,
-                updatingRecords,
-                recentlyUpdatedRecords,
-                onHighlightEvent: handleHighlightEvent,
-                onEventClick: (event) => {
-                  if (event) {
-                    expandRecord(event);
-                  }
-                }
+                onClick: () => goToWeek(-1),
+                className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
+                children: "F\xF6rra veckan"
               },
               void 0,
               false,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 4388,
-                columnNumber: 37
+                lineNumber: 4367,
+                columnNumber: 29
               },
               this
-            ) }, void 0, false, {
-              fileName: "frontend/index.js",
-              lineNumber: 4387,
-              columnNumber: 33
-            }, this) }, void 0, false, {
-              fileName: "frontend/index.js",
-              lineNumber: 4386,
-              columnNumber: 29
-            }, this)
+            ),
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+              "button",
+              {
+                onClick: () => {
+                  const now = /* @__PURE__ */ new Date();
+                  const dayOfWeek = now.getDay();
+                  const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+                  const monday = new Date(now);
+                  monday.setDate(now.getDate() + mondayOffset);
+                  const friday = new Date(monday);
+                  friday.setDate(monday.getDate() + 4);
+                  setStartDate(monday.toISOString().split("T")[0]);
+                  setEndDate(friday.toISOString().split("T")[0]);
+                },
+                className: "px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors",
+                children: "Denna veckan"
+              },
+              void 0,
+              false,
+              {
+                fileName: "frontend/index.js",
+                lineNumber: 4373,
+                columnNumber: 29
+              },
+              this
+            ),
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+              "button",
+              {
+                onClick: () => goToWeek(1),
+                className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
+                children: "N\xE4sta vecka"
+              },
+              void 0,
+              false,
+              {
+                fileName: "frontend/index.js",
+                lineNumber: 4389,
+                columnNumber: 29
+              },
+              this
+            )
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 4351,
-            columnNumber: 21
+            lineNumber: 4366,
+            columnNumber: 25
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-            "div",
+          eventsTable && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+            OrderDetailsPanel,
             {
-              className: "flex gap-0 w-full",
-              style: {
-                height: "calc(100vh - 120px)",
-                minHeight: "600px",
-                maxHeight: "calc(100vh - 120px)",
-                width: "100%",
-                position: "relative",
-                overflow: "visible"
-              },
-              children: [
-                eventsTable && orderRecords && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                  "div",
+              selectedOrderNumbers: topSelectedOrderNumbers,
+              orders: filteredOrderRecords,
+              orderTable,
+              calendarEvents: events2,
+              eventsTable,
+              onCloseOrder: (orderNo) => handleCloseOrder(orderNo, "top"),
+              statusColors,
+              statusIcons,
+              updatingRecords,
+              recentlyUpdatedRecords,
+              onHighlightEvent: handleHighlightEvent,
+              onEventClick: (event) => {
+                if (event) {
+                  expandRecord(event);
+                }
+              }
+            },
+            void 0,
+            false,
+            {
+              fileName: "frontend/index.js",
+              lineNumber: 4401,
+              columnNumber: 37
+            },
+            this
+          ) }, void 0, false, {
+            fileName: "frontend/index.js",
+            lineNumber: 4400,
+            columnNumber: 33
+          }, this) }, void 0, false, {
+            fileName: "frontend/index.js",
+            lineNumber: 4399,
+            columnNumber: 29
+          }, this)
+        ] }, void 0, true, {
+          fileName: "frontend/index.js",
+          lineNumber: 4364,
+          columnNumber: 21
+        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 py-10 text-center text-gray-500 flex items-center justify-center", style: { minWidth: 0 }, children: "Please select Start Date and End Date to view the calendar." }, void 0, false, {
+          fileName: "frontend/index.js",
+          lineNumber: 4423,
+          columnNumber: 21
+        }, this)
+      ] }, void 0, true, {
+        fileName: "frontend/index.js",
+        lineNumber: 4362,
+        columnNumber: 17
+      }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+        DndContext,
+        {
+          sensors,
+          collisionDetection: closestCenter,
+          onDragStart: (event) => console.log("Drag started:", event.active.id),
+          onDragEnd: handleDragEnd,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto", children: [
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex items-center gap-2 flex-shrink-0", children: [
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                  "button",
                   {
-                    className: "flex-shrink-0 bg-white",
-                    style: {
-                      width: "175px",
-                      minWidth: "175px",
-                      height: "100%",
-                      border: "1px solid #e5e7eb",
-                      borderRadius: "8px"
-                    },
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                      LeftSideOrderDetailsPanel,
-                      {
-                        orders: orderRecords,
-                        orderTable,
-                        calendarEvents: events2,
-                        eventsTable,
-                        onCloseOrder: (orderNo) => handleCloseOrder(orderNo, "side"),
-                        statusColors,
-                        statusIcons,
-                        updatingRecords,
-                        recentlyUpdatedRecords,
-                        onHighlightEvent: handleHighlightEvent
-                      },
-                      void 0,
-                      false,
-                      {
-                        fileName: "frontend/index.js",
-                        lineNumber: 4434,
-                        columnNumber: 33
-                      },
-                      this
-                    )
+                    onClick: () => goToWeek(-1),
+                    className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
+                    children: "F\xF6rra veckan"
                   },
                   void 0,
                   false,
                   {
                     fileName: "frontend/index.js",
-                    lineNumber: 4424,
+                    lineNumber: 4438,
                     columnNumber: 29
                   },
                   this
                 ),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "relative rounded-l-lg overflow-hidden flex-1", style: { overflowY: "auto", overflowX: "auto", border: "1px solid rgb(229, 231, 235)", borderRight: "none", height: "100%" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex overflow-x-auto", children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "left-sidebar flex-shrink-0 border-r border-gray-200 bg-gray-50", style: { marginTop: `${headerHeight + dateRowHeight}px` }, children: hours.map((hour, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                  "button",
+                  {
+                    onClick: () => {
+                      const now = /* @__PURE__ */ new Date();
+                      const dayOfWeek = now.getDay();
+                      const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+                      const monday = new Date(now);
+                      monday.setDate(now.getDate() + mondayOffset);
+                      const friday = new Date(monday);
+                      friday.setDate(monday.getDate() + 4);
+                      setStartDate(monday.toISOString().split("T")[0]);
+                      setEndDate(friday.toISOString().split("T")[0]);
+                    },
+                    className: "px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors",
+                    children: "Denna veckan"
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "frontend/index.js",
+                    lineNumber: 4444,
+                    columnNumber: 29
+                  },
+                  this
+                ),
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                  "button",
+                  {
+                    onClick: () => goToWeek(1),
+                    className: "px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors",
+                    children: "N\xE4sta vecka"
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "frontend/index.js",
+                    lineNumber: 4460,
+                    columnNumber: 29
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "frontend/index.js",
+                lineNumber: 4437,
+                columnNumber: 25
+              }, this),
+              eventsTable && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                OrderDetailsPanel,
+                {
+                  selectedOrderNumbers: topSelectedOrderNumbers,
+                  orders: filteredOrderRecords,
+                  orderTable,
+                  calendarEvents: events2,
+                  eventsTable,
+                  onCloseOrder: (orderNo) => handleCloseOrder(orderNo, "top"),
+                  statusColors,
+                  statusIcons,
+                  updatingRecords,
+                  recentlyUpdatedRecords,
+                  onHighlightEvent: handleHighlightEvent,
+                  onEventClick: (event) => {
+                    if (event) {
+                      expandRecord(event);
+                    }
+                  }
+                },
+                void 0,
+                false,
+                {
+                  fileName: "frontend/index.js",
+                  lineNumber: 4472,
+                  columnNumber: 37
+                },
+                this
+              ) }, void 0, false, {
+                fileName: "frontend/index.js",
+                lineNumber: 4471,
+                columnNumber: 33
+              }, this) }, void 0, false, {
+                fileName: "frontend/index.js",
+                lineNumber: 4470,
+                columnNumber: 29
+              }, this)
+            ] }, void 0, true, {
+              fileName: "frontend/index.js",
+              lineNumber: 4435,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+              "div",
+              {
+                className: "flex gap-0 w-full",
+                style: {
+                  height: "calc(100vh - 120px)",
+                  minHeight: "600px",
+                  maxHeight: "calc(100vh - 120px)",
+                  width: "100%",
+                  position: "relative",
+                  overflow: "visible"
+                },
+                children: [
+                  eventsTable && orderRecords && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
                     "div",
                     {
-                      className: "time-cell border-b border-gray-200 text-xs text-gray-500 text-right pr-2 py-1",
-                      style: { height: `${hourHeight}px` },
-                      children: hour
-                    },
-                    i,
-                    false,
-                    {
-                      fileName: "frontend/index.js",
-                      lineNumber: 4456,
-                      columnNumber: 33
-                    },
-                    this
-                  )) }, void 0, false, {
-                    fileName: "frontend/index.js",
-                    lineNumber: 4454,
-                    columnNumber: 25
-                  }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "main-section flex gap-3", children: mechanics.map((mech, mechIndex) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                    "div",
-                    {
-                      className: "mechanic-sub-calendar flex-none border border-gray-200 bg-white",
-                      style: { width: `${displayedDates.length * cellWidth}px` },
-                      children: [
-                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                          "div",
-                          {
-                            className: "mechanic-header bg-white flex items-center justify-center gap-2 border-b border-gray-200",
-                            style: {
-                              position: "sticky",
-                              top: 0,
-                              zIndex: 30,
-                              height: `${headerHeight}px`,
-                              display: "flex",
-                              flexDirection: "row",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              gap: "8px"
-                            },
-                            children: [
-                              mech.profileUrl ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                                "img",
-                                {
-                                  src: mech.profileUrl,
-                                  alt: `${mech.name} Profile`,
-                                  style: {
-                                    width: "32px",
-                                    height: "32px",
-                                    borderRadius: "50%",
-                                    objectFit: "cover",
-                                    flexShrink: 0
-                                  }
-                                },
-                                void 0,
-                                false,
-                                {
-                                  fileName: "frontend/index.js",
-                                  lineNumber: 4491,
-                                  columnNumber: 45
-                                },
-                                this
-                              ) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                                "div",
-                                {
-                                  style: {
-                                    width: "32px",
-                                    height: "32px",
-                                    borderRadius: "50%",
-                                    backgroundColor: "#e5e7eb",
-                                    flexShrink: 0,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    fontSize: "12px",
-                                    color: "#6b7280"
-                                  },
-                                  children: mech.name ? mech.name.charAt(0).toUpperCase() : "?"
-                                },
-                                void 0,
-                                false,
-                                {
-                                  fileName: "frontend/index.js",
-                                  lineNumber: 4503,
-                                  columnNumber: 45
-                                },
-                                this
-                              ),
-                              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }, children: [
-                                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "m-0 text-sm font-semibold", style: { margin: 0 }, children: mech.name }, void 0, false, {
-                                  fileName: "frontend/index.js",
-                                  lineNumber: 4521,
-                                  columnNumber: 45
-                                }, this),
-                                mech.priority !== null && mech.priority !== void 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: {
-                                  fontSize: "10px",
-                                  color: "#6b7280",
-                                  fontWeight: "500"
-                                }, children: [
-                                  "Priority: ",
-                                  mech.priority
-                                ] }, void 0, true, {
-                                  fileName: "frontend/index.js",
-                                  lineNumber: 4523,
-                                  columnNumber: 49
-                                }, this)
-                              ] }, void 0, true, {
-                                fileName: "frontend/index.js",
-                                lineNumber: 4520,
-                                columnNumber: 41
-                              }, this)
-                            ]
-                          },
-                          void 0,
-                          true,
-                          {
-                            fileName: "frontend/index.js",
-                            lineNumber: 4476,
-                            columnNumber: 37
-                          },
-                          this
-                        ),
-                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                          "div",
-                          {
-                            className: "day-header bg-white border-b border-gray-200 font-semibold text-center grid",
-                            style: {
-                              position: "sticky",
-                              top: `${headerHeight}px`,
-                              zIndex: 20,
-                              gridTemplateColumns: `repeat(${displayedDates.length}, 1fr)`,
-                              height: `${dateRowHeight}px`
-                            },
-                            children: displayedDates.map((date) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                              "div",
-                              {
-                                className: "day-cell border-r border-gray-200 flex items-center justify-center",
-                                children: formatShortDate(date)
-                              },
-                              date.toDateString(),
-                              false,
-                              {
-                                fileName: "frontend/index.js",
-                                lineNumber: 4546,
-                                columnNumber: 45
-                              },
-                              this
-                            ))
-                          },
-                          void 0,
-                          false,
-                          {
-                            fileName: "frontend/index.js",
-                            lineNumber: 4535,
-                            columnNumber: 37
-                          },
-                          this
-                        ),
-                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                          "div",
-                          {
-                            className: "calendar-grid grid",
-                            style: { gridTemplateColumns: `repeat(${displayedDates.length}, 1fr)` },
-                            children: displayedDates.map((date) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "date-column relative", children: [
-                              hours.map((hour, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                                DroppableCell,
-                                {
-                                  mechanicName: mech.name,
-                                  date,
-                                  hourIndex: i,
-                                  hourHeight
-                                },
-                                i,
-                                false,
-                                {
-                                  fileName: "frontend/index.js",
-                                  lineNumber: 4563,
-                                  columnNumber: 53
-                                },
-                                this
-                              )),
-                              getEventsForMechanicAndDate(mech.name, date).map((ev) => {
-                                let start = null;
-                                let end = null;
-                                const starttid = ev.getCellValue("Starttid");
-                                if (starttid) {
-                                  start = starttid instanceof Date ? starttid : new Date(starttid);
-                                }
-                                const sluttid = ev.getCellValue("Sluttid");
-                                if (sluttid) {
-                                  end = sluttid instanceof Date ? sluttid : new Date(sluttid);
-                                }
-                                if (!start || !end) {
-                                  if (ev.isLunchBreak === true) {
-                                    console.warn("Lunch break event missing Starttid or Sluttid:", ev.id);
-                                  }
-                                  return null;
-                                }
-                                const adjustedStartHour = start.getHours() - 5;
-                                const adjustedEndHour = end.getHours() - 5;
-                                if (adjustedStartHour < 0 || adjustedStartHour >= 15) {
-                                  return null;
-                                }
-                                const top = adjustedStartHour * hourHeight + start.getMinutes() / 60 * hourHeight;
-                                const height = (end - start) / (1e3 * 60 * 60) * hourHeight;
-                                const isLunchBreak = ev.isLunchBreak === true;
-                                const status = ev.getCellValue("Order Status")?.[0]?.value || "Inget";
-                                const backgroundColor = isLunchBreak ? "#22c55e" : statusColors[status] || "#6b7280";
-                                const statusIcon = statusIcons[status] || "\u2753";
-                                const handleExpand = isLunchBreak ? () => {
-                                } : expandRecord;
-                                return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                                  DraggableEvent,
-                                  {
-                                    event: ev,
-                                    top,
-                                    height,
-                                    backgroundColor,
-                                    onExpand: handleExpand,
-                                    isUpdating: updatingRecords.has(ev.id),
-                                    isRecentlyUpdated: recentlyUpdatedRecords.has(ev.id),
-                                    status,
-                                    statusIcon,
-                                    highlightedEvent,
-                                    eventsTable,
-                                    setUpdatingRecords
-                                  },
-                                  ev.id,
-                                  false,
-                                  {
-                                    fileName: "frontend/index.js",
-                                    lineNumber: 4624,
-                                    columnNumber: 53
-                                  },
-                                  this
-                                );
-                              })
-                            ] }, date.toDateString(), true, {
-                              fileName: "frontend/index.js",
-                              lineNumber: 4561,
-                              columnNumber: 45
-                            }, this))
-                          },
-                          void 0,
-                          false,
-                          {
-                            fileName: "frontend/index.js",
-                            lineNumber: 4556,
-                            columnNumber: 37
-                          },
-                          this
-                        )
-                      ]
-                    },
-                    `mechanic-${mech.name}`,
-                    true,
-                    {
-                      fileName: "frontend/index.js",
-                      lineNumber: 4469,
-                      columnNumber: 33
-                    },
-                    this
-                  )) }, void 0, false, {
-                    fileName: "frontend/index.js",
-                    lineNumber: 4467,
-                    columnNumber: 25
-                  }, this)
-                ] }, void 0, true, {
-                  fileName: "frontend/index.js",
-                  lineNumber: 4451,
-                  columnNumber: 25
-                }, this) }, void 0, false, {
-                  fileName: "frontend/index.js",
-                  lineNumber: 4449,
-                  columnNumber: 25
-                }, this),
-                (() => {
-                  console.log("Rendering OrderList component in main render");
-                  console.log("filteredOrderRecords:", filteredOrderRecords.length);
-                  console.log("orderTable:", orderTable?.name);
-                  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
-                    OrderList,
-                    {
-                      orders: filteredOrderRecords,
-                      orderTable,
-                      selectedOrderNumbers: topSelectedOrderNumbers,
-                      onOrderClick: handleOrderClick
+                      className: "flex-shrink-0 bg-white",
+                      style: {
+                        width: "175px",
+                        minWidth: "175px",
+                        height: "100%",
+                        border: "1px solid #e5e7eb",
+                        borderRadius: "8px"
+                      },
+                      children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                        LeftSideOrderDetailsPanel,
+                        {
+                          orders: orderRecords,
+                          orderTable,
+                          calendarEvents: events2,
+                          eventsTable,
+                          onCloseOrder: (orderNo) => handleCloseOrder(orderNo, "side"),
+                          statusColors,
+                          statusIcons,
+                          updatingRecords,
+                          recentlyUpdatedRecords,
+                          onHighlightEvent: handleHighlightEvent
+                        },
+                        void 0,
+                        false,
+                        {
+                          fileName: "frontend/index.js",
+                          lineNumber: 4518,
+                          columnNumber: 33
+                        },
+                        this
+                      )
                     },
                     void 0,
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4656,
-                      columnNumber: 33
+                      lineNumber: 4508,
+                      columnNumber: 29
                     },
                     this
-                  );
-                })()
-              ]
-            },
-            void 0,
-            true,
-            {
-              fileName: "frontend/index.js",
-              lineNumber: 4411,
-              columnNumber: 21
-            },
-            this
-          )
-        ]
-      },
-      void 0,
-      true,
-      {
-        fileName: "frontend/index.js",
-        lineNumber: 4344,
-        columnNumber: 17
-      },
-      this
-    ) }, void 0, false, {
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "relative rounded-l-lg overflow-hidden flex-1", style: { overflowY: "auto", overflowX: "auto", border: "1px solid rgb(229, 231, 235)", borderRight: "none", height: "100%" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex overflow-x-auto", children: [
+                    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "left-sidebar flex-shrink-0 border-r border-gray-200 bg-gray-50", style: { marginTop: `${headerHeight + dateRowHeight}px` }, children: hours.map((hour, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                      "div",
+                      {
+                        className: "time-cell border-b border-gray-200 text-xs text-gray-500 text-right pr-2 py-1",
+                        style: { height: `${hourHeight}px` },
+                        children: hour
+                      },
+                      i,
+                      false,
+                      {
+                        fileName: "frontend/index.js",
+                        lineNumber: 4540,
+                        columnNumber: 33
+                      },
+                      this
+                    )) }, void 0, false, {
+                      fileName: "frontend/index.js",
+                      lineNumber: 4538,
+                      columnNumber: 25
+                    }, this),
+                    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "main-section flex gap-3", children: mechanics.map((mech, mechIndex) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                      "div",
+                      {
+                        className: "mechanic-sub-calendar flex-none border border-gray-200 bg-white",
+                        style: { width: `${displayedDates.length * cellWidth}px` },
+                        children: [
+                          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                            "div",
+                            {
+                              className: "mechanic-header bg-white flex items-center justify-center gap-2 border-b border-gray-200",
+                              style: {
+                                position: "sticky",
+                                top: 0,
+                                zIndex: 30,
+                                height: `${headerHeight}px`,
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: "8px"
+                              },
+                              children: [
+                                mech.profileUrl ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                                  "img",
+                                  {
+                                    src: mech.profileUrl,
+                                    alt: `${mech.name} Profile`,
+                                    style: {
+                                      width: "32px",
+                                      height: "32px",
+                                      borderRadius: "50%",
+                                      objectFit: "cover",
+                                      flexShrink: 0
+                                    }
+                                  },
+                                  void 0,
+                                  false,
+                                  {
+                                    fileName: "frontend/index.js",
+                                    lineNumber: 4575,
+                                    columnNumber: 45
+                                  },
+                                  this
+                                ) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                                  "div",
+                                  {
+                                    style: {
+                                      width: "32px",
+                                      height: "32px",
+                                      borderRadius: "50%",
+                                      backgroundColor: "#e5e7eb",
+                                      flexShrink: 0,
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      fontSize: "12px",
+                                      color: "#6b7280"
+                                    },
+                                    children: mech.name ? mech.name.charAt(0).toUpperCase() : "?"
+                                  },
+                                  void 0,
+                                  false,
+                                  {
+                                    fileName: "frontend/index.js",
+                                    lineNumber: 4587,
+                                    columnNumber: 45
+                                  },
+                                  this
+                                ),
+                                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }, children: [
+                                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "m-0 text-sm font-semibold", style: { margin: 0 }, children: mech.name }, void 0, false, {
+                                    fileName: "frontend/index.js",
+                                    lineNumber: 4605,
+                                    columnNumber: 45
+                                  }, this),
+                                  mech.priority !== null && mech.priority !== void 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: {
+                                    fontSize: "10px",
+                                    color: "#6b7280",
+                                    fontWeight: "500"
+                                  }, children: [
+                                    "Priority: ",
+                                    mech.priority
+                                  ] }, void 0, true, {
+                                    fileName: "frontend/index.js",
+                                    lineNumber: 4607,
+                                    columnNumber: 49
+                                  }, this)
+                                ] }, void 0, true, {
+                                  fileName: "frontend/index.js",
+                                  lineNumber: 4604,
+                                  columnNumber: 41
+                                }, this)
+                              ]
+                            },
+                            void 0,
+                            true,
+                            {
+                              fileName: "frontend/index.js",
+                              lineNumber: 4560,
+                              columnNumber: 37
+                            },
+                            this
+                          ),
+                          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                            "div",
+                            {
+                              className: "day-header bg-white border-b border-gray-200 font-semibold text-center grid",
+                              style: {
+                                position: "sticky",
+                                top: `${headerHeight}px`,
+                                zIndex: 20,
+                                gridTemplateColumns: `repeat(${displayedDates.length}, 1fr)`,
+                                height: `${dateRowHeight}px`
+                              },
+                              children: displayedDates.map((date) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                                "div",
+                                {
+                                  className: "day-cell border-r border-gray-200 flex items-center justify-center",
+                                  children: formatShortDate(date)
+                                },
+                                date.toDateString(),
+                                false,
+                                {
+                                  fileName: "frontend/index.js",
+                                  lineNumber: 4630,
+                                  columnNumber: 45
+                                },
+                                this
+                              ))
+                            },
+                            void 0,
+                            false,
+                            {
+                              fileName: "frontend/index.js",
+                              lineNumber: 4619,
+                              columnNumber: 37
+                            },
+                            this
+                          ),
+                          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                            "div",
+                            {
+                              className: "calendar-grid grid",
+                              style: { gridTemplateColumns: `repeat(${displayedDates.length}, 1fr)` },
+                              children: displayedDates.map((date) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "date-column relative", children: [
+                                hours.map((hour, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                                  DroppableCell,
+                                  {
+                                    mechanicName: mech.name,
+                                    date,
+                                    hourIndex: i,
+                                    hourHeight
+                                  },
+                                  i,
+                                  false,
+                                  {
+                                    fileName: "frontend/index.js",
+                                    lineNumber: 4647,
+                                    columnNumber: 53
+                                  },
+                                  this
+                                )),
+                                getEventsForMechanicAndDate(mech.name, date).map((ev) => {
+                                  let start = null;
+                                  let end = null;
+                                  const starttid = ev.getCellValue("Starttid");
+                                  if (starttid) {
+                                    start = starttid instanceof Date ? starttid : new Date(starttid);
+                                  }
+                                  const sluttid = ev.getCellValue("Sluttid");
+                                  if (sluttid) {
+                                    end = sluttid instanceof Date ? sluttid : new Date(sluttid);
+                                  }
+                                  if (!start || !end) {
+                                    if (ev.isLunchBreak === true) {
+                                      console.warn("Lunch break event missing Starttid or Sluttid:", ev.id);
+                                    }
+                                    return null;
+                                  }
+                                  const adjustedStartHour = start.getHours() - 5;
+                                  const adjustedEndHour = end.getHours() - 5;
+                                  if (adjustedStartHour < 0 || adjustedStartHour >= 15) {
+                                    return null;
+                                  }
+                                  const top = adjustedStartHour * hourHeight + start.getMinutes() / 60 * hourHeight;
+                                  const height = (end - start) / (1e3 * 60 * 60) * hourHeight;
+                                  const isLunchBreak = ev.isLunchBreak === true;
+                                  const status = ev.getCellValue("Order Status")?.[0]?.value || "Inget";
+                                  const backgroundColor = isLunchBreak ? "#22c55e" : statusColors[status] || "#6b7280";
+                                  const statusIcon = statusIcons[status] || "\u2753";
+                                  const handleExpand = isLunchBreak ? () => {
+                                  } : expandRecord;
+                                  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                                    DraggableEvent,
+                                    {
+                                      event: ev,
+                                      top,
+                                      height,
+                                      backgroundColor,
+                                      onExpand: handleExpand,
+                                      isUpdating: updatingRecords.has(ev.id),
+                                      isRecentlyUpdated: recentlyUpdatedRecords.has(ev.id),
+                                      status,
+                                      statusIcon,
+                                      highlightedEvent,
+                                      eventsTable,
+                                      setUpdatingRecords
+                                    },
+                                    ev.id,
+                                    false,
+                                    {
+                                      fileName: "frontend/index.js",
+                                      lineNumber: 4708,
+                                      columnNumber: 53
+                                    },
+                                    this
+                                  );
+                                })
+                              ] }, date.toDateString(), true, {
+                                fileName: "frontend/index.js",
+                                lineNumber: 4645,
+                                columnNumber: 45
+                              }, this))
+                            },
+                            void 0,
+                            false,
+                            {
+                              fileName: "frontend/index.js",
+                              lineNumber: 4640,
+                              columnNumber: 37
+                            },
+                            this
+                          )
+                        ]
+                      },
+                      `mechanic-${mech.name}`,
+                      true,
+                      {
+                        fileName: "frontend/index.js",
+                        lineNumber: 4553,
+                        columnNumber: 33
+                      },
+                      this
+                    )) }, void 0, false, {
+                      fileName: "frontend/index.js",
+                      lineNumber: 4551,
+                      columnNumber: 25
+                    }, this)
+                  ] }, void 0, true, {
+                    fileName: "frontend/index.js",
+                    lineNumber: 4535,
+                    columnNumber: 25
+                  }, this) }, void 0, false, {
+                    fileName: "frontend/index.js",
+                    lineNumber: 4533,
+                    columnNumber: 25
+                  }, this),
+                  (() => {
+                    console.log("Rendering OrderList component in main render");
+                    console.log("filteredOrderRecords:", filteredOrderRecords.length);
+                    console.log("orderTable:", orderTable?.name);
+                    return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+                      OrderList,
+                      {
+                        orders: filteredOrderRecords,
+                        orderTable,
+                        selectedOrderNumbers: topSelectedOrderNumbers,
+                        onOrderClick: handleOrderClick
+                      },
+                      void 0,
+                      false,
+                      {
+                        fileName: "frontend/index.js",
+                        lineNumber: 4740,
+                        columnNumber: 33
+                      },
+                      this
+                    );
+                  })()
+                ]
+              },
+              void 0,
+              true,
+              {
+                fileName: "frontend/index.js",
+                lineNumber: 4495,
+                columnNumber: 21
+              },
+              this
+            )
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "frontend/index.js",
+          lineNumber: 4428,
+          columnNumber: 17
+        },
+        this
+      )
+    ] }, void 0, true, {
       fileName: "frontend/index.js",
-      lineNumber: 4274,
+      lineNumber: 4353,
       columnNumber: 9
     }, this);
   }
@@ -49589,7 +49732,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
       initializeBlock({ interface: () => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarInterfaceExtension, {}, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4671,
+        lineNumber: 4755,
         columnNumber: 36
       }) });
     }
