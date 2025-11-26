@@ -2288,8 +2288,8 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                         className="undelegate-button"
                         style={{
                             position: 'absolute',
-                            top: '4px',
-                            right: '4px',
+                            top: '1px',
+                            right: '1px',
                             width: '18px',
                             height: '18px',
                             backgroundColor: 'rgba(255, 255, 255, 0.95)',

@@ -47219,8 +47219,15 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     try {
       const statusPaTidsmote = event.getCellValue("Status p\xE5 tidsm\xF6te");
       if (statusPaTidsmote) {
-        const statusName = typeof statusPaTidsmote === "string" ? statusPaTidsmote : statusPaTidsmote.name || statusPaTidsmote.value || "";
-        isFardig = statusName && statusName.toLowerCase() === "f\xE4rdig";
+        if (Array.isArray(statusPaTidsmote)) {
+          isFardig = statusPaTidsmote.some((status2) => {
+            const statusName = typeof status2 === "string" ? status2 : status2?.name || status2?.value || "";
+            return statusName && statusName.toLowerCase().includes("f\xE4rdig");
+          });
+        } else {
+          const statusName = typeof statusPaTidsmote === "string" ? statusPaTidsmote : statusPaTidsmote.name || statusPaTidsmote.value || "";
+          isFardig = statusName && statusName.toLowerCase().includes("f\xE4rdig");
+        }
       }
     } catch (e) {
       console.error("Error checking Status p\xE5 tidsm\xF6te:", e);
@@ -47271,10 +47278,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     const sluttid = event.getCellValue("Sluttid");
     const isDelegated = !!(starttid && sluttid) && !isLunchBreak;
     const handleEventClick = (e) => {
-      if (isDragging || isLunchBreak || isFardig || e.target.closest(".undelegate-button")) {
-        if (isFardig) {
-          console.log("Event with F\xE4rdig status cannot be opened");
-        }
+      if (isDragging || isLunchBreak || e.target.closest(".undelegate-button")) {
         return;
       }
       expandRecord(event);
@@ -47365,8 +47369,10 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           backdropFilter: "blur(1px)",
           zIndex: isHighlighted ? 1e3 : "auto",
           transition: "border 0.5s ease, box-shadow 0.5s ease",
-          cursor: isLunchBreak ? "default" : isFardig ? "not-allowed" : "pointer",
-          opacity: isFardig ? 0.7 : 1
+          cursor: isLunchBreak ? "default" : "pointer",
+          opacity: isFardig ? 0.7 : 1,
+          pointerEvents: "auto"
+          // Allow clicks to open detail page even for Färdig events
         }),
         className: "event-block text-white transition-all duration-200",
         onClick: handleEventClick,
@@ -47380,7 +47386,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             e.currentTarget.style.opacity = "1";
           }
         }
-      }, attributes), isFardig ? {} : listeners), {
+      }, isFardig ? {} : attributes), isFardig ? {} : listeners), {
         children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
           position: "relative",
           height: "100%",
@@ -47403,7 +47409,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: eventTitle }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2232,
+            lineNumber: 2240,
             columnNumber: 17
           }, this),
           bookingOrder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47417,7 +47423,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: bookingOrder }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2247,
+            lineNumber: 2255,
             columnNumber: 21
           }, this),
           assignDateStr && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47431,7 +47437,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             width: "100%"
           }, children: assignDateStr }, void 0, false, {
             fileName: "frontend/index.js",
-            lineNumber: 2263,
+            lineNumber: 2271,
             columnNumber: 21
           }, this),
           isDelegated && !isLunchBreak && !isFardig && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -47440,8 +47446,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               className: "undelegate-button",
               style: {
                 position: "absolute",
-                top: "4px",
-                right: "4px",
+                top: "1px",
+                right: "1px",
                 width: "18px",
                 height: "18px",
                 backgroundColor: "rgba(255, 255, 255, 0.95)",
@@ -47482,14 +47488,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 2279,
+              lineNumber: 2287,
               columnNumber: 21
             },
             this
           )
         ] }, void 0, true, {
           fileName: "frontend/index.js",
-          lineNumber: 2220,
+          lineNumber: 2228,
           columnNumber: 13
         }, this)
       }),
@@ -47497,7 +47503,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       false,
       {
         fileName: "frontend/index.js",
-        lineNumber: 2181,
+        lineNumber: 2188,
         columnNumber: 9
       },
       this
@@ -47561,6 +47567,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
     const [topSelectedOrderNumbers, setTopSelectedOrderNumbers] = (0, import_react9.useState)(/* @__PURE__ */ new Set());
     const [sideSelectedOrderNumbers, setSideSelectedOrderNumbers] = (0, import_react9.useState)(/* @__PURE__ */ new Set());
     const [highlightedEvent, setHighlightedEvent] = (0, import_react9.useState)(null);
+    const [selectedEventForModal, setSelectedEventForModal] = (0, import_react9.useState)(null);
     const handleHighlightEvent = (0, import_react9.useCallback)((eventId, isFromLeft = false) => {
       console.log("handleHighlightEvent called with:", { eventId, isFromLeft });
       if (eventId) {
@@ -47902,27 +47909,80 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           const currentStarttid = existingEvent.getCellValue("Starttid");
           const currentSluttid = existingEvent.getCellValue("Sluttid");
           const isUndelegated = !currentStarttid || !currentSluttid;
-          const defaultDuration = 60 * 60 * 1e3;
-          const newEndTime = new Date(newStartTime.getTime() + defaultDuration);
-          if (isUndelegated) {
+          let durationMs = 60 * 60 * 1e3;
+          if (currentStarttid && currentSluttid) {
+            try {
+              const startDate2 = currentStarttid instanceof Date ? currentStarttid : new Date(currentStarttid);
+              const endDate2 = currentSluttid instanceof Date ? currentSluttid : new Date(currentSluttid);
+              if (!isNaN(startDate2.getTime()) && !isNaN(endDate2.getTime())) {
+                durationMs = endDate2.getTime() - startDate2.getTime();
+                if (durationMs <= 0) {
+                  console.warn("Invalid duration from Starttid/Sluttid (end <= start), using default 1 hour");
+                  durationMs = 60 * 60 * 1e3;
+                } else {
+                  const durationHours = durationMs / (60 * 60 * 1e3);
+                  console.log("Preserving booked duration from existing Starttid/Sluttid:", {
+                    originalStart: startDate2.toISOString(),
+                    originalEnd: endDate2.toISOString(),
+                    bookedDurationHours: durationHours.toFixed(2),
+                    durationMs
+                  });
+                }
+              } else {
+                console.warn("Invalid Starttid/Sluttid dates, using default 1 hour");
+                durationMs = 60 * 60 * 1e3;
+              }
+            } catch (e) {
+              console.error("Error calculating duration from Starttid/Sluttid:", e);
+              durationMs = 60 * 60 * 1e3;
+            }
+          } else {
+            let hoursNeeded = 1;
+            try {
+              const devHoursField = eventsTable.fields.find(
+                (field) => field.name === "Dev | Hours needed" || field.name.toLowerCase().includes("dev") && field.name.toLowerCase().includes("hours")
+              );
+              if (devHoursField) {
+                const devHoursValue = existingEvent.getCellValue(devHoursField.name);
+                if (devHoursValue !== null && devHoursValue !== void 0) {
+                  const hoursValue = typeof devHoursValue === "number" ? devHoursValue : parseFloat(devHoursValue);
+                  if (!isNaN(hoursValue) && hoursValue > 0) {
+                    hoursNeeded = hoursValue;
+                    console.log("Using Dev | Hours needed value:", hoursNeeded);
+                  } else {
+                    console.warn("Invalid Dev | Hours needed value:", devHoursValue, "- using default 1 hour");
+                  }
+                } else {
+                  console.log("Dev | Hours needed field is empty - using default 1 hour");
+                }
+              } else {
+                console.warn("Dev | Hours needed field not found - using default 1 hour");
+              }
+            } catch (e) {
+              console.error("Error getting Dev | Hours needed:", e);
+            }
+            durationMs = hoursNeeded * 60 * 60 * 1e3;
+            const hoursNeededForLogging = hoursNeeded;
+            const newEndTimeForOverlapCheck = new Date(newStartTime.getTime() + durationMs);
             console.log("Checking lunch/break overlap for undelegated sub order:", {
               mechanic: mechanicName,
               date: targetDate.toDateString(),
               proposedStart: newStartTime.toTimeString(),
-              proposedEnd: newEndTime.toTimeString(),
-              duration: "1 hour"
+              proposedEnd: newEndTimeForOverlapCheck.toTimeString(),
+              hoursNeeded: hoursNeededForLogging,
+              duration: `${hoursNeededForLogging} hour(s)`
             });
             const lunchBreakEvents = getLunchBreakEventsForMechanicAndDate(mechanicName, targetDate);
             const hasOverlap = lunchBreakEvents.some((lunchEvent) => {
               const lunchStart = new Date(lunchEvent.getCellValue("Starttid"));
               const lunchEnd = new Date(lunchEvent.getCellValue("Sluttid"));
               const lunchName = lunchEvent.getCellValueAsString("Arbetsorder beskrivning") || "Lunch/Coffee Break";
-              const overlaps = newStartTime < lunchEnd && lunchStart < newEndTime;
+              const overlaps = newStartTime < lunchEnd && lunchStart < newEndTimeForOverlapCheck;
               if (overlaps) {
                 console.warn(`\u26A0\uFE0F Time slot overlaps with lunch/break:`, {
                   lunchName,
                   lunchTime: `${lunchStart.toTimeString()} - ${lunchEnd.toTimeString()}`,
-                  proposedTime: `${newStartTime.toTimeString()} - ${newEndTime.toTimeString()}`,
+                  proposedTime: `${newStartTime.toTimeString()} - ${newEndTimeForOverlapCheck.toTimeString()}`,
                   overlap: true
                 });
               }
@@ -47935,6 +47995,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             }
             console.log("\u2713 No lunch/break overlap - assignment allowed");
           }
+          const newEndTime = new Date(newStartTime.getTime() + durationMs);
           console.log("Updating existing event:", {
             eventId: existingEvent.id,
             orderNo,
@@ -48804,7 +48865,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4090,
+              lineNumber: 4171,
               columnNumber: 21
             },
             this
@@ -48830,7 +48891,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4096,
+              lineNumber: 4177,
               columnNumber: 21
             },
             this
@@ -48846,14 +48907,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4112,
+              lineNumber: 4193,
               columnNumber: 21
             },
             this
           )
         ] }, void 0, true, {
           fileName: "frontend/index.js",
-          lineNumber: 4089,
+          lineNumber: 4170,
           columnNumber: 17
         }, this),
         eventsTable && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -48870,37 +48931,41 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             updatingRecords,
             recentlyUpdatedRecords,
             onHighlightEvent: handleHighlightEvent,
-            onEventClick: (event) => setSelectedEventForModal(event)
+            onEventClick: (event) => {
+              if (event) {
+                expandRecord(event);
+              }
+            }
           },
           void 0,
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 4124,
+            lineNumber: 4205,
             columnNumber: 29
           },
           this
         ) }, void 0, false, {
           fileName: "frontend/index.js",
-          lineNumber: 4123,
+          lineNumber: 4204,
           columnNumber: 25
         }, this) }, void 0, false, {
           fileName: "frontend/index.js",
-          lineNumber: 4122,
+          lineNumber: 4203,
           columnNumber: 21
         }, this)
       ] }, void 0, true, {
         fileName: "frontend/index.js",
-        lineNumber: 4087,
+        lineNumber: 4168,
         columnNumber: 13
       }, this),
       displayedDates.length === 0 ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 py-10 text-center text-gray-500 flex items-center justify-center", style: { minWidth: 0 }, children: "Please select Start Date and End Date to view the calendar." }, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4146,
+        lineNumber: 4231,
         columnNumber: 21
       }, this) }, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4145,
+        lineNumber: 4230,
         columnNumber: 17
       }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
         DndContext,
@@ -48951,7 +49016,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       false,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4181,
+                        lineNumber: 4266,
                         columnNumber: 33
                       },
                       this
@@ -48961,7 +49026,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                   false,
                   {
                     fileName: "frontend/index.js",
-                    lineNumber: 4171,
+                    lineNumber: 4256,
                     columnNumber: 29
                   },
                   this
@@ -48978,13 +49043,13 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4203,
+                      lineNumber: 4288,
                       columnNumber: 33
                     },
                     this
                   )) }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4201,
+                    lineNumber: 4286,
                     columnNumber: 25
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "main-section flex gap-3", children: mechanics.map((mech, mechIndex) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -49026,7 +49091,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4238,
+                                  lineNumber: 4323,
                                   columnNumber: 45
                                 },
                                 this
@@ -49051,7 +49116,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4250,
+                                  lineNumber: 4335,
                                   columnNumber: 45
                                 },
                                 this
@@ -49059,7 +49124,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }, children: [
                                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "m-0 text-sm font-semibold", style: { margin: 0 }, children: mech.name }, void 0, false, {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4268,
+                                  lineNumber: 4353,
                                   columnNumber: 45
                                 }, this),
                                 mech.priority !== null && mech.priority !== void 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: {
@@ -49071,12 +49136,12 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   mech.priority
                                 ] }, void 0, true, {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4270,
+                                  lineNumber: 4355,
                                   columnNumber: 49
                                 }, this)
                               ] }, void 0, true, {
                                 fileName: "frontend/index.js",
-                                lineNumber: 4267,
+                                lineNumber: 4352,
                                 columnNumber: 41
                               }, this)
                             ]
@@ -49085,7 +49150,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                           true,
                           {
                             fileName: "frontend/index.js",
-                            lineNumber: 4223,
+                            lineNumber: 4308,
                             columnNumber: 37
                           },
                           this
@@ -49111,7 +49176,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                               false,
                               {
                                 fileName: "frontend/index.js",
-                                lineNumber: 4293,
+                                lineNumber: 4378,
                                 columnNumber: 45
                               },
                               this
@@ -49121,7 +49186,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                           false,
                           {
                             fileName: "frontend/index.js",
-                            lineNumber: 4282,
+                            lineNumber: 4367,
                             columnNumber: 37
                           },
                           this
@@ -49144,7 +49209,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4310,
+                                  lineNumber: 4395,
                                   columnNumber: 53
                                 },
                                 this
@@ -49199,7 +49264,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4371,
+                                    lineNumber: 4456,
                                     columnNumber: 53
                                   },
                                   this
@@ -49207,7 +49272,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                               })
                             ] }, date.toDateString(), true, {
                               fileName: "frontend/index.js",
-                              lineNumber: 4308,
+                              lineNumber: 4393,
                               columnNumber: 45
                             }, this))
                           },
@@ -49215,7 +49280,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                           false,
                           {
                             fileName: "frontend/index.js",
-                            lineNumber: 4303,
+                            lineNumber: 4388,
                             columnNumber: 37
                           },
                           this
@@ -49226,22 +49291,22 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     true,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4216,
+                      lineNumber: 4301,
                       columnNumber: 33
                     },
                     this
                   )) }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4214,
+                    lineNumber: 4299,
                     columnNumber: 25
                   }, this)
                 ] }, void 0, true, {
                   fileName: "frontend/index.js",
-                  lineNumber: 4198,
+                  lineNumber: 4283,
                   columnNumber: 25
                 }, this) }, void 0, false, {
                   fileName: "frontend/index.js",
-                  lineNumber: 4196,
+                  lineNumber: 4281,
                   columnNumber: 25
                 }, this),
                 (() => {
@@ -49260,7 +49325,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4403,
+                      lineNumber: 4488,
                       columnNumber: 33
                     },
                     this
@@ -49272,7 +49337,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             true,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4158,
+              lineNumber: 4243,
               columnNumber: 21
             },
             this
@@ -49282,14 +49347,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         false,
         {
           fileName: "frontend/index.js",
-          lineNumber: 4151,
+          lineNumber: 4236,
           columnNumber: 17
         },
         this
       )
     ] }, void 0, true, {
       fileName: "frontend/index.js",
-      lineNumber: 4084,
+      lineNumber: 4165,
       columnNumber: 9
     }, this);
   }
@@ -49306,7 +49371,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
       initializeBlock({ interface: () => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarInterfaceExtension, {}, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4418,
+        lineNumber: 4503,
         columnNumber: 36
       }) });
     }
