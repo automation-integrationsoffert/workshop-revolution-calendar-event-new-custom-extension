@@ -4436,16 +4436,27 @@ function CalendarInterfaceExtension() {
                         setActiveDragId(event.active.id);
                         // Find the event being dragged
                         const activeId = event.active.id;
-                        const draggablePrefixes = ['order-detail-', 'left-order-detail-'];
-                        const matchedPrefix = draggablePrefixes.find(prefix => activeId.startsWith(prefix));
-                        if (matchedPrefix) {
-                            const afterPrefix = activeId.substring(matchedPrefix.length);
-                            const lastDashIndex = afterPrefix.lastIndexOf('-');
-                            if (lastDashIndex > 0) {
-                                const sourceEventId = afterPrefix.substring(lastDashIndex + 1);
-                                const draggedEvent = events.find(ev => ev.id === sourceEventId);
-                                if (draggedEvent) {
-                                    setActiveDragEvent(draggedEvent);
+                        
+                        // Check if it's a calendar event (format: event-{eventId})
+                        if (activeId.startsWith('event-')) {
+                            const sourceEventId = activeId.substring(6); // Remove "event-" prefix
+                            const draggedEvent = events.find(ev => ev.id === sourceEventId);
+                            if (draggedEvent) {
+                                setActiveDragEvent(draggedEvent);
+                            }
+                        } else {
+                            // Check if it's an undelegated sub order from order detail panels
+                            const draggablePrefixes = ['order-detail-', 'left-order-detail-'];
+                            const matchedPrefix = draggablePrefixes.find(prefix => activeId.startsWith(prefix));
+                            if (matchedPrefix) {
+                                const afterPrefix = activeId.substring(matchedPrefix.length);
+                                const lastDashIndex = afterPrefix.lastIndexOf('-');
+                                if (lastDashIndex > 0) {
+                                    const sourceEventId = afterPrefix.substring(lastDashIndex + 1);
+                                    const draggedEvent = events.find(ev => ev.id === sourceEventId);
+                                    if (draggedEvent) {
+                                        setActiveDragEvent(draggedEvent);
+                                    }
                                 }
                             }
                         }
@@ -4802,13 +4813,15 @@ function CalendarInterfaceExtension() {
                                                 );
                                             })}
                                             
-                                            {/* DRAG PREVIEW: Show preview when dragging undelegated sub order */}
+                                            {/* DRAG PREVIEW: Show preview when dragging calendar event or undelegated sub order */}
                                             {activeDragEvent && hoveredCell && 
                                              hoveredCell.mechanicName === mech.name && 
                                              hoveredCell.date.toDateString() === date.toDateString() && (
                                                 (() => {
-                                                    // Get "Dev | Hours needed" value
+                                                    // Always use "Dev | Hours needed" value for preview
+                                                    // This applies to both calendar events being moved and undelegated sub orders
                                                     let hoursNeeded = 1; // Default to 1 hour
+                                                    
                                                     try {
                                                         const devHoursField = eventsTable?.fields.find(field => 
                                                             field.name === 'Dev | Hours needed' ||
