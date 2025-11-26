@@ -4255,12 +4255,11 @@ function CalendarInterfaceExtension() {
     };
 
     const statusColors = {
-        'Offertförfrågan skickad': '#ef4444', // Red
-        'Bokad och skickad till kalender': '#3b82f6', // Blue
-        'Pågående arbete': '#f97316', // Orange
-        'Arbete klart (inväntar hämtning)': '#14b8a6', // Teal
-        'Avslutad': '#22c55e', // Green
-        'Inget': '#6b7280' // Gray
+        'Planerad / Planned': '#39CAFF',
+        'Färdig / Finished': '#048A0E',
+        'Pågående / Ongoing': '#FFD66B',
+        'Problem / Problem': '#DC043B',
+        'Att tidssätta / To put time': '#D1E2FF'
     };
 
     const statusIcons = {
@@ -4756,9 +4755,29 @@ function CalendarInterfaceExtension() {
 
                                                 // Check if this is a lunch/break event - use green color
                                                 const isLunchBreak = ev.isLunchBreak === true;
-                                                const status = ev.getCellValue('Order Status')?.[0]?.value || 'Inget';
+                                                
+                                                // Get status from "Status på tidsmöte" field
+                                                let status = null;
+                                                try {
+                                                    const statusPaTidsmote = ev.getCellValue('Status på tidsmöte');
+                                                    if (statusPaTidsmote) {
+                                                        // Handle array format (multiple select)
+                                                        if (Array.isArray(statusPaTidsmote) && statusPaTidsmote.length > 0) {
+                                                            status = statusPaTidsmote[0]?.value || statusPaTidsmote[0]?.name || statusPaTidsmote[0];
+                                                        } else if (typeof statusPaTidsmote === 'string') {
+                                                            status = statusPaTidsmote;
+                                                        } else if (statusPaTidsmote?.value) {
+                                                            status = statusPaTidsmote.value;
+                                                        } else if (statusPaTidsmote?.name) {
+                                                            status = statusPaTidsmote.name;
+                                                        }
+                                                    }
+                                                } catch (e) {
+                                                    console.error('Error getting Status på tidsmöte:', e);
+                                                }
+                                                
                                                 // Use green color (#22c55e) for lunch/break events, otherwise use status color
-                                                const backgroundColor = isLunchBreak ? '#22c55e' : (statusColors[status] || '#6b7280');
+                                                const backgroundColor = isLunchBreak ? '#22c55e' : (status && statusColors[status] ? statusColors[status] : '#6b7280');
                                                 const statusIcon = statusIcons[status] || '❓';
 
                                                 // For lunch/break events, don't allow expansion (they're virtual events)
