@@ -1742,40 +1742,39 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                 // Top variant: Show only name and delegated date
                 <>
                     {/* Sub order name with icon - First line */}
-                    {arbetsorder && (
-                        <div 
-                            className="mb-1 text-xs text-center" 
-                            style={{ 
-                                fontWeight: '700', 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'center', 
-                                gap: '4px', 
-                                cursor: isDelegated ? 'pointer' : (shouldMakeDraggable ? 'grab' : 'default'),
-                                pointerEvents: isDelegated ? 'auto' : 'auto' // Allow pointer events for both delegated and undelegated
-                            }}
-                            onClick={(e) => {
-                                // Only stop propagation for delegated events to allow drag for undelegated
-                                if (isDelegated && onHighlightEvent && event) {
-                                    e.stopPropagation();
-                                    const eventId = event.id;
-                                    console.log('Top component (DraggableOrderEvent name area): Highlighting event', {
-                                        eventId: eventId,
-                                        eventIdType: typeof eventId,
-                                        eventObject: event,
-                                        isDelegated: isDelegated
-                                    });
-                                    onHighlightEvent(eventId, false); // Top component, so isFromLeft = false
-                                    setTimeout(() => {
-                                        onHighlightEvent(null, false);
-                                    }, 3000);
-                                }
-                                // For undelegated events, don't stop propagation - allow drag to work
-                            }}
-                        >
-                            <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{arbetsorder}</span>
-                            {/* Detail icon - on the right */}
-                            <div
+                    <div 
+                        className="mb-1 text-xs text-center" 
+                        style={{ 
+                            fontWeight: '700', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center', 
+                            gap: '4px', 
+                            cursor: isDelegated ? 'pointer' : (shouldMakeDraggable ? 'grab' : 'default'),
+                            pointerEvents: isDelegated ? 'auto' : 'auto' // Allow pointer events for both delegated and undelegated
+                        }}
+                        onClick={(e) => {
+                            // Only stop propagation for delegated events to allow drag for undelegated
+                            if (isDelegated && onHighlightEvent && event) {
+                                e.stopPropagation();
+                                const eventId = event.id;
+                                console.log('Top component (DraggableOrderEvent name area): Highlighting event', {
+                                    eventId: eventId,
+                                    eventIdType: typeof eventId,
+                                    eventObject: event,
+                                    isDelegated: isDelegated
+                                });
+                                onHighlightEvent(eventId, false); // Top component, so isFromLeft = false
+                                setTimeout(() => {
+                                    onHighlightEvent(null, false);
+                                }, 3000);
+                            }
+                            // For undelegated events, don't stop propagation - allow drag to work
+                        }}
+                    >
+                        <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{arbetsorder || 'Untitled'}</span>
+                        {/* Detail icon - on the right - Always show for all sub orders */}
+                        <div
                                 onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
@@ -1856,8 +1855,7 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                 </svg>
                             </div>
-                        </div>
-                    )}
+                    </div>
                     
                     {/* Delegated date - Second line (only if delegated) */}
                     {isDelegated && (() => {
@@ -1940,25 +1938,24 @@ function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekaniker
             }}
         >
             {/* Sub order name with icon - First line */}
-            {arbetsorder && (
-                <div 
-                    className="mb-1 text-xs text-center" 
-                    style={{ fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: isDelegated ? 'pointer' : 'default' }}
-                    onClick={(e) => {
-                        // Highlight the related event in calendar when clicking on the name
-                        if (isDelegated && onHighlightEvent && event) {
-                            e.stopPropagation();
-                            console.log('StaticOrderEvent: Highlighting event', event.id);
-                            onHighlightEvent(event.id, false); // Top component, so isFromLeft = false
-                            setTimeout(() => {
-                                onHighlightEvent(null, false);
-                            }, 3000);
-                        }
-                    }}
-                >
-                    <span className={isScheduled ? "text-red-600" : "text-gray-500"}>{arbetsorder}</span>
-                    {/* Detail icon - on the right */}
-                    <div
+            <div 
+                className="mb-1 text-xs text-center" 
+                style={{ fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: isDelegated ? 'pointer' : 'default' }}
+                onClick={(e) => {
+                    // Highlight the related event in calendar when clicking on the name
+                    if (isDelegated && onHighlightEvent && event) {
+                        e.stopPropagation();
+                        console.log('StaticOrderEvent: Highlighting event', event.id);
+                        onHighlightEvent(event.id, false); // Top component, so isFromLeft = false
+                        setTimeout(() => {
+                            onHighlightEvent(null, false);
+                        }, 3000);
+                    }
+                }}
+            >
+                <span className={isScheduled ? "text-red-600" : "text-gray-500"}>{arbetsorder || 'Untitled'}</span>
+                {/* Detail icon - on the right - Always show for all sub orders */}
+                <div
                         onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
@@ -2022,10 +2019,9 @@ function StaticOrderEvent({ event, visualization, fordon, arbetsorder, mekaniker
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                    </div>
-                </div>
-            )}
+                                </svg>
+                            </div>
+            </div>
             
             {/* Delegated date - Second line (only if delegated) */}
             {isDelegated && (() => {

@@ -46850,7 +46850,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
         ) : (
           // Top variant: Show only name and delegated date
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, { children: [
-            arbetsorder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
               "div",
               {
                 className: "mb-1 text-xs text-center",
@@ -46881,10 +46881,10 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                   }
                 },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: arbetsorder }, void 0, false, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: isDelegated || isScheduled ? "#dc2626" : "#6b7280" }, children: arbetsorder || "Untitled" }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 1776,
-                    columnNumber: 29
+                    lineNumber: 1775,
+                    columnNumber: 25
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
                     "div",
@@ -46963,17 +46963,17 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                           children: [
                             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("circle", { cx: "12", cy: "12", r: "10" }, void 0, false, {
                               fileName: "frontend/index.js",
-                              lineNumber: 1854,
+                              lineNumber: 1853,
                               columnNumber: 37
                             }, this),
                             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("line", { x1: "12", y1: "16", x2: "12", y2: "12" }, void 0, false, {
                               fileName: "frontend/index.js",
-                              lineNumber: 1855,
+                              lineNumber: 1854,
                               columnNumber: 37
                             }, this),
                             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("line", { x1: "12", y1: "8", x2: "12.01", y2: "8" }, void 0, false, {
                               fileName: "frontend/index.js",
-                              lineNumber: 1856,
+                              lineNumber: 1855,
                               columnNumber: 37
                             }, this)
                           ]
@@ -46982,7 +46982,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                         true,
                         {
                           fileName: "frontend/index.js",
-                          lineNumber: 1844,
+                          lineNumber: 1843,
                           columnNumber: 33
                         },
                         this
@@ -46992,8 +46992,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 1778,
-                      columnNumber: 29
+                      lineNumber: 1777,
+                      columnNumber: 25
                     },
                     this
                   )
@@ -47003,8 +47003,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               true,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 1746,
-                columnNumber: 25
+                lineNumber: 1745,
+                columnNumber: 21
               },
               this
             ),
@@ -47020,11 +47020,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     const formattedDate = `${year}-${month}-${day}`;
                     return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: { color: "#dc2626" }, children: formattedDate }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 1876,
+                      lineNumber: 1874,
                       columnNumber: 45
                     }, this) }, void 0, false, {
                       fileName: "frontend/index.js",
-                      lineNumber: 1875,
+                      lineNumber: 1873,
                       columnNumber: 41
                     }, this);
                   }
@@ -47093,7 +47093,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           }
         },
         children: [
-          arbetsorder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
             "div",
             {
               className: "mb-1 text-xs text-center",
@@ -47109,10 +47109,10 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 }
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: arbetsorder }, void 0, false, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: isScheduled ? "text-red-600" : "text-gray-500", children: arbetsorder || "Untitled" }, void 0, false, {
                   fileName: "frontend/index.js",
-                  lineNumber: 1959,
-                  columnNumber: 21
+                  lineNumber: 1956,
+                  columnNumber: 17
                 }, this),
                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
                   "div",
@@ -47179,17 +47179,17 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                         children: [
                           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("circle", { cx: "12", cy: "12", r: "10" }, void 0, false, {
                             fileName: "frontend/index.js",
-                            lineNumber: 2022,
+                            lineNumber: 2019,
                             columnNumber: 29
                           }, this),
                           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("line", { x1: "12", y1: "16", x2: "12", y2: "12" }, void 0, false, {
                             fileName: "frontend/index.js",
-                            lineNumber: 2023,
+                            lineNumber: 2020,
                             columnNumber: 29
                           }, this),
                           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("line", { x1: "12", y1: "8", x2: "12.01", y2: "8" }, void 0, false, {
                             fileName: "frontend/index.js",
-                            lineNumber: 2024,
+                            lineNumber: 2021,
                             columnNumber: 29
                           }, this)
                         ]
@@ -47198,7 +47198,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       true,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 2012,
+                        lineNumber: 2009,
                         columnNumber: 25
                       },
                       this
@@ -47208,8 +47208,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                   false,
                   {
                     fileName: "frontend/index.js",
-                    lineNumber: 1961,
-                    columnNumber: 21
+                    lineNumber: 1958,
+                    columnNumber: 17
                   },
                   this
                 )
@@ -47219,8 +47219,8 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             true,
             {
               fileName: "frontend/index.js",
-              lineNumber: 1944,
-              columnNumber: 17
+              lineNumber: 1941,
+              columnNumber: 13
             },
             this
           ),
@@ -47236,11 +47236,11 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                   const formattedDate = `${year}-${month}-${day}`;
                   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "mb-1 text-xs text-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { className: "text-red-600", children: formattedDate }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 2044,
+                    lineNumber: 2040,
                     columnNumber: 37
                   }, this) }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 2043,
+                    lineNumber: 2039,
                     columnNumber: 33
                   }, this);
                 }
@@ -47256,7 +47256,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       true,
       {
         fileName: "frontend/index.js",
-        lineNumber: 1903,
+        lineNumber: 1901,
         columnNumber: 9
       },
       this
@@ -47478,7 +47478,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               width: "100%"
             }, children: eventTitle }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 2312,
+              lineNumber: 2308,
               columnNumber: 17
             }, this),
             bookingOrder && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47492,7 +47492,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               width: "100%"
             }, children: bookingOrder }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 2327,
+              lineNumber: 2323,
               columnNumber: 21
             }, this),
             assignDateStr && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -47506,12 +47506,12 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               width: "100%"
             }, children: assignDateStr }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 2343,
+              lineNumber: 2339,
               columnNumber: 21
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 2298,
+            lineNumber: 2294,
             columnNumber: 13
           }, this),
           isDelegated && !isLunchBreak && !isFardig && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -47581,7 +47581,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 2360,
+              lineNumber: 2356,
               columnNumber: 17
             },
             this
@@ -47592,7 +47592,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       true,
       {
         fileName: "frontend/index.js",
-        lineNumber: 2256,
+        lineNumber: 2252,
         columnNumber: 9
       },
       this
@@ -48974,7 +48974,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4287,
+              lineNumber: 4283,
               columnNumber: 29
             },
             this
@@ -49000,7 +49000,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4293,
+              lineNumber: 4289,
               columnNumber: 29
             },
             this
@@ -49016,14 +49016,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             false,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4309,
+              lineNumber: 4305,
               columnNumber: 29
             },
             this
           )
         ] }, void 0, true, {
           fileName: "frontend/index.js",
-          lineNumber: 4286,
+          lineNumber: 4282,
           columnNumber: 25
         }, this),
         eventsTable && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -49050,32 +49050,32 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
           false,
           {
             fileName: "frontend/index.js",
-            lineNumber: 4321,
+            lineNumber: 4317,
             columnNumber: 37
           },
           this
         ) }, void 0, false, {
           fileName: "frontend/index.js",
-          lineNumber: 4320,
+          lineNumber: 4316,
           columnNumber: 33
         }, this) }, void 0, false, {
           fileName: "frontend/index.js",
-          lineNumber: 4319,
+          lineNumber: 4315,
           columnNumber: 29
         }, this)
       ] }, void 0, true, {
         fileName: "frontend/index.js",
-        lineNumber: 4284,
+        lineNumber: 4280,
         columnNumber: 21
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 py-10 text-center text-gray-500 flex items-center justify-center", style: { minWidth: 0 }, children: "Please select Start Date and End Date to view the calendar." }, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4343,
+        lineNumber: 4339,
         columnNumber: 21
       }, this)
     ] }, void 0, true, {
       fileName: "frontend/index.js",
-      lineNumber: 4282,
+      lineNumber: 4278,
       columnNumber: 17
     }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
       DndContext,
@@ -49098,7 +49098,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 false,
                 {
                   fileName: "frontend/index.js",
-                  lineNumber: 4358,
+                  lineNumber: 4354,
                   columnNumber: 29
                 },
                 this
@@ -49124,7 +49124,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 false,
                 {
                   fileName: "frontend/index.js",
-                  lineNumber: 4364,
+                  lineNumber: 4360,
                   columnNumber: 29
                 },
                 this
@@ -49140,14 +49140,14 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                 false,
                 {
                   fileName: "frontend/index.js",
-                  lineNumber: 4380,
+                  lineNumber: 4376,
                   columnNumber: 29
                 },
                 this
               )
             ] }, void 0, true, {
               fileName: "frontend/index.js",
-              lineNumber: 4357,
+              lineNumber: 4353,
               columnNumber: 25
             }, this),
             eventsTable && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { marginTop: "8px" }, children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -49174,22 +49174,22 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
               false,
               {
                 fileName: "frontend/index.js",
-                lineNumber: 4392,
+                lineNumber: 4388,
                 columnNumber: 37
               },
               this
             ) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 4391,
+              lineNumber: 4387,
               columnNumber: 33
             }, this) }, void 0, false, {
               fileName: "frontend/index.js",
-              lineNumber: 4390,
+              lineNumber: 4386,
               columnNumber: 29
             }, this)
           ] }, void 0, true, {
             fileName: "frontend/index.js",
-            lineNumber: 4355,
+            lineNumber: 4351,
             columnNumber: 21
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -49234,7 +49234,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       false,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4438,
+                        lineNumber: 4434,
                         columnNumber: 33
                       },
                       this
@@ -49244,7 +49244,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                   false,
                   {
                     fileName: "frontend/index.js",
-                    lineNumber: 4428,
+                    lineNumber: 4424,
                     columnNumber: 29
                   },
                   this
@@ -49261,13 +49261,13 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4460,
+                      lineNumber: 4456,
                       columnNumber: 33
                     },
                     this
                   )) }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4458,
+                    lineNumber: 4454,
                     columnNumber: 25
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { className: "main-section flex gap-3", children: mechanics.map((mech, mechIndex) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(
@@ -49309,7 +49309,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4495,
+                                  lineNumber: 4491,
                                   columnNumber: 45
                                 },
                                 this
@@ -49334,7 +49334,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4507,
+                                  lineNumber: 4503,
                                   columnNumber: 45
                                 },
                                 this
@@ -49342,7 +49342,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }, children: [
                                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { className: "m-0 text-sm font-semibold", style: { margin: 0 }, children: mech.name }, void 0, false, {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4525,
+                                  lineNumber: 4521,
                                   columnNumber: 45
                                 }, this),
                                 mech.priority !== null && mech.priority !== void 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("span", { style: {
@@ -49354,12 +49354,12 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   mech.priority
                                 ] }, void 0, true, {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4527,
+                                  lineNumber: 4523,
                                   columnNumber: 49
                                 }, this)
                               ] }, void 0, true, {
                                 fileName: "frontend/index.js",
-                                lineNumber: 4524,
+                                lineNumber: 4520,
                                 columnNumber: 41
                               }, this)
                             ]
@@ -49368,7 +49368,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                           true,
                           {
                             fileName: "frontend/index.js",
-                            lineNumber: 4480,
+                            lineNumber: 4476,
                             columnNumber: 37
                           },
                           this
@@ -49394,7 +49394,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                               false,
                               {
                                 fileName: "frontend/index.js",
-                                lineNumber: 4550,
+                                lineNumber: 4546,
                                 columnNumber: 45
                               },
                               this
@@ -49404,7 +49404,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                           false,
                           {
                             fileName: "frontend/index.js",
-                            lineNumber: 4539,
+                            lineNumber: 4535,
                             columnNumber: 37
                           },
                           this
@@ -49427,7 +49427,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                 false,
                                 {
                                   fileName: "frontend/index.js",
-                                  lineNumber: 4567,
+                                  lineNumber: 4563,
                                   columnNumber: 53
                                 },
                                 this
@@ -49482,7 +49482,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                   false,
                                   {
                                     fileName: "frontend/index.js",
-                                    lineNumber: 4628,
+                                    lineNumber: 4624,
                                     columnNumber: 53
                                   },
                                   this
@@ -49490,7 +49490,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                               })
                             ] }, date.toDateString(), true, {
                               fileName: "frontend/index.js",
-                              lineNumber: 4565,
+                              lineNumber: 4561,
                               columnNumber: 45
                             }, this))
                           },
@@ -49498,7 +49498,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                           false,
                           {
                             fileName: "frontend/index.js",
-                            lineNumber: 4560,
+                            lineNumber: 4556,
                             columnNumber: 37
                           },
                           this
@@ -49509,22 +49509,22 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     true,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4473,
+                      lineNumber: 4469,
                       columnNumber: 33
                     },
                     this
                   )) }, void 0, false, {
                     fileName: "frontend/index.js",
-                    lineNumber: 4471,
+                    lineNumber: 4467,
                     columnNumber: 25
                   }, this)
                 ] }, void 0, true, {
                   fileName: "frontend/index.js",
-                  lineNumber: 4455,
+                  lineNumber: 4451,
                   columnNumber: 25
                 }, this) }, void 0, false, {
                   fileName: "frontend/index.js",
-                  lineNumber: 4453,
+                  lineNumber: 4449,
                   columnNumber: 25
                 }, this),
                 (() => {
@@ -49543,7 +49543,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                     false,
                     {
                       fileName: "frontend/index.js",
-                      lineNumber: 4660,
+                      lineNumber: 4656,
                       columnNumber: 33
                     },
                     this
@@ -49555,7 +49555,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
             true,
             {
               fileName: "frontend/index.js",
-              lineNumber: 4415,
+              lineNumber: 4411,
               columnNumber: 21
             },
             this
@@ -49566,13 +49566,13 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       true,
       {
         fileName: "frontend/index.js",
-        lineNumber: 4348,
+        lineNumber: 4344,
         columnNumber: 17
       },
       this
     ) }, void 0, false, {
       fileName: "frontend/index.js",
-      lineNumber: 4278,
+      lineNumber: 4274,
       columnNumber: 9
     }, this);
   }
@@ -49589,7 +49589,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
       initializeBlock({ interface: () => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarInterfaceExtension, {}, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4675,
+        lineNumber: 4671,
         columnNumber: 36
       }) });
     }
