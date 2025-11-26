@@ -2396,22 +2396,6 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                 }}>
                     {eventTitle}
                 </div>
-                
-                {/* Assign date */}
-                {assignDateStr && (
-                    <div style={{
-                        fontSize: '9px',
-                        fontWeight: '400',
-                        marginBottom: '2px',
-                        opacity: 0.85,
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                        width: '100%'
-                    }}>
-                        {assignDateStr}
-                    </div>
-                )}
             </div>
             
             {/* Undelegate button (only show for delegated events, but not if status is Färdig) - positioned between outer and inner containers */}
@@ -3214,25 +3198,29 @@ function CalendarInterfaceExtension() {
                     let planeradValue = null;
                     
                     if (statusPaTidsmoteField.options && statusPaTidsmoteField.options.choices) {
-                        // Find the exact option that matches "Planerad" (case-insensitive)
+                        // Find the exact option that matches "Planerad / Planned" (case-insensitive)
                         const matchingOption = statusPaTidsmoteField.options.choices.find(choice => 
-                            choice.name && choice.name.toLowerCase() === 'planerad'
+                            choice.name && (
+                                choice.name.toLowerCase() === 'planerad / planned' ||
+                                choice.name.toLowerCase() === 'planerad/planned' ||
+                                (choice.name.toLowerCase().includes('planerad') && choice.name.toLowerCase().includes('planned'))
+                            )
                         );
                         
                         if (matchingOption) {
                             // For Single select, use object with 'name' property
                             planeradValue = { name: matchingOption.name };
-                            console.log('Found matching option for Planerad:', matchingOption.name);
+                            console.log('Found matching option for Planerad / Planned:', matchingOption.name);
                         } else {
                             // Log available options to help debug
-                            console.warn('Planerad option not found. Available options:', 
+                            console.warn('Planerad / Planned option not found. Available options:', 
                                 statusPaTidsmoteField.options.choices.map(c => c.name)
                             );
                         }
                     } else {
                         // If options not available, try with name object
-                        planeradValue = { name: 'Planerad' };
-                        console.log('Using Planerad as fallback (options not available)');
+                        planeradValue = { name: 'Planerad / Planned' };
+                        console.log('Using Planerad / Planned as fallback (options not available)');
                     }
                     
                     if (planeradValue) {
