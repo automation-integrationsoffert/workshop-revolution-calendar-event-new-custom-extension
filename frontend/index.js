@@ -2089,16 +2089,13 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
     // Handle click on event (show details) - only if not dragging
     // The drag sensor has activationDistance: 10, so clicks (which don't move 10px) won't trigger drag
     const handleEventClick = (e) => {
-        // Don't trigger if we're dragging, if it's a lunch break, if status is Färdig, or if click came from the small button
-        if (isDragging || isLunchBreak || isFardig || e.target.closest('.undelegate-button')) {
-            if (isFardig) {
-                // Optionally show a message that the event cannot be opened
-                console.log('Event with Färdig status cannot be opened');
-            }
+        // Don't trigger if we're dragging, if it's a lunch break, or if click came from the small button
+        // Note: We allow clicks on Färdig events to open the detail page
+        if (isDragging || isLunchBreak || e.target.closest('.undelegate-button')) {
             return;
         }
         
-        // Show event details
+        // Show event details (works for both finished and unfinished events)
         expandRecord(event);
     };
     
@@ -2208,9 +2205,9 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                 backdropFilter: 'blur(1px)',
                 zIndex: isHighlighted ? 1000 : 'auto',
                 transition: 'border 0.5s ease, box-shadow 0.5s ease',
-                cursor: isLunchBreak ? 'default' : (isFardig ? 'not-allowed' : 'pointer'),
+                cursor: isLunchBreak ? 'default' : 'pointer',
                 opacity: isFardig ? 0.7 : 1,
-                pointerEvents: isFardig ? 'none' : 'auto', // Prevent all interactions when Färdig
+                pointerEvents: 'auto', // Allow clicks to open detail page even for Färdig events
             }}
             className="event-block text-white transition-all duration-200"
             onClick={handleEventClick}
