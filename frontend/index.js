@@ -2397,22 +2397,6 @@ function DraggableEvent({ event, top, height, backgroundColor, onExpand, isUpdat
                     {eventTitle}
                 </div>
                 
-                {/* Booking order */}
-                {bookingOrder && (
-                    <div style={{
-                        fontSize: '10px',
-                        fontWeight: '500',
-                        marginBottom: '2px',
-                        opacity: 0.9,
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                        width: '100%'
-                    }}>
-                        {bookingOrder}
-                    </div>
-                )}
-                
                 {/* Assign date */}
                 {assignDateStr && (
                     <div style={{
