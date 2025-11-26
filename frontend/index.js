@@ -4764,7 +4764,7 @@ function CalendarInterfaceExtension() {
                                                 const top = adjustedStartHour * hourHeight + (start.getMinutes() / 60) * hourHeight;
                                                 const height = ((end - start) / (1000 * 60 * 60)) * hourHeight;
 
-                                                // Check if this is a lunch/break event - use green color
+                                                // Check if this is a lunch/break event - use grey color
                                                 const isLunchBreak = ev.isLunchBreak === true;
                                                 
                                                 // Get status from "Status på tidsmöte" field
@@ -4787,8 +4787,8 @@ function CalendarInterfaceExtension() {
                                                     console.error('Error getting Status på tidsmöte:', e);
                                                 }
                                                 
-                                                // Use green color (#22c55e) for lunch/break events, otherwise use status color
-                                                const backgroundColor = isLunchBreak ? '#22c55e' : (status && statusColors[status] ? statusColors[status] : '#6b7280');
+                                                // Use light grey color (#9ca3af) for lunch/break events, otherwise use status color
+                                                const backgroundColor = isLunchBreak ? '#9ca3af' : (status && statusColors[status] ? statusColors[status] : '#6b7280');
                                                 const statusIcon = statusIcons[status] || '❓';
 
                                                 // For lunch/break events, don't allow expansion (they're virtual events)
