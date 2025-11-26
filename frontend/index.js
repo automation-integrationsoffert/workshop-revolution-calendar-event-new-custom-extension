@@ -334,6 +334,8 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                 const hasStarttid = starttid !== null && starttid !== undefined;
                 const hasSluttid = sluttid !== null && sluttid !== undefined;
                 isDelegated = hasStarttid && hasSluttid && !isLunchBreak;
+                // Scheduled means the same as delegated - has both Starttid and Sluttid
+                isScheduled = isDelegated;
             }
         } catch (e) {
             // Silently handle errors - field might not exist or be accessible
@@ -406,6 +408,7 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                                     {unscheduledEvents.map(detail => (
                                 <DraggableOrderEvent
                                             key={detail.key}
+                                            customUniqueId={`order-detail-${orderNo || 'unknown'}-${detail.event.id}`}
                                             event={detail.event}
                                             visualization={detail.visualization}
                                     fordon={fordon}
@@ -422,6 +425,7 @@ function OrderDetailCard({ orderNo, orderRecord, orderTable, calendarEvents, eve
                                             showVisualization={showVisualization}
                                             isScheduled={detail.isScheduled}
                                             isDelegated={detail.isDelegated}
+                                            variant="top"
                                             onHighlightEvent={onHighlightEvent}
                                             onEventClick={onEventClick}
                                         />
@@ -1490,6 +1494,9 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
     // Format: "order-detail-{orderNo}-{event.id}" so each event is uniquely identifiable
     const uniqueId = customUniqueId || `order-detail-${orderNo || 'unknown'}-${event.id}`;
     
+    // Determine variant early so it can be used in useSortable
+    const isLeftVariant = variant === 'left';
+    
     // Check if status is "Färdig" - if so, disable dragging
     let isFardig = false;
     try {
@@ -1514,8 +1521,21 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
         isDragging,
     } = useSortable({ 
         id: uniqueId,
-        disabled: isFardig // Disable dragging if status is Färdig
+        disabled: isFardig || (isScheduled && !isLeftVariant) // Disable if Färdig or if scheduled in top variant
     });
+    
+    // Debug: Log useSortable status for top variant
+    if (!isLeftVariant) {
+        console.log('useSortable status (top variant):', {
+            uniqueId,
+            isFardig,
+            isScheduled,
+            disabled: isFardig || (isScheduled && !isLeftVariant),
+            hasAttributes: !!attributes,
+            hasListeners: !!listeners,
+            isDragging
+        });
+    }
 
     // Don't render if updating or recently updated
     if (isUpdating || isRecentlyUpdated) {
@@ -1524,9 +1544,21 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
 
     // For left variant, allow scheduled events to render (but not draggable)
     // For top variant, don't render scheduled events (they use StaticOrderEvent instead)
-    const isLeftVariant = variant === 'left';
     const shouldRenderScheduled = isLeftVariant && isScheduled;
     const shouldMakeDraggable = !isScheduled;
+    
+    // Debug logging for top variant
+    if (!isLeftVariant) {
+        console.log('DraggableOrderEvent (top variant):', {
+            eventId: event.id,
+            isScheduled,
+            isDelegated,
+            isFardig,
+            shouldMakeDraggable,
+            uniqueId,
+            variant
+        });
+    }
     
     // Don't render scheduled events for top variant
     if (isScheduled && !isLeftVariant) {
@@ -1558,6 +1590,20 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
             padding: '8px',
         };
 
+    // Debug: Log drag handler status for top variant
+    if (!isLeftVariant && shouldMakeDraggable) {
+        console.log('Drag handlers for top variant:', {
+            hasAttributes: !!attributes,
+            hasListeners: !!listeners,
+            attributesKeys: attributes ? Object.keys(attributes) : [],
+            listenersKeys: listeners ? Object.keys(listeners) : [],
+            shouldMakeDraggable,
+            isFardig,
+            willApply: shouldMakeDraggable && !isFardig,
+            listenersContent: listeners
+        });
+    }
+    
     return (
         <div 
             ref={setNodeRef}
@@ -1576,15 +1622,20 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                 transition: 'all 0.2s',
                 position: 'relative',
                 width: isLeftVariant ? '100%' : undefined,
-                marginBottom: isLeftVariant ? containerStyles.marginBottom : undefined
+                marginBottom: isLeftVariant ? containerStyles.marginBottom : undefined,
+                touchAction: shouldMakeDraggable && !isFardig ? 'none' : 'auto', // Prevent touch scrolling when draggable
+                userSelect: shouldMakeDraggable && !isFardig ? 'none' : 'auto', // Prevent text selection when dragging
+                cursor: cursorStyle, // Ensure cursor shows grab for draggable items
+                pointerEvents: 'auto' // Ensure pointer events work
             }}
             onClick={(e) => {
                 // Only handle click if we're not dragging
                 // The drag sensor with 10px activation distance will prevent clicks from triggering drag
-                if (!isDragging) {
+                // For undelegated events (draggable), don't handle clicks - let drag work
+                if (!isDragging && isDelegated) {
                     // For delegated sub orders, highlight the related event in calendar
                     // This works for both left and top variants
-                    if (isDelegated && onHighlightEvent && event) {
+                    if (onHighlightEvent && event) {
                         e.stopPropagation();
                         const eventId = event.id;
                         console.log('DraggableOrderEvent container: Highlighting event', {
@@ -1694,9 +1745,17 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                     {arbetsorder && (
                         <div 
                             className="mb-1 text-xs text-center" 
-                            style={{ fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', cursor: isDelegated ? 'pointer' : 'default' }}
+                            style={{ 
+                                fontWeight: '700', 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent: 'center', 
+                                gap: '4px', 
+                                cursor: isDelegated ? 'pointer' : (shouldMakeDraggable ? 'grab' : 'default'),
+                                pointerEvents: isDelegated ? 'auto' : 'auto' // Allow pointer events for both delegated and undelegated
+                            }}
                             onClick={(e) => {
-                                // Ensure highlighting works when clicking on the name area
+                                // Only stop propagation for delegated events to allow drag for undelegated
                                 if (isDelegated && onHighlightEvent && event) {
                                     e.stopPropagation();
                                     const eventId = event.id;
@@ -1711,6 +1770,7 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                                         onHighlightEvent(null, false);
                                     }, 3000);
                                 }
+                                // For undelegated events, don't stop propagation - allow drag to work
                             }}
                         >
                             <span style={{ color: (isDelegated || isScheduled) ? '#dc2626' : '#6b7280' }}>{arbetsorder}</span>
@@ -1739,6 +1799,14 @@ function DraggableOrderEvent({ event, visualization, fordon, mekanikerNames, sta
                                         } else {
                                             expandRecord(event);
                                         }
+                                    }
+                                }}
+                                onPointerDown={(e) => {
+                                    // Only stop propagation on click, not on pointer down
+                                    // This allows drag to start even if pointer starts on the icon
+                                    if (!isDelegated) {
+                                        // For undelegated events, allow drag to work
+                                        e.stopPropagation();
                                     }
                                 }}
                                 style={{
@@ -2923,13 +2991,33 @@ function CalendarInterfaceExtension() {
                     // If no Starttid/Sluttid, use "Dev | Hours needed" field value
                     let hoursNeeded = 1; // Default to 1 hour if field not found or invalid
                     try {
+                        // Try multiple field name variations
                         const devHoursField = eventsTable.fields.find(field => 
                             field.name === 'Dev | Hours needed' ||
-                            field.name.toLowerCase().includes('dev') && field.name.toLowerCase().includes('hours')
+                            field.name === 'Dev | Hours Needed' ||
+                            field.name === 'Dev Hours needed' ||
+                            field.name === 'Dev Hours Needed' ||
+                            (field.name.toLowerCase().includes('dev') && field.name.toLowerCase().includes('hours'))
                         );
+                        
+                        console.log('Looking for Dev | Hours needed field:', {
+                            found: !!devHoursField,
+                            fieldName: devHoursField?.name,
+                            allFields: eventsTable.fields.map(f => f.name),
+                            eventId: existingEvent.id,
+                            isUndelegated: isUndelegated,
+                            source: matchedPrefix === 'order-detail-' ? 'top component' : 'left component'
+                        });
                         
                         if (devHoursField) {
                             const devHoursValue = existingEvent.getCellValue(devHoursField.name);
+                            console.log('Dev | Hours needed field value:', {
+                                rawValue: devHoursValue,
+                                valueType: typeof devHoursValue,
+                                isNull: devHoursValue === null,
+                                isUndefined: devHoursValue === undefined
+                            });
+                            
                             if (devHoursValue !== null && devHoursValue !== undefined) {
                                 // Handle both number and string formats
                                 const hoursValue = typeof devHoursValue === 'number' 
@@ -2938,21 +3026,27 @@ function CalendarInterfaceExtension() {
                                 
                                 if (!isNaN(hoursValue) && hoursValue > 0) {
                                     hoursNeeded = hoursValue;
-                                    console.log('Using Dev | Hours needed value:', hoursNeeded);
+                                    console.log('✓ Using Dev | Hours needed value:', hoursNeeded, 'hours');
                                 } else {
-                                    console.warn('Invalid Dev | Hours needed value:', devHoursValue, '- using default 1 hour');
+                                    console.warn('⚠ Invalid Dev | Hours needed value:', devHoursValue, '- using default 1 hour');
                                 }
                             } else {
-                                console.log('Dev | Hours needed field is empty - using default 1 hour');
+                                console.log('ℹ Dev | Hours needed field is empty - using default 1 hour');
                             }
                         } else {
-                            console.warn('Dev | Hours needed field not found - using default 1 hour');
+                            console.warn('⚠ Dev | Hours needed field not found. Available fields:', eventsTable.fields.map(f => f.name));
                         }
                     } catch (e) {
-                        console.error('Error getting Dev | Hours needed:', e);
+                        console.error('❌ Error getting Dev | Hours needed:', e);
                     }
                     
                     durationMs = hoursNeeded * 60 * 60 * 1000; // Convert hours to milliseconds
+                    console.log('Duration calculation for undelegated event:', {
+                        hoursNeeded,
+                        durationMs,
+                        durationHours: durationMs / (60 * 60 * 1000),
+                        source: matchedPrefix === 'order-detail-' ? 'top component' : 'left component'
+                    });
                     
                     // Store hoursNeeded for logging later
                     const hoursNeededForLogging = hoursNeeded;
@@ -4183,70 +4277,69 @@ function CalendarInterfaceExtension() {
     return (
         <div className="p-4 font-sans w-full h-full bg-white text-gray-900" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
             
-            {/* TOP SECTION: Navigation Buttons and Order Details Panel */}
-            <div className="flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto">
-                {/* Week Navigation Buttons */}
-                <div className="flex items-center gap-2 flex-shrink-0">
-                    <button 
-                        onClick={() => goToWeek(-1)}
-                        className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
-                    >
-                        Förra veckan
-                    </button>
-                    <button 
-                        onClick={() => {
-                        const now = new Date();
-                        const dayOfWeek = now.getDay();
-                        const mondayOffset = (dayOfWeek === 0 ? -6 : 1 - dayOfWeek);
-                        const monday = new Date(now);
-                        monday.setDate(now.getDate() + mondayOffset);
-                        const friday = new Date(monday);
-                        friday.setDate(monday.getDate() + 4);
-                        setStartDate(monday.toISOString().split('T')[0]);
-                        setEndDate(friday.toISOString().split('T')[0]);
-                        }}
-                        className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors"
-                    >
-                        Denna veckan
-                    </button>
-                    <button 
-                        onClick={() => goToWeek(1)}
-                        className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
-                    >
-                        Nästa vecka
-                    </button>
-                </div>
-                
-                {/* ORDER DETAILS PANEL - Shows selected orders on the same line */}
-                {eventsTable && (
-                    <div className="flex-1 min-w-0">
-                        <div style={{ marginTop: '8px' }}>
-                            <OrderDetailsPanel
-                            selectedOrderNumbers={topSelectedOrderNumbers}
-                            orders={filteredOrderRecords}
-                            orderTable={orderTable}
-                            calendarEvents={events}
-                            eventsTable={eventsTable}
-                            onCloseOrder={(orderNo) => handleCloseOrder(orderNo, 'top')}
-                            statusColors={statusColors}
-                            statusIcons={statusIcons}
-                            updatingRecords={updatingRecords}
-                            recentlyUpdatedRecords={recentlyUpdatedRecords}
-                            onHighlightEvent={handleHighlightEvent}
-                            onEventClick={(event) => {
-                                if (event) {
-                                    expandRecord(event);
-                                }
-                            }}
-                        />
-                        </div>
-                    </div>
-                )}
-            </div>
-
             {/* Wrap both OrderDetailsPanel and Calendar in DndContext for drag-and-drop */}
             {displayedDates.length === 0 ? (
                 <>
+                    {/* TOP SECTION: Navigation Buttons and Order Details Panel */}
+                    <div className="flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto">
+                        {/* Week Navigation Buttons */}
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                            <button 
+                                onClick={() => goToWeek(-1)}
+                                className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
+                            >
+                                Förra veckan
+                            </button>
+                            <button 
+                                onClick={() => {
+                                const now = new Date();
+                                const dayOfWeek = now.getDay();
+                                const mondayOffset = (dayOfWeek === 0 ? -6 : 1 - dayOfWeek);
+                                const monday = new Date(now);
+                                monday.setDate(now.getDate() + mondayOffset);
+                                const friday = new Date(monday);
+                                friday.setDate(monday.getDate() + 4);
+                                setStartDate(monday.toISOString().split('T')[0]);
+                                setEndDate(friday.toISOString().split('T')[0]);
+                                }}
+                                className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors"
+                            >
+                                Denna veckan
+                            </button>
+                            <button 
+                                onClick={() => goToWeek(1)}
+                                className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
+                            >
+                                Nästa vecka
+                            </button>
+                        </div>
+                        
+                        {/* ORDER DETAILS PANEL - Shows selected orders on the same line */}
+                        {eventsTable && (
+                            <div className="flex-1 min-w-0">
+                                <div style={{ marginTop: '8px' }}>
+                                    <OrderDetailsPanel
+                                    selectedOrderNumbers={topSelectedOrderNumbers}
+                                    orders={filteredOrderRecords}
+                                    orderTable={orderTable}
+                                    calendarEvents={events}
+                                    eventsTable={eventsTable}
+                                    onCloseOrder={(orderNo) => handleCloseOrder(orderNo, 'top')}
+                                    statusColors={statusColors}
+                                    statusIcons={statusIcons}
+                                    updatingRecords={updatingRecords}
+                                    recentlyUpdatedRecords={recentlyUpdatedRecords}
+                                    onHighlightEvent={handleHighlightEvent}
+                                    onEventClick={(event) => {
+                                        if (event) {
+                                            expandRecord(event);
+                                        }
+                                    }}
+                                />
+                                </div>
+                            </div>
+                        )}
+                    </div>
                     <div className="flex-1 py-10 text-center text-gray-500 flex items-center justify-center" style={{ minWidth: 0 }}>
                         Please select Start Date and End Date to view the calendar.
                     </div>
@@ -4258,6 +4351,66 @@ function CalendarInterfaceExtension() {
                     onDragStart={(event) => console.log('Drag started:', event.active.id)}
                     onDragEnd={handleDragEnd}
                 >
+                    {/* TOP SECTION: Navigation Buttons and Order Details Panel */}
+                    <div className="flex items-center gap-4 mb-4 flex-nowrap overflow-x-auto">
+                        {/* Week Navigation Buttons */}
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                            <button 
+                                onClick={() => goToWeek(-1)}
+                                className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
+                            >
+                                Förra veckan
+                            </button>
+                            <button 
+                                onClick={() => {
+                                const now = new Date();
+                                const dayOfWeek = now.getDay();
+                                const mondayOffset = (dayOfWeek === 0 ? -6 : 1 - dayOfWeek);
+                                const monday = new Date(now);
+                                monday.setDate(now.getDate() + mondayOffset);
+                                const friday = new Date(monday);
+                                friday.setDate(monday.getDate() + 4);
+                                setStartDate(monday.toISOString().split('T')[0]);
+                                setEndDate(friday.toISOString().split('T')[0]);
+                                }}
+                                className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded text-sm transition-colors"
+                            >
+                                Denna veckan
+                            </button>
+                            <button 
+                                onClick={() => goToWeek(1)}
+                                className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-sm transition-colors"
+                            >
+                                Nästa vecka
+                            </button>
+                        </div>
+                        
+                        {/* ORDER DETAILS PANEL - Shows selected orders on the same line */}
+                        {eventsTable && (
+                            <div className="flex-1 min-w-0">
+                                <div style={{ marginTop: '8px' }}>
+                                    <OrderDetailsPanel
+                                    selectedOrderNumbers={topSelectedOrderNumbers}
+                                    orders={filteredOrderRecords}
+                                    orderTable={orderTable}
+                                    calendarEvents={events}
+                                    eventsTable={eventsTable}
+                                    onCloseOrder={(orderNo) => handleCloseOrder(orderNo, 'top')}
+                                    statusColors={statusColors}
+                                    statusIcons={statusIcons}
+                                    updatingRecords={updatingRecords}
+                                    recentlyUpdatedRecords={recentlyUpdatedRecords}
+                                    onHighlightEvent={handleHighlightEvent}
+                                    onEventClick={(event) => {
+                                        if (event) {
+                                            expandRecord(event);
+                                        }
+                                    }}
+                                />
+                                </div>
+                            </div>
+                        )}
+                    </div>
                     {/* MAIN BLOCK: Calendar Container with Order List */}
                     <div 
                         className="flex gap-0 w-full" 
