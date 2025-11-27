@@ -3303,34 +3303,8 @@ function CalendarInterfaceExtension() {
                     newEndTime: newEndTime.toISOString()
                 });
                 
-                // Check for lunch/break overlap - prevent move if overlapping
-                const lunchBreakEvents = getLunchBreakEventsForMechanicAndDate(mechanicName, targetDate);
-                const hasOverlap = lunchBreakEvents.some(lunchEvent => {
-                    const lunchStart = new Date(lunchEvent.getCellValue('Starttid'));
-                    const lunchEnd = new Date(lunchEvent.getCellValue('Sluttid'));
-                    
-                    // Check if time ranges overlap
-                    // Two time ranges overlap if: start1 < end2 && start2 < end1
-                    const overlaps = newStartTime < lunchEnd && lunchStart < newEndTime;
-                    
-                    if (overlaps) {
-                        const lunchName = lunchEvent.getCellValueAsString('Arbetsorder beskrivning') || 'Lunch/Coffee Break';
-                        console.warn(`⚠️ Cannot move event: Time slot overlaps with lunch/break:`, {
-                            lunchName,
-                            lunchTime: `${lunchStart.toTimeString()} - ${lunchEnd.toTimeString()}`,
-                            proposedTime: `${newStartTime.toTimeString()} - ${newEndTime.toTimeString()}`,
-                            overlap: true
-                        });
-                    }
-                    
-                    return overlaps;
-                });
-                
-                if (hasOverlap) {
-                    setAlertMessage('Cannot move event: The selected time slot overlaps with a lunch/break period. The event will remain in its original position.');
-                    console.log('Move prevented due to lunch/break overlap - event will return to original position');
-                    return; // Prevent the update, event will return to original position
-                }
+                // Allow calendar events to be moved even if they overlap with lunch/break periods
+                // (Removed overlap check as per user request)
                 
                 // Update mechanic if different
                 const currentMechanic = record.getCellValue('Mekaniker')?.[0]?.value;
