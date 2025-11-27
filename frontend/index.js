@@ -4722,11 +4722,11 @@ function CalendarInterfaceExtension() {
                                              hoveredCell.mechanicName === mech.name && 
                                              hoveredCell.date.toDateString() === date.toDateString() && (
                                                 (() => {
-                                                    // Always use "Dev | Hours needed" value for preview
-                                                    // This applies to both calendar events being moved and undelegated sub orders
+                                                    // Calculate preview duration: prefer "Dev | Hours needed", fall back to Starttid/Sluttid duration
                                                     let hoursNeeded = 1; // Default to 1 hour
                                                     
                                                     try {
+                                                        // First, try to get "Dev | Hours needed" value
                                                         const devHoursField = eventsTable?.fields.find(field => 
                                                             field.name === 'Dev | Hours needed' ||
                                                             field.name === 'Dev | Hours Needed' ||
@@ -4735,6 +4735,7 @@ function CalendarInterfaceExtension() {
                                                             (field.name.toLowerCase().includes('dev') && field.name.toLowerCase().includes('hours'))
                                                         );
                                                         
+                                                        let hasDevHours = false;
                                                         if (devHoursField) {
                                                             const devHoursValue = activeDragEvent.getCellValue(devHoursField.name);
                                                             if (devHoursValue !== null && devHoursValue !== undefined) {
@@ -4743,11 +4744,28 @@ function CalendarInterfaceExtension() {
                                                                     : parseFloat(devHoursValue);
                                                                 if (!isNaN(hoursValue) && hoursValue > 0) {
                                                                     hoursNeeded = hoursValue;
+                                                                    hasDevHours = true;
+                                                                }
+                                                            }
+                                                        }
+                                                        
+                                                        // If "Dev | Hours needed" is not available, calculate from Starttid/Sluttid
+                                                        if (!hasDevHours) {
+                                                            const starttid = activeDragEvent.getCellValue('Starttid');
+                                                            const sluttid = activeDragEvent.getCellValue('Sluttid');
+                                                            
+                                                            if (starttid && sluttid) {
+                                                                const start = starttid instanceof Date ? starttid : new Date(starttid);
+                                                                const end = sluttid instanceof Date ? sluttid : new Date(sluttid);
+                                                                
+                                                                if (!isNaN(start.getTime()) && !isNaN(end.getTime()) && end > start) {
+                                                                    const durationMs = end - start;
+                                                                    hoursNeeded = durationMs / (1000 * 60 * 60); // Convert to hours
                                                                 }
                                                             }
                                                         }
                                                     } catch (e) {
-                                                        console.error('Error getting Dev | Hours needed for preview:', e);
+                                                        console.error('Error calculating preview duration:', e);
                                                     }
                                                     
                                                     // Calculate preview position and height

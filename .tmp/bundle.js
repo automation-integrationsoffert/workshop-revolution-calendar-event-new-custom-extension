@@ -49623,17 +49623,31 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                     const devHoursField = eventsTable?.fields.find(
                                       (field) => field.name === "Dev | Hours needed" || field.name === "Dev | Hours Needed" || field.name === "Dev Hours needed" || field.name === "Dev Hours Needed" || field.name.toLowerCase().includes("dev") && field.name.toLowerCase().includes("hours")
                                     );
+                                    let hasDevHours = false;
                                     if (devHoursField) {
                                       const devHoursValue = activeDragEvent.getCellValue(devHoursField.name);
                                       if (devHoursValue !== null && devHoursValue !== void 0) {
                                         const hoursValue = typeof devHoursValue === "number" ? devHoursValue : parseFloat(devHoursValue);
                                         if (!isNaN(hoursValue) && hoursValue > 0) {
                                           hoursNeeded = hoursValue;
+                                          hasDevHours = true;
+                                        }
+                                      }
+                                    }
+                                    if (!hasDevHours) {
+                                      const starttid = activeDragEvent.getCellValue("Starttid");
+                                      const sluttid = activeDragEvent.getCellValue("Sluttid");
+                                      if (starttid && sluttid) {
+                                        const start = starttid instanceof Date ? starttid : new Date(starttid);
+                                        const end = sluttid instanceof Date ? sluttid : new Date(sluttid);
+                                        if (!isNaN(start.getTime()) && !isNaN(end.getTime()) && end > start) {
+                                          const durationMs = end - start;
+                                          hoursNeeded = durationMs / (1e3 * 60 * 60);
                                         }
                                       }
                                     }
                                   } catch (e) {
-                                    console.error("Error getting Dev | Hours needed for preview:", e);
+                                    console.error("Error calculating preview duration:", e);
                                   }
                                   const previewTop = hoveredCell.hourIndex * hourHeight;
                                   const previewHeight = hoursNeeded * hourHeight;
@@ -49668,7 +49682,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                                     true,
                                     {
                                       fileName: "frontend/index.js",
-                                      lineNumber: 4758,
+                                      lineNumber: 4776,
                                       columnNumber: 57
                                     },
                                     this
@@ -49729,7 +49743,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
                       false,
                       {
                         fileName: "frontend/index.js",
-                        lineNumber: 4799,
+                        lineNumber: 4817,
                         columnNumber: 33
                       },
                       this
@@ -49776,7 +49790,7 @@ performance.now();setTimeout(w,2300>q&&2E3<q?2300-q:500)})])},types:[]});z.ready
       import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
       initializeBlock({ interface: () => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(CalendarInterfaceExtension, {}, void 0, false, {
         fileName: "frontend/index.js",
-        lineNumber: 4814,
+        lineNumber: 4832,
         columnNumber: 36
       }) });
     }
