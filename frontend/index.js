@@ -3098,50 +3098,8 @@ function CalendarInterfaceExtension() {
                     // Store hoursNeeded for logging later
                     const hoursNeededForLogging = hoursNeeded;
                     
-                    // If this is an undelegated sub order, check for lunch/break overlaps
-                    // Calculate end time based on start time and duration
-                    const newEndTimeForOverlapCheck = new Date(newStartTime.getTime() + durationMs);
-                    
-                    console.log('Checking lunch/break overlap for undelegated sub order:', {
-                        mechanic: mechanicName,
-                        date: targetDate.toDateString(),
-                        proposedStart: newStartTime.toTimeString(),
-                        proposedEnd: newEndTimeForOverlapCheck.toTimeString(),
-                        hoursNeeded: hoursNeededForLogging,
-                        duration: `${hoursNeededForLogging} hour(s)`
-                    });
-                    
-                    const lunchBreakEvents = getLunchBreakEventsForMechanicAndDate(mechanicName, targetDate);
-                    
-                    // Check if the new time slot overlaps with any lunch/break event
-                    const hasOverlap = lunchBreakEvents.some(lunchEvent => {
-                        const lunchStart = new Date(lunchEvent.getCellValue('Starttid'));
-                        const lunchEnd = new Date(lunchEvent.getCellValue('Sluttid'));
-                        const lunchName = lunchEvent.getCellValueAsString('Arbetsorder beskrivning') || 'Lunch/Coffee Break';
-                        
-                        // Check if time ranges overlap
-                        // Two time ranges overlap if: start1 < end2 && start2 < end1
-                        const overlaps = newStartTime < lunchEnd && lunchStart < newEndTimeForOverlapCheck;
-                        
-                        if (overlaps) {
-                            console.warn(`⚠️ Time slot overlaps with lunch/break:`, {
-                                lunchName,
-                                lunchTime: `${lunchStart.toTimeString()} - ${lunchEnd.toTimeString()}`,
-                                proposedTime: `${newStartTime.toTimeString()} - ${newEndTimeForOverlapCheck.toTimeString()}`,
-                                overlap: true
-                            });
-                        }
-                        
-                        return overlaps;
-                    });
-                    
-                    if (hasOverlap) {
-                        alert('Cannot assign undelegated sub order: The selected time slot overlaps with a lunch/break period. Please choose a different time.');
-                        console.log('Assignment blocked due to lunch/break overlap');
-                        return;
-                    }
-                    
-                    console.log('✓ No lunch/break overlap - assignment allowed');
+                    // Allow undelegated sub orders to be delegated even if they overlap with lunch/break periods
+                    // (Removed overlap check as per user request)
                 }
                 
                 // Calculate end time based on start time and duration
